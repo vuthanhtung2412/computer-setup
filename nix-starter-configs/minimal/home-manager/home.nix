@@ -45,8 +45,84 @@
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  
+  #Neovim
+  programs.neovim.enable = true;
+
+  # VSCode
+  programs.vscode.enable = true;
+  programs.vscode.extensions = with pkgs; [
+    # Git
+    vscode-extensions.github.vscode-pull-request-github
+    vscode-extensions.eamodio.gitlens
+    vscode-extensions.mhutchie.git-graph
+    # Collaborative coding
+    vscode-extensions.ms-vscode-remote.remote-ssh
+    vscode-extensions.ms-vsliveshare.vsliveshare
+  ];
+
+  # Browser
+  programs.browserpass.browsers = [
+    "firefox"
+    "brave"
+  ];
+
+  # ZSH
+  programs = {
+    zsh = {
+      enable = true;
+      enableAutosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
+      oh-my-zsh = {
+        enable = true;
+        theme = "powerlevel10k/powerlevel10k/";
+        plugins = [
+          "z"
+          "history"
+          "zsh-vi-mode"
+          "notify"
+        ];
+      };
+    };
+  };
+
+  # CopyQ
+  services.copyq.enable = true;
+
+  home.packages = with pkgs; [ 
+    cowsay
+    vim
+    jq
+    yq
+    ffmpeg
+    fzf
+    direnv
+    bat
+    tmux
+    tmate
+    yt-dlp
+    eza
+    fd
+    ripgrep
+    thefuck
+    tldr
+    diff-so-fancy
+    copyq
+    git
+    git-lfs
+    xclip
+    parallel
+    # Container related
+    docker
+    k9s
+    docker-compose
+    kubectx
+    kubectl
+    # Warp terminal 
+    warp-terminal
+    # Obsidian
+    obsidian
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
