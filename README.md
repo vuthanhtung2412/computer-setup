@@ -7,3 +7,6 @@ I like the approach and idea nix but It is too cumbersome. I would love to use i
 
 # Reference 
 [Nix starter template](https://github.com/Misterio77/nix-starter-configs)
+[Installing Nix](https://github.com/DeterminateSystems/nix-installer)
+[Installing home-manager](https://nix-community.github.io/home-manager/#sec-install-standalone)
+[Home manager option](https://nix-community.github.io/home-manager/options.xhtml)
