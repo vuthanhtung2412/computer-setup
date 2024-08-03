@@ -68,10 +68,8 @@
         enable = true;
         theme = "jonathan";
         plugins = [
-          "z"
           "history"
           "vi-mode"
-          "fzf"
         ];
       };
     };
@@ -116,6 +114,7 @@
     thefuck
     tldr
     diff-so-fancy
+    z
     copyq
     git
     git-lfs
