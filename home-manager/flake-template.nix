@@ -12,10 +12,10 @@
 
   outputs = { nixpkgs, home-manager, ... }:
     let
-      system = "x86_64-linux";
+      system = "<system>"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      homeConfigurations."thanhtung" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."<user>" = home-manager.lib.homeManagerConfiguration { # TODO : <user> to be replace by $USER env var
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,

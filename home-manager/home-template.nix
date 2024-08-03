@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "thanhtung"; # TODO : $USER
-  home.homeDirectory = "/home/thanhtung"; # TODO : $HOME
+  home.username = "<user>"; # TODO : to be replace by $USER
+  home.homeDirectory = "<home>"; # TODO : to be replace by $HOME
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -131,6 +131,13 @@
     # warp-terminal # Not working in linux yet
     # Obsidian
     obsidian
+    # Prgramming languages 
+    python3
+    jdk22
+    go
+    rustc
+    cargo
+    libgcc
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
