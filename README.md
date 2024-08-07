@@ -1,7 +1,7 @@
 # computer-setup
 Set up script for my personal computer
 + Make file : each group of software will correspond to a task
-+ Maintain a list of dotfiles for configuration
++ Maintain a list of dotfiles with **chezmoi**
 
 # Some thoughts about Nix
 
