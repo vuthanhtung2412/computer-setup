@@ -28,5 +28,8 @@ Set up script for my personal computer
 + [Installing home-manager](https://nix-community.github.io/home-manager/#sec-install-standalone)
 + [Home manager option](https://nix-community.github.io/home-manager/options.xhtml)
 + Some great ressource for devenv with Nix
-  +  [dev env nix template](https://github.com/the-nix-way/dev-templates)
-  +  [article about nix devenv](https://determinate.systems/posts/nix-direnv/)
+  + [dev env nix template](https://github.com/the-nix-way/dev-templates)
+  + [article about nix devenv](https://determinate.systems/posts/nix-direnv/)
+  + https://github.com/nix-community/home-manager
+  + https://discourse.nixos.org/t/using-home-manager-to-control-default-user-shell/8489/4
+  + https://home-manager-options.extranix.com/?query=zshrc&release=release-24.05

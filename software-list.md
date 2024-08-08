@@ -17,6 +17,7 @@
     - Live server
     - Jupyter
     - Kubernetes
+    - Helm
     - Python
     - Python Environment Manager
     - autoDocstring 
@@ -69,10 +70,23 @@
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [z](https://github.com/rupa/z)
 - pbcopy (Mac) / xclip (Linux)
+- git
 - git lfs
 - CopyQ or Pano
 - parallel
-- starship
+- oh-my-posh (over starship because it more aesthetic and have transient prompt [link](https://ohmyposh.net/oh-my-posh-vs-starship/))
+- wezterm
+
+### Languages and Tools
+- Python
+  - Jupyter lab
+  - Jypyter notebook
+- Java 
+  - maven
+- C/C++
+- Node
+- Golang
+- Rust
 
 ### Additional Tools and Extensions
 - Warp
@@ -87,7 +101,6 @@
 
 ### Browsers and Browser Tools
 - Brave / Arc / Firefox (tree style (+ bookmark) + quick tabs)
-- Git
 
 ### NeoVim Configuration
 - LazyVim
