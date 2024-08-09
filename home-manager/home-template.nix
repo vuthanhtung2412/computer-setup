@@ -147,7 +147,7 @@
     thefuck
     tldr
     diff-so-fancy
-    z
+    zoxide
     copyq
     git
     git-lfs
@@ -175,6 +175,7 @@
     # Language tools 
     python312Packages.jupyterlab
     python312Packages.notebook
+    python312Packages.pip
     maven
   ];
 
