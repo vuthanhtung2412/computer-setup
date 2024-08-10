@@ -38,3 +38,6 @@ Set up script for my personal computer
 
 Activate home manager `home-manager switch --flake ./home-manager`
 Update kernel `sudo dnf upgrade --refresh`
+
+# Some notes 
+Wezterm and Kitty doesn't work out of the box on my fedora machine when installed with nix
