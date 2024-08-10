@@ -51,7 +51,7 @@
     vscode-extensions.ms-vscode-remote.remote-ssh
     vscode-extensions.ms-vsliveshare.vsliveshare
     # Language support 
-    vscode-extensions.ms-vscode.cpptools
+    vscode-extensions.ms-vscode.cpptools-extension-pack
     vscode-extensions.vscjava.vscode-java-pack
     vscode-extensions.golang.go
     vscode-extensions.ecmel.vscode-html-css
@@ -84,6 +84,7 @@
   programs.browserpass.browsers = [
     "firefox"
     "brave"
+    "chrome"
   ];
 
   # ZSH
@@ -117,6 +118,7 @@
   # oh-my-posh
   programs.oh-my-posh = {
     enable = true;
+    useTheme = "slim";
     enableBashIntegration = true;
     enableZshIntegration = true; 
   };

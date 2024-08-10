@@ -23,6 +23,7 @@
     - autoDocstring 
     - Intellicode (already in java extension pack, this intellicode support java, python, ts and js)
     - Rust-analyzer
+    - Nix IDE 
     - code runner
   - Formatting
     - Prettier
