@@ -6,7 +6,7 @@ Set up script for my personal computer
 # Some thoughts about Nix
 
 ## Personal usage :
-+ Each program has their config file as their first support (neovim, zsh, oh my zsh, vscode, starship)
++ Even though home manager support a wide range of dot files (nvim, oh-my-posh, vscode, firefox, tmux, basically everything i need). However, home manager make these files read-only, which make it less easy to add quick configuration latter. (this feels almost like ORM vs SQL)
 + Nix doesn't come with cask
 + When a program is released it will be on apt, dnf, pacman, brew first instead of nix 
 + Personal usage doesn't require strong reproducibility guarantee
@@ -33,3 +33,4 @@ Set up script for my personal computer
   + https://github.com/nix-community/home-manager
   + https://discourse.nixos.org/t/using-home-manager-to-control-default-user-shell/8489/4
   + https://home-manager-options.extranix.com/?query=zshrc&release=release-24.05
++ Activate home manager `home-manager switch flake ./home-manager`

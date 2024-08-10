@@ -100,7 +100,7 @@
   - [obsidian-export](https://github.com/zoni/obsidian-export)
 
 ### Browsers and Browser Tools
-- Brave / Arc / Firefox (tree style (+ bookmark) + quick tabs)
+- Brave / Arc / Firefox / chrome (tree style (+ bookmark) + quick tabs)
 
 ### NeoVim Configuration
 - LazyVim

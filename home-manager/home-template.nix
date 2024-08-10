@@ -90,7 +90,6 @@
   programs = {
     zsh = {
       enable = true;
-      enableFzfGit = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       oh-my-zsh = {
@@ -99,17 +98,35 @@
         plugins = [
           "history"
           "vi-mode"
-          "fzf"
         ];
       };
-      initExtra = ''
-        eval "$(oh-my-posh init zsh)"
-      '';
     };
   };
 
   # CopyQ
   services.copyq.enable = true;
+
+  # fzf
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true; 
+    tmux.enableShellIntegration = true;
+  };
+
+  # oh-my-posh
+  programs.oh-my-posh = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true; 
+  };
+
+  # wezterm
+  programs.wezterm = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true; 
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -136,7 +153,6 @@
     jq
     yq
     ffmpeg
-    fzf
     direnv
     bat
     tmux
@@ -153,8 +169,6 @@
     git-lfs
     xclip
     parallel
-    oh-my-posh
-    wezterm
     # Container related
     docker
     k9s

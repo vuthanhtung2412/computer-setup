@@ -30,7 +30,9 @@ case $OS in
         ;;
 esac
 
-echo $SYSTEM
+echo User : $USER
+echo Home : $HOME
+echo System : $SYSTEM
 
 sed -e "s|<system>|$SYSTEM|g" -e "s|<user>|$USER|g" "flake-template.nix" > flake.nix
 sed -e "s|<home>|$HOME|g" -e "s|<user>|$USER|g" "home-template.nix" > home.nix

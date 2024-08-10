@@ -50,6 +50,34 @@
     # Collaborative coding
     vscode-extensions.ms-vscode-remote.remote-ssh
     vscode-extensions.ms-vsliveshare.vsliveshare
+    # Language support 
+    vscode-extensions.ms-vscode.cpptools
+    vscode-extensions.vscjava.vscode-java-pack
+    vscode-extensions.golang.go
+    vscode-extensions.ecmel.vscode-html-css
+    vscode-extensions.christian-kohler.npm-intellisense
+    vscode-extensions.ms-vscode.live-server
+    vscode-extensions.ms-toolsai.jupyter
+    vscode-extensions.ms-python.python
+    # TODO : Missing python env manager
+    vscode-extensions.njpwerner.autodocstring
+    vscode-extensions.rust-lang.rust-analyzer
+    vscode-extensions.formulahendry.code-runner
+    # formatting
+    vscode-extensions.esbenp.prettier-vscode
+    vscode-extensions.dbaeumer.vscode-eslint
+    # Other tools
+    vscode-extensions.ms-azuretools.vscode-docker
+    vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
+    vscode-extensions.tim-koehler.helm-intellisense
+    vscode-extensions.vscodevim.vim
+    vscode-extensions.alefragnani.bookmarks
+    vscode-extensions.tomoki1207.pdf
+    # TODO : Codium AI assistant
+    vscode-extensions.streetsidesoftware.code-spell-checker
+    vscode-extensions.usernamehw.errorlens
+    vscode-extensions.pkief.material-icon-theme
+    vscode-extensions.shd101wyy.markdown-preview-enhanced
   ];
 
   # Browser
@@ -66,7 +94,7 @@
       syntaxHighlighting.enable = true;
       oh-my-zsh = {
         enable = true;
-        theme = "jonathan";
+        theme = "robbyrussell";
         plugins = [
           "history"
           "vi-mode"
@@ -77,6 +105,28 @@
 
   # CopyQ
   services.copyq.enable = true;
+
+  # fzf
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true; 
+    tmux.enableShellIntegration = true;
+  };
+
+  # oh-my-posh
+  programs.oh-my-posh = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true; 
+  };
+
+  # wezterm
+  programs.wezterm = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true; 
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -103,7 +153,6 @@
     jq
     yq
     ffmpeg
-    fzf
     direnv
     bat
     tmux
@@ -114,7 +163,7 @@
     thefuck
     tldr
     diff-so-fancy
-    z
+    zoxide
     copyq
     git
     git-lfs
@@ -126,17 +175,22 @@
     docker-compose
     kubectx
     kubectl
-    # Warp terminal 
-    # warp-terminal # Not working in linux yet
+    # warp-terminal # TODO : Not working in linux yet
     # Obsidian
     obsidian
     # Prgramming languages 
-    python3
+    python312
     jdk22
     go
     rustc
     cargo
     libgcc
+    nodejs_22
+    # Language tools 
+    python312Packages.jupyterlab
+    python312Packages.notebook
+    python312Packages.pip
+    maven
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
