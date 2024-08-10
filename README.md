@@ -33,4 +33,8 @@ Set up script for my personal computer
   + https://github.com/nix-community/home-manager
   + https://discourse.nixos.org/t/using-home-manager-to-control-default-user-shell/8489/4
   + https://home-manager-options.extranix.com/?query=zshrc&release=release-24.05
-+ Activate home manager `home-manager switch --flake ./home-manager`
+
+# Useful commands
+
+Activate home manager `home-manager switch --flake ./home-manager`
+Update kernel `sudo dnf upgrade --refresh`
