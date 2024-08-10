@@ -38,6 +38,7 @@ Set up script for my personal computer
 
 Activate home manager `home-manager switch --flake ./home-manager`
 Update kernel `sudo dnf upgrade --refresh`
+Create an empty home-manager and switch to it `home-manager init --switch`
 
 # Some notes 
 Wezterm and Kitty doesn't work out of the box on my fedora machine when installed with nix
