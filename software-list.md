@@ -125,3 +125,11 @@
 - Kubernetes (K8s)
 - Helm
 - k9s
+
+### List of shortcut 
++ Copy : Cmd + C (This must be configure with gnome tweaks)
++ Paste : Cmd + V
++ Cut : Cmd + X
++ Save : Cmd + S
++ Toggle clipboard : Ctrl + Option + C
++ Screen capture : Cmd + Shift + 4
