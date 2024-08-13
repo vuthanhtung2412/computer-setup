@@ -6,18 +6,24 @@ sudo apt update && sudo apt upgrade -y
 # Install essential tools
 sudo apt install -y jq ffmpeg direnv bat tmux tmate yt-dlp eza ripgrep thefuck tldr zoxide xclip git git-lfs copyq htop parallel vim yazi
 
-# change ZSH to default shell
+# Install nix, home manager 
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+
+# Install and change ZSH to default shell
 sudo apt install zsh -y
 sudo chsh -s $(which zsh)
 ## Install Oh My Zsh and Zsh plugins
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 sudo apt install -y xdotool wmctrl
 git clone https://github.com/marzocchi/zsh-notify $ZSH_CUSTOM/plugins/notify
 ## Add plugins to .zshrc
-sed -i 's/plugins=(git)/plugins=(git fzf eza zsh-vi-mode zsh-syntax-highlighting zsh-autosuggestions notify)/' ~/.zshrc
+sed -i 's/plugins=(git)/plugins=(git zsh-vi-mode zsh-syntax-highlighting zsh-autosuggestions notify)/' ~/.zshrc
 
 # Install chezmoi
 sudo sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/bin
@@ -29,9 +35,10 @@ sudo apt-get install build-essential
 (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-# Install fzf https://www.linode.com/docs/guides/how-to-use-fzf/#command-line-tool
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+# Install fzf https://gist.github.com/aclarknexient/0ffcb98aa262c585c49d4b3f3ae24019#install-fzf 
+# Conflict between zsh vi mode and fzf : https://github.com/junegunn/fzf/issues/1304#issuecomment-1885944912
+brew install fzf
+$(brew --prefix)/opt/fzf/install 
 
 # Install npm and diff-so-fancy
 sudo apt install nodejs npm -y
@@ -136,6 +143,13 @@ go version
 
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup update
+
+# Install eza
+cargo install eza
+
+# Install yazi
+cargo install --locked yazi-fm yazi-cli
 
 # Install Docker
 # Add Docker's official GPG key:
