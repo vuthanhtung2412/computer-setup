@@ -175,6 +175,14 @@ sudo apt update
 sudo apt install snapd
 sudo snap install obsidian --classic
 
+# Install Warp terminal 
+sudo apt-get install wget gpg
+wget -qO- https://releases.warp.dev/linux/keys/warp.asc | gpg --dearmor > warpdotdev.gpg
+sudo install -D -o root -g root -m 644 warpdotdev.gpg /etc/apt/keyrings/warpdotdev.gpg
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/warpdotdev.gpg] https://releases.warp.dev/linux/deb stable main" > /etc/apt/sources.list.d/warpdotdev.list'
+rm warpdotdev.gpg
+sudo apt update && sudo apt install warp-terminal
+
 ### TODO BELOW ###
 
 # Install Kubernetes tools (kubectl, k9s, helm)
@@ -187,14 +195,6 @@ tar -xvf k9s_Linux_x86_64.tar.gz
 sudo mv k9s /usr/local/bin/k9s
 
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-
-# Install Warp terminal 
-sudo apt-get install wget gpg
-wget -qO- https://releases.warp.dev/linux/keys/warp.asc | gpg --dearmor > warpdotdev.gpg
-sudo install -D -o root -g root -m 644 warpdotdev.gpg /etc/apt/keyrings/warpdotdev.gpg
-sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/warpdotdev.gpg] https://releases.warp.dev/linux/deb stable main" > /etc/apt/sources.list.d/warpdotdev.list'
-rm warpdotdev.gpg
-sudo apt update && sudo apt install warp-terminal
 
 # Window Management tools (i3)
 sudo apt install -y i3
