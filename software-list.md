@@ -16,8 +16,6 @@
     - npm intellisense
     - Live server
     - Jupyter
-    - Kubernetes
-    - Helm
     - Python
     - Python Environment Manager
     - autoDocstring 
@@ -43,8 +41,8 @@
   - material icon
   - md enhanced view
 
-### Future Tools (When I have more RAM and a GPU)
-- Continue with Codestral
+- **Future Tools (When I have more RAM and a GPU)**
+  - Continue with Codestral
 
 ### ZSH Configuration and Plugins
 - Oh my ZSH
@@ -74,7 +72,12 @@
 - git
 - git lfs
 - CopyQ or Pano
+- htop
 - parallel
+- vim
+- neovim
+- chezmoi
+- brew
 - oh-my-posh (over starship because it more aesthetic and have transient prompt [link](https://ohmyposh.net/oh-my-posh-vs-starship/))
 - wezterm
 
@@ -103,18 +106,7 @@
 ### Browsers and Browser Tools
 - Brave / Arc / Firefox / chrome (tree style (+ bookmark) + quick tabs)
 
-### NeoVim Configuration
-- LazyVim
-- Oil.nvim
-- Distant.nvim
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- Gitsign
-- Fugitive
-- Autopair
-- Leap
+### NeoVim Configuration (Kickstart.nvim is more than enough)
 
 ### Window Management
 - I3 (Linux)
