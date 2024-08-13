@@ -4,7 +4,10 @@
 sudo apt update && sudo apt upgrade -y
 
 # Install essential tools
-sudo apt install -y jq ffmpeg direnv bat tmux tmate yt-dlp eza ripgrep thefuck tldr zoxide xclip git git-lfs copyq htop parallel vim yazi
+sudo apt install -y jq ffmpeg direnv bat tmux tmate yt-dlp ripgrep thefuck tldr zoxide xclip git git-lfs copyq htop parallel vim
+
+# Install zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
 # Install nix, home manager 
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
@@ -23,7 +26,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 sudo apt install -y xdotool wmctrl
 git clone https://github.com/marzocchi/zsh-notify $ZSH_CUSTOM/plugins/notify
 ## Add plugins to .zshrc
-sed -i 's/plugins=(git)/plugins=(git zsh-vi-mode zsh-syntax-highlighting zsh-autosuggestions notify)/' ~/.zshrc
+sed -i 's/plugins=(git)/plugins=(git zsh-vi-mode zsh-syntax-highlighting zsh-autosuggestions notify z)/' ~/.zshrc
 
 # Install chezmoi
 sudo sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/bin

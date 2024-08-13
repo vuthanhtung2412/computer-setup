@@ -51,6 +51,7 @@
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - notify
 - [Transient Prompt](https://www.zsh.org/mla/users/2019/msg00633.html)
+- z 
 
 ### Terminal Tools
 - jq
@@ -68,6 +69,7 @@
 - tldr
 - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [z](https://github.com/rupa/z)
+- zoxide (make z smarter)
 - pbcopy (Mac) / xclip (Linux)
 - git
 - git lfs
