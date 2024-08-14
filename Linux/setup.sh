@@ -47,9 +47,15 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 brew install fzf
 $(brew --prefix)/opt/fzf/install 
 
-# Install npm and diff-so-fancy
+# Install npm and update
 sudo apt install nodejs npm -y
 node -v
+# Update node version
+sudo npm install -g n
+sudo n lts
+sudo n latest
+n prune
+# Install diff-so-fancy
 sudo npm i -g diff-so-fancy
 
 # Install yq
