@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Accept untrusted
+cd /etc/apt
+sudo cp trusted.gpg trusted.gpg.d
+
 # Update and upgrade the system
 sudo apt update && sudo apt upgrade -y
 
@@ -171,6 +175,9 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ## Test Docker
 sudo docker run hello-world
+# Some fault of docker
+# link1 : https://stackoverflow.com/questions/41133455/docker-repository-does-not-have-a-release-file-on-running-apt-get-update-on-ubun
+# link2 : https://unix.stackexchange.com/questions/735260/docker-does-not-have-a-release-file 
 
 # Install Obsidian plugins https://snapcraft.io/docs/installing-snap-on-linux-mint
 sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.backup
@@ -185,6 +192,9 @@ sudo snap install obsidian --classic
 # sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/warpdotdev.gpg] https://releases.warp.dev/linux/deb stable main" > /etc/apt/sources.list.d/warpdotdev.list'
 # rm warpdotdev.gpg
 # sudo apt update && sudo apt install warp-terminal
+
+# Install ULancher
+sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher
 
 ### TODO BELOW ###
 

@@ -82,6 +82,7 @@
 - brew
 - oh-my-posh (over starship because it more aesthetic and have transient prompt [link](https://ohmyposh.net/oh-my-posh-vs-starship/))
 - wezterm
+- Ulauncher
 
 ### Languages and Tools
 - Python
