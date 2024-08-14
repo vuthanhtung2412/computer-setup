@@ -136,7 +136,7 @@ code --install-extension tomoki1207.pdf
 code --install-extension streetsidesoftware.code-spell-checker
 code --install-extension usernamehw.errorlens
 code --install-extension pkief.material-icon-theme
-code --install-extension yzhang.markdown-all-in-one
+code --install-extension shd101wyy.markdown-preview-enhanced
 
 # Install Python and related tools
 sudo apt install -y python3 python3-pip python3-venv
