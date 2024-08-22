@@ -99,9 +99,11 @@ in {
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-    nixGLPrefix = "${pkgs.nixgl.packages.x86_64-linux.nixGL}/bin/nixGL";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Import external modules
+  imports = [ ./options.nix ];
 }
