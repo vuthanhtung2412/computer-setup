@@ -44,6 +44,11 @@ in {
     package = (nixGL pkgs.kitty);
   };
 
+  programs.wezterm = {
+    enable = true;
+    package = (nixGL pkgs.wezterm);
+  };
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -106,4 +111,8 @@ in {
 
   # Import external modules
   imports = [ ./options.nix ];
+
+  # TODO : Exploit the power of nvidia by moving to nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
+  # However this is blocked due to nixGL using `builtins.currentTime` in the derivation which is not allowed in flake
+  nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
 }
