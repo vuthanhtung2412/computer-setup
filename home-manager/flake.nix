@@ -15,7 +15,7 @@
       system = "x86_64-linux"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      homeConfigurations."thanhtung" = home-manager.lib.homeManagerConfiguration { # TODO : thanhtung to be replace by $USER env var
+      homeConfigurations."tung" = home-manager.lib.homeManagerConfiguration { # TODO : tung to be replace by $USER env var
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,

@@ -93,14 +93,6 @@
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      oh-my-zsh = {
-        enable = true;
-        theme = "robbyrussell";
-        plugins = [
-          "history"
-          "vi-mode"
-        ];
-      };
     };
   };
 
@@ -118,22 +110,25 @@
   # oh-my-posh
   programs.oh-my-posh = {
     enable = true;
-    useTheme = "slim";
+    useTheme = "slimfat";
+    enableBashIntegration = true;
+    enableZshIntegration = true; 
+  };
+
+  # yazi 
+  programs.yazi = {
+    enable = true;
     enableBashIntegration = true;
     enableZshIntegration = true; 
   };
 
   # wezterm
-  programs.wezterm = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true; 
-  };
-
-  # kitty
-  programs.kitty = {
-    enable = true;
-  };
+  # TODO : wezterm have nvidia driver problem 
+  # programs.wezterm = {
+  #   enable = true;
+  #   enableBashIntegration = true;
+  #   enableZshIntegration = true; 
+  # };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -170,18 +165,24 @@
     thefuck
     tldr
     diff-so-fancy
+    z-lua
     zoxide
-    copyq
     git
     git-lfs
+    htop
     xclip
     parallel
+    chezmoi
+    ulauncher
     # Container related
-    docker
-    k9s
-    docker-compose
-    kubectx
-    kubectl
+    # Problem with services with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
+    # Docker needed to be patch with apt or dnf
+    # TODO : Not working in linux yet
+    # docker
+    # k9s
+    # docker-compose
+    # kubectx
+    # kubectl
     # warp-terminal # TODO : Not working in linux yet
     # Obsidian
     obsidian
@@ -191,6 +192,8 @@
     go
     rustc
     cargo
+    rustfmt 
+    clippy
     libgcc
     nodejs_22
     # Language tools 

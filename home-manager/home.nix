@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "thanhtung"; # TODO : to be replace by $USER
-  home.homeDirectory = "/home/thanhtung"; # TODO : to be replace by $HOME
+  home.username = "tung"; # TODO : to be replace by $USER
+  home.homeDirectory = "/home/tung"; # TODO : to be replace by $HOME
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -93,14 +93,6 @@
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      oh-my-zsh = {
-        enable = true;
-        theme = "robbyrussell";
-        plugins = [
-          "history"
-          "vi-mode"
-        ];
-      };
     };
   };
 
