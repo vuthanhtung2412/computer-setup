@@ -5,8 +5,8 @@ let
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "tung"; # TODO : to be replace by $USER
-  home.homeDirectory = "/home/tung"; # TODO : to be replace by $HOME
+  home.username = "<user>"; # TODO : to be replace by $USER
+  home.homeDirectory = "<home>"; # TODO : to be replace by $HOME
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -99,7 +99,7 @@ in {
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-    nixGLPrefix = "${pkgs.nixgl.packages.x86_64-linux.nixGL}/bin/nixGL";
+    nixGLPrefix = "${pkgs.nixgl.packages.<system>.nixGL}/bin/nixGL";
   };
 
   # Let Home Manager install and manage itself.
