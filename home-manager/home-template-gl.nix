@@ -68,6 +68,7 @@ in {
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    (nixGL warp-terminal)
   ];
   
 
