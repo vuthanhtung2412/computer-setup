@@ -8,7 +8,12 @@ sudo cp trusted.gpg trusted.gpg.d
 sudo apt update && sudo apt upgrade -y
 
 # Install essential tools
-sudo apt install -y jq ffmpeg direnv bat tmux tmate yt-dlp ripgrep thefuck tldr zoxide xclip git git-lfs copyq htop parallel vim
+sudo apt install -y jq ffmpeg direnv bat tmux tmate yt-dlp ripgrep thefuck tldr xclip git git-lfs copyq htop parallel vim
+
+# Map batcat to bat 
+# https://www.linode.com/docs/guides/how-to-install-and-use-the-bat-command-on-linux/#how-to-install-bat
+mkdir -p ~/.local/bin
+ln -s /usr/bin/batcat ~/.local/bin/bat
 
 # Install zoxide
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
@@ -25,15 +30,13 @@ nix-shell '<home-manager>' -A install
 # Install and change ZSH to default shell
 sudo apt install zsh -y
 sudo chsh -s $(which zsh)
-## Install Oh My Zsh and Zsh plugins
+## iNSTALl Oh My Zsh and Zsh plugins
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH_CUSTOM/plugins/zsh-vi-mode
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-sudo apt install -y xdotool wmctrl
-git clone https://github.com/marzocchi/zsh-notify $ZSH_CUSTOM/plugins/notify
 ## Add plugins to .zshrc
-sed -i 's/plugins=(git)/plugins=(git zsh-vi-mode zsh-syntax-highlighting zsh-autosuggestions notify z)/' ~/.zshrc
+sed -i 's/plugins=(git)/plugins=(git zsh-vi-mode zsh-syntax-highlighting zsh-autosuggestions z)/' ~/.zshrc
 
 # Install chezmoi
 sudo sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/bin
@@ -89,8 +92,8 @@ echo 'eval "$(oh-my-posh init bash --config ~/.poshthemes/slimfat.omp.json)"' >>
 
 # Set up Neovim https://github.com/neovim/neovim/blob/master/INSTALL.md#pre-built-archives-2
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
 sudo tar -C /opt -xzf nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
 echo PATH="$PATH:/opt/nvim-linux64/bin" >> ~/.profile
 source ~/.profile
 git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
@@ -104,6 +107,8 @@ echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft
 rm -f packages.microsoft.gpg
 # Install VSCode
 sudo apt install apt-transport-https
+sudo apt-get clean
+sudo apt-get update
 sudo apt update
 sudo apt install code # or code-insiders
 
@@ -187,57 +192,6 @@ sudo docker run hello-world
 # Some fault of docker
 # link1 : https://stackoverflow.com/questions/41133455/docker-repository-does-not-have-a-release-file-on-running-apt-get-update-on-ubun
 # link2 : https://unix.stackexchange.com/questions/735260/dockset-option -sa terminal-overrides ",xterm*:Tc"
-set -g mouse on
-
-unbind C-b
-set -g prefix C-Space
-bind C-Space send-prefix
-
-# Vim style pane selection
-bind h select-pane -L
-bind j select-pane -D 
-bind k select-pane -U
-bind l select-pane -R
-
-# Start windows and panes at 1, not 0
-set -g base-index 1
-set -g pane-base-index 1
-set-window-option -g pane-base-index 1
-set-option -g renumber-windows on
-
-# Use Alt-arrow keys without prefix key to switch panes
-bind -n M-Left select-pane -L
-bind -n M-Right select-pane -R
-bind -n M-Up select-pane -U
-bind -n M-Down select-pane -D
-
-# Shift arrow to switch windows
-bind -n S-Left  previous-window
-bind -n S-Right next-window
-
-# Shift Alt vim keys to switch windows
-bind -n M-H previous-window
-bind -n M-L next-window
-
-set -g @catppuccin_flavour 'mocha'
-
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'christoomey/vim-tmux-navigator'
-set -g @plugin 'dreamsofcode-io/catppuccin-tmux'
-set -g @plugin 'tmux-plugins/tmux-yank'
-
-run '~/.tmux/plugins/tpm/tpm'
-
-# set vi-mode
-set-window-option -g mode-keys vi
-# keybindings
-bind-key -T copy-mode-vi v send-keys -X begin-selection
-bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-
-bind '"' split-window -v -c "#{pane_current_path}"
-bind % split-window -h -c "#{pane_current_path}"er-does-not-have-a-release-file 
 
 # Install Obsidian plugins https://snapcraft.io/docs/installing-snap-on-linux-mint
 sudo mv /etc/apt/preferences.d/nosnap.pref ~/Documents/nosnap.backup
@@ -246,17 +200,30 @@ sudo apt install snapd
 sudo snap install obsidian --classic
 
 # Install Warp terminal (this is better off installed by hand, ubuntu 22.04 have deprecation issue) 
-# sudo apt-get install wget gpg
-# wget -qO- https://releases.warp.dev/linux/keys/warp.asc | gpg --dearmor > warpdotdev.gpg
-# sudo install -D -o root -g root -m 644 warpdotdev.gpg /etc/apt/keyrings/warpdotdev.gpg
-# sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/warpdotdev.gpg] https://releases.warp.dev/linux/deb stable main" > /etc/apt/sources.list.d/warpdotdev.list'
-# rm warpdotdev.gpg
-# sudo apt update && sudo apt install warp-terminal
+sudo apt-get install wget gpg
+wget -qO- https://releases.warp.dev/linux/keys/warp.asc | gpg --dearmor > warpdotdev.gpg
+sudo install -D -o root -g root -m 644 warpdotdev.gpg /etc/apt/keyrings/warpdotdev.gpg
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/warpdotdev.gpg] https://releases.warp.dev/linux/deb stable main" > /etc/apt/sources.list.d/warpdotdev.list'
+rm warpdotdev.gpg
+sudo apt update && sudo apt install warp-terminal
 
 # Install ULancher
 sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher
 
 ### TODO BELOW ###
+## Number of fault ## 
+# bat missing 
+# oh my zsh set up is messed up
+# ripgrep not found
+# yazi not found 
+# home-manager not found
+# oh my zsh plugins are not installed correctly 
+# fzf not found
+# brew is not installed correctly 
+# fail to install visual studio code 
+# go is not found
+# eza and yazi is not install correctly
+# warp terminal is not install correctly
 
 # Install Kubernetes tools (kubectl, k9s, helm)
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
