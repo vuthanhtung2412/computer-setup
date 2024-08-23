@@ -14,11 +14,19 @@ nix-shell '<home-manager>' -A install
 # create generate flake.nix file 
 . create_flake.sh
 
-# Install nerd font for oh my posh
+# Install nerd font
+echo "[-] Download fonts [-]"
+echo https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
+wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip"
+unzip JetBrainsMono.zip -d ~/.fonts
+fc-cache -fv
+echo "done!"
+
+# Set up nerdfont for terminal and vscode 
+# "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'"
+
 # kickstart neovim
 # docker 
-# warp terminal
-# wezterm
 # install microk8s (for Ubuntu)/ k3s (for others) and k9s
-# change .desktop file at /usr/share/applications or ~/.local/share/applications to use nixgl wrapper 
+# Install ulauncher manually since it nix-installed version doesn't support start on login
 # Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa
