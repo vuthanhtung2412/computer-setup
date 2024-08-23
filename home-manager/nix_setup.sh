@@ -29,4 +29,5 @@ echo "done!"
 # docker 
 # install microk8s (for Ubuntu)/ k3s (for others) and k9s
 # Install ulauncher manually since it nix-installed version doesn't support start on login
+sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher
 # Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa
