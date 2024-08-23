@@ -35,4 +35,4 @@ echo Home : $HOME
 echo System : $SYSTEM
 
 sed -e "s|<system>|$SYSTEM|g" -e "s|<user>|$USER|g" "flake-template.nix" > flake.nix
-sed -e "s|<home>|$HOME|g" -e "s|<user>|$USER|g" "home-template.nix" > home.nix
+sed -e "s|<home>|$HOME|g" -e "s|<user>|$USER|g" -e "s|<system>|$SYSTEM|g" "home-template.nix" > home.nix

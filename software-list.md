@@ -33,9 +33,7 @@
   - K8s
   - Theme: Catpuccin Frappe
   - Vim
-  - Bookmark
   - PDF
-  - Codium
   - Spell checker
   - error lens
   - material icon
@@ -46,18 +44,14 @@
 
 ### ZSH Configuration and Plugins
 - Oh my ZSH
-- [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
-- notify
-- [Transient Prompt](https://www.zsh.org/mla/users/2019/msg00633.html)
-- z 
+- [Transient Prompt](https://www.zsh.org/mla/users/2019/msg00633.html) (In the case starship is used)
 
 ### Terminal Tools
 - jq
 - yq
 - ffmpeg
-- [fzf](https://github.com/junegunn/fzf)
 - direnv
 - [bat](https://github.com/sharkdp/bat)
 - tmux
@@ -73,16 +67,19 @@
 - pbcopy (Mac) / xclip (Linux)
 - git
 - git lfs
-- CopyQ or Pano
 - htop
 - parallel
 - vim
 - neovim
 - chezmoi
-- brew
+- Ulauncher
+#### Installed with nix programs.<app>.enable
+- [fzf](https://github.com/junegunn/fzf)
 - oh-my-posh (over starship because it more aesthetic and have transient prompt [link](https://ohmyposh.net/oh-my-posh-vs-starship/))
 - wezterm
-- Ulauncher
+- yazi
+#### home manager services
+- CopyQ
 
 ### Languages and Tools
 - Python
@@ -107,7 +104,8 @@
   - [obsidian-export](https://github.com/zoni/obsidian-export)
 
 ### Browsers and Browser Tools
-- Brave / Arc / Firefox / chrome (tree style (+ bookmark) + quick tabs)
+- Chromium 
+- Brave (installed manually)
 
 ### NeoVim Configuration (Kickstart.nvim is more than enough)
 

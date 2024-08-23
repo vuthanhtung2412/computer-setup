@@ -12,21 +12,21 @@
   };
 
   outputs = { nixpkgs, home-manager, nixgl, ... }:
-    let
-      pkgs = import nixpkgs {
-        system = "x86_64-linux"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
-        overlays = [ nixgl.overlay ];
-      };
-    in {
-      homeConfigurations."tung" = home-manager.lib.homeManagerConfiguration { # TODO : tung to be replace by $USER env var
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
+  let
+    pkgs = import nixpkgs {
+      system = "x86_64-linux"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
+      overlays = [ nixgl.overlay ];
     };
+  in {
+    homeConfigurations."tung" = home-manager.lib.homeManagerConfiguration { # TODO : tung to be replace by $USER env var
+      inherit pkgs;
+
+      # Specify your home configuration modules here, for example,
+      # the path to your home.nix.
+      modules = [ ./home.nix ];
+
+      # Optionally use extraSpecialArgs
+      # to pass through arguments to home.nix
+    };
+  };
 }

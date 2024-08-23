@@ -40,6 +40,5 @@ Set up script for my personal computer
 + Update kernel `sudo dnf upgrade --refresh`
 + Stop using home-manager completely by deleting ~/.nix-profile `rm -rf ~/.nix-profile`
 + Revert to previous version of home-manager [link](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
-
-# Some notes 
-Wezterm and Kitty doesn't work out of the box on my fedora machine when installed with nix
++ vi mode is not necessary on second thoughts and it messes up a lot of keybindings
++ NixGL set up with home manager [link](https://github.com/nix-community/nixGL/issues/114#issuecomment-1585323281)

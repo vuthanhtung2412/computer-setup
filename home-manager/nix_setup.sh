@@ -21,3 +21,4 @@ nix-shell '<home-manager>' -A install
 # wezterm
 # install microk8s (for Ubuntu)/ k3s (for others) and k9s
 # change .desktop file at /usr/share/applications or ~/.local/share/applications to use nixgl wrapper 
+# Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa

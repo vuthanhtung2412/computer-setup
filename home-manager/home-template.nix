@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
-{
+let 
+  nixGL = import ./nixGL.nix { inherit pkgs config; };
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "<user>"; # TODO : to be replace by $USER
@@ -37,8 +39,6 @@
     };
   };
 
-  #Neovim
-  programs.neovim.enable = true;
 
   # VSCode
   programs.vscode.enable = true;
@@ -48,8 +48,8 @@
     vscode-extensions.eamodio.gitlens
     vscode-extensions.mhutchie.git-graph
     # Collaborative coding
-    vscode-extensions.ms-vscode-remote.remote-ssh
     vscode-extensions.ms-vsliveshare.vsliveshare
+    vscode-extensions.ms-vscode-remote.remote-ssh
     # Language support 
     vscode-extensions.ms-vscode.cpptools-extension-pack
     vscode-extensions.vscjava.vscode-java-pack
@@ -62,73 +62,24 @@
     # TODO : Missing python env manager
     vscode-extensions.njpwerner.autodocstring
     vscode-extensions.rust-lang.rust-analyzer
+    vscode-extensions.bbenoist.nix
     vscode-extensions.formulahendry.code-runner
     # formatting
     vscode-extensions.esbenp.prettier-vscode
     vscode-extensions.dbaeumer.vscode-eslint
     # Other tools
     vscode-extensions.ms-azuretools.vscode-docker
-    vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
     vscode-extensions.tim-koehler.helm-intellisense
+    vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
+    vscode-extensions.catppuccin.catppuccin-vsc
     vscode-extensions.vscodevim.vim
-    vscode-extensions.alefragnani.bookmarks
     vscode-extensions.tomoki1207.pdf
-    # TODO : Codium AI assistant
     vscode-extensions.streetsidesoftware.code-spell-checker
     vscode-extensions.usernamehw.errorlens
     vscode-extensions.pkief.material-icon-theme
     vscode-extensions.shd101wyy.markdown-preview-enhanced
+    vscode-extensions.continue.continue
   ];
-
-  # Browser
-  programs.browserpass.browsers = [
-    "firefox"
-    "brave"
-    "chrome"
-  ];
-
-  # ZSH
-  programs = {
-    zsh = {
-      enable = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
-    };
-  };
-
-  # CopyQ
-  services.copyq.enable = true;
-
-  # fzf
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true; 
-    tmux.enableShellIntegration = true;
-  };
-
-  # oh-my-posh
-  programs.oh-my-posh = {
-    enable = true;
-    useTheme = "slimfat";
-    enableBashIntegration = true;
-    enableZshIntegration = true; 
-  };
-
-  # yazi 
-  programs.yazi = {
-    enable = true;
-    enableBashIntegration = true;
-    enableZshIntegration = true; 
-  };
-
-  # wezterm
-  # TODO : wezterm have nvidia driver problem 
-  # programs.wezterm = {
-  #   enable = true;
-  #   enableBashIntegration = true;
-  #   enableZshIntegration = true; 
-  # };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -137,21 +88,8 @@
     # # "Hello, world!" when run.
     # pkgs.hello
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
     neofetch
     cowsay
-    vim
     jq
     yq
     ffmpeg
@@ -167,25 +105,15 @@
     diff-so-fancy
     z-lua
     zoxide
+    xclip
     git
     git-lfs
     htop
-    xclip
     parallel
+    vim
+    neovim
     chezmoi
     ulauncher
-    # Container related
-    # Problem with services with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
-    # Docker needed to be patch with apt or dnf
-    # TODO : Not working in linux yet
-    # docker
-    # k9s
-    # docker-compose
-    # kubectx
-    # kubectl
-    # warp-terminal # TODO : Not working in linux yet
-    # Obsidian
-    obsidian
     # Prgramming languages 
     python312
     jdk22
@@ -201,7 +129,73 @@
     python312Packages.notebook
     python312Packages.pip
     maven
+    # Container related 
+    # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
+    # Docker needed to be patched with apt or dnf
+    # TODO : Install Docker and microk8s via command line 
+    k9s
+    kubernetes-helm
+    # Warp terminal
+    (nixGL warp-terminal)
+    # Obsidian
+    obsidian
+
+    # # It is sometimes useful to fine-tune packages, for example, by applying
+    # # overrides. You can do that directly here, just don't forget the
+    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
+    # # fonts?
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+
+    # # You can also create simple shell scripts directly inside your
+    # # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
+
   ];
+
+  # fzf
+  programs = {    
+    zsh = {
+      enable = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+    };
+    fzf = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true; 
+      tmux.enableShellIntegration = true;
+    };
+    oh-my-posh = {
+      enable = true;
+      useTheme = "slim";
+      enableBashIntegration = true;
+      enableZshIntegration = true; 
+    };
+    wezterm = {
+      enable = true;
+      package = (nixGL pkgs.wezterm);
+      enableBashIntegration = true;
+      enableZshIntegration = true; 
+    };
+    yazi = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true; 
+    };
+    chromium = {
+      enable = true;
+      package = (nixGL pkgs.chromium);
+    };
+  };
+
+  # CopyQ
+  services.copyq.enable = true;
+
+  # Window manager 
+  xsession.windowManager.i3.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -239,5 +233,11 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+  programs.home-manager.enable = true;  # Import external modules
+  imports = [ ./options.nix ];
+
+  # This option `"${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL"` needs to be built with home manager impure options
+  nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
+  
+  # nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
 }
