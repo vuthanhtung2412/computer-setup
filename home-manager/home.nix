@@ -122,7 +122,7 @@ in {
     cargo
     rustfmt 
     clippy
-    libgcc
+    gcc13
     nodejs_22
     # Language tools 
     python312Packages.jupyterlab
