@@ -134,6 +134,7 @@ in {
     # Docker needed to be patched with apt or dnf
     # TODO : Install Docker and microk8s via command line
     kubectl 
+    kubectx
     k9s
     kubernetes-helm
     # Warp terminal
