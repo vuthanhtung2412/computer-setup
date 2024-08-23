@@ -113,7 +113,7 @@ in {
     vim
     neovim
     chezmoi
-    # ulauncher # ulauncher `launch on login` is not working
+    # ulauncher # ulauncher `launch on login` is not working and missing cask
     # Prgramming languages 
     python312
     jdk22
