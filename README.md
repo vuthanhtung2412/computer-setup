@@ -36,7 +36,7 @@ Set up script for my personal computer
 
 # Useful commands
 
-+ Activate home manager `home-manager switch --flake ./home-manager`
++ Activate home manager `home-manager switch --flake ./home-manager` or `home-manager switch --impure --flake .` (if auto detect nixGL is used)
 + Update kernel `sudo dnf upgrade --refresh`
 + Stop using home-manager completely by deleting ~/.nix-profile `rm -rf ~/.nix-profile`
 + Revert to previous version of home-manager [link](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)

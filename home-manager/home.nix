@@ -115,5 +115,6 @@ in {
 
   # TODO : Exploit the power of nvidia by moving to nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
   # However this is blocked due to nixGL using `builtins.currentTime` in the derivation which is not allowed in flake
-  nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
+  nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
+  # nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
 }
