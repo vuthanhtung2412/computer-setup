@@ -14,6 +14,9 @@ nix-shell '<home-manager>' -A install
 # create generate flake.nix file 
 . create_flake.sh
 
+# Installation with home manager 
+home-manager switch --impure --flake .
+
 # Install nerd font
 echo "[-] Download fonts [-]"
 echo https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip
@@ -64,4 +67,9 @@ microk8s kubectl get nodes
  
 # Install ulauncher manually since it nix-installed version doesn't support start on login
 sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher
+
+# Set zsh (installed by nix) as default shell
+sudo sh -c 'echo /home/tung/.nix-profile/bin/zsh >> /etc/shells'
+chsh -s /home/tung/.nix-profile/bin/zsh
+
 # Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa
