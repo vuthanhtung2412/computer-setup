@@ -1,3 +1,6 @@
+# Update and upgrade the system
+sudo apt update && sudo apt upgrade -y# update and upgrade apt
+
 # Install nix
 sudo apt install curl 
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
