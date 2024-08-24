@@ -142,7 +142,8 @@ in {
     # Obsidian
     obsidian
     # Zoom
-    (nixGL zoom-us) 
+    # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
+    # zoom-us 
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
