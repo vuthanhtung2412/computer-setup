@@ -186,7 +186,7 @@ in {
     };
     fzf = {
       enable = true;
-      enableZshIntegrati~on = false; 
+      enableZshIntegration = false; 
       tmux.enableShellIntegration = true;
     };
     oh-my-posh = {
