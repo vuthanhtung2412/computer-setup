@@ -132,7 +132,7 @@ in {
     # Container related 
     # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
     # Docker needed to be patched with apt or dnf
-    # TODO : Install Docker and microk8s via command line
+    # TODO : Install Docker and microk8s and docker desktop via command line
     kubectl 
     kubectx
     k9s
@@ -163,16 +163,30 @@ in {
     # '')
   ];
 
-  # fzf
   programs = {    
     zsh = {
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      antidote = {
+        enable = true;
+        plugins =[
+          "Aloxaf/fzf-tab"
+          "agkozak/zsh-z"
+          "z-shell/zsh-eza"
+          "jeffreytse/zsh-vi-mode"
+        ];
+      };
+      initExtra = ''
+      if [[ $options[zle] = on ]]; then
+        fzf_bin=$(which fzf)
+        zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
+      fi
+      '';
     };
     fzf = {
       enable = true;
-      enableZshIntegration = true; 
+      enableZshIntegrati~on = false; 
       tmux.enableShellIntegration = true;
     };
     oh-my-posh = {
