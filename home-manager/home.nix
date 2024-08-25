@@ -132,7 +132,7 @@ in {
     # Container related 
     # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
     # Docker needed to be patched with apt or dnf
-    # TODO : Install Docker and microk8s via command line
+    # TODO : Install Docker and microk8s and Docker desktop via command line
     kubectl 
     kubectx
     k9s
