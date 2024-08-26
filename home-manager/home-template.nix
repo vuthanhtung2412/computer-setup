@@ -113,6 +113,7 @@ in {
     vim
     neovim
     chezmoi
+    nodePackages_latest.fkill-cli
     # ulauncher # ulauncher `launch on login` is not working and missing cask
     # Prgramming languages 
     python312
@@ -186,26 +187,24 @@ in {
     };
     fzf = {
       enable = true;
-      enableZshIntegration = false; 
       tmux.enableShellIntegration = true;
     };
     oh-my-posh = {
       enable = true;
       useTheme = "slim";
-      enableZshIntegration = true; 
     };
     wezterm = {
       enable = true;
       package = (nixGL pkgs.wezterm);
-      enableZshIntegration = true; 
     };
     yazi = {
       enable = true;
+      enableBashIntegration = true;
       enableZshIntegration = true; 
     };
     eza = {
       enable = true;
-      enableZshIntegration = true; 
+      git = true;
       icons = true;
     };
     chromium = {
