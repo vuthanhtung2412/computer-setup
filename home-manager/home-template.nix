@@ -114,6 +114,7 @@ in {
     neovim
     chezmoi
     nodePackages_latest.fkill-cli
+    unixtools.ifconfig
     # ulauncher # ulauncher `launch on login` is not working and missing cask
     # Prgramming languages 
     python312
@@ -145,6 +146,12 @@ in {
     # Zoom
     # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
     # zoom-us 
+    # OBS studio 
+    (nixGL obs-studio)
+    # tailscale
+    # TODO : need to be installed manually because tailscaled service is non existing
+    # tailscale
+    # tailscaled
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

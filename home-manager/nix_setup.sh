@@ -58,13 +58,13 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 # Verify installation
 sudo docker run hello-world
+sudo usermod -aG docker $USER
 
 # install microk8s (for Ubuntu)/ k3s (for others)
 sudo snap install microk8s --classic --channel=1.31
 sudo usermod -a -G microk8s $USER
 mkdir -p ~/.kube
 chmod 0700 ~/.kube
-su - $USER
 microk8s status --wait-ready
 microk8s kubectl get nodes
  
@@ -74,5 +74,12 @@ sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ul
 # Set zsh (installed by nix) as default shell
 sudo sh -c 'echo /home/tung/.nix-profile/bin/zsh >> /etc/shells'
 chsh -s /home/tung/.nix-profile/bin/zsh
+
+# Install tailscale
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+sudo apt-get update
+sudo apt-get install tailscale
+sudo tailscale up
 
 # Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa
