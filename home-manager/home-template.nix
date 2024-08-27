@@ -108,6 +108,7 @@ in {
     xclip
     git
     git-lfs
+    gh
     htop
     parallel
     vim
@@ -152,6 +153,11 @@ in {
     # TODO : need to be installed manually because tailscaled service is non existing
     # tailscale
     # tailscaled
+    # Cloud related tools 
+    awscli2
+    azure-cli
+    google-cloud-sdk-gce
+    terraform
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -179,13 +185,40 @@ in {
       antidote = {
         enable = true;
         plugins =[
+          # Basic
           "Aloxaf/fzf-tab"
           "agkozak/zsh-z"
           "z-shell/zsh-eza"
           "jeffreytse/zsh-vi-mode"
+          "MichaelAquilina/zsh-you-should-use"
+          "getantidote/use-omz"        
+          "ohmyzsh/ohmyzsh path:lib"   
+          "ohmyzsh/ohmyzsh path:plugins/thefuck"
+          "ohmyzsh/ohmyzsh path:plugins/zoxide"
+          # Docker + k8s
+          "ohmyzsh/ohmyzsh path:plugins/docker"
+          "ohmyzsh/ohmyzsh path:plugins/kubectl"
+          "ohmyzsh/ohmyzsh path:plugins/kubectx"
+          "ohmyzsh/ohmyzsh path:plugins/microk8s"
+          "ohmyzsh/ohmyzsh path:plugins/helm"
+          # Git
+          "ohmyzsh/ohmyzsh path:plugins/gh"
+          "ohmyzsh/ohmyzsh path:plugins/git-lfs"
+          # Cloud
+          "ohmyzsh/ohmyzsh path:plugins/aws"
+          "ohmyzsh/ohmyzsh path:plugins/azure"
+          "ohmyzsh/ohmyzsh path:plugins/gcloud"
+          "ohmyzsh/ohmyzsh path:plugins/terraform"
+          # Programming language
+          "ohmyzsh/ohmyzsh path:plugins/pip"
+          "ohmyzsh/ohmyzsh path:plugins/mvn"
+          "ohmyzsh/ohmyzsh path:plugins/golang"
+          "ohmyzsh/ohmyzsh path:plugins/rust"
+          "ohmyzsh/ohmyzsh path:plugins/npm"
         ];
       };
       initExtra = ''
+      alias gc='gcloud'
       if [[ $options[zle] = on ]]; then
         fzf_bin=$(which fzf)
         zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
