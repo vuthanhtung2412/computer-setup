@@ -80,6 +80,7 @@ in {
       vscode-extensions.pkief.material-icon-theme
       vscode-extensions.shd101wyy.markdown-preview-enhanced
       vscode-extensions.continue.continue
+      vscode-extensions.tailscale.vscode-tailscale
     ];
   };
 
@@ -109,13 +110,13 @@ in {
     git
     git-lfs
     gh
-    htop
+    btop
     parallel
     vim
     neovim
     chezmoi
-    nodePackages_latest.fkill-cli
-    unixtools.ifconfig
+    nettools
+    ibus-engines.bamboo
     # ulauncher # ulauncher `launch on login` is not working and missing cask
     # Prgramming languages 
     python312
