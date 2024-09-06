@@ -309,18 +309,19 @@ in {
           };
         };
         pinch = {
-          # "2" = {
-          #   "in" = { # Zoom out
-          #     command = "xdotool keydown ctrl key minus keyup ctrl";
-          #     # OR 
-          #     command = "xdotool keydown ctrl click 5 keyup ctrl"
-          #   };
-          #   out = {
-          #     command = "xdotool keydown ctrl key plus keyup ctrl";
-          #     # OR
-          #     command = "xdotool keydown ctrl click 4 keyup ctrl"
-          #   };
-          # };
+          "2" = {
+            # Use in conjunction with mouse-pinch-to-zoom
+            "in" = { # Zoom out
+              # command = "xdotool keydown ctrl key minus keyup ctrl";
+              # OR 
+              command = "xdotool keydown ctrl click 5 keyup ctrl";
+            };
+            out = {
+              # command = "xdotool keydown ctrl key plus keyup ctrl";
+              # OR
+              command = "xdotool keydown ctrl click 4 keyup ctrl";
+            };
+          };
           "3" = {
             "in" = {
               command = "xdotool key super+Down";
