@@ -262,6 +262,7 @@ in {
       enable = true;
       settings = {
         # Ctrl plus/minus for 2 fingers pinch is not ideal
+        # Limitation of pinch to zoom in xserver : https://www.reddit.com/r/firefox/comments/wtdb7d/pinch_to_zoom_not_working_on_ubuntu/ 
         # TODO : web browser zoom experience on x11 https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/530
         threshold = {
           swipe = 0.1;
