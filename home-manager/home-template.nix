@@ -260,46 +260,36 @@ in {
     # fusuma for touchpad gesture
     fusuma = {
       enable = true;
-      settings = { #TODO : tweak the settings alt tab experience
+      settings = {
+        # Ctrl plus/minus for 2 fingers pinch is not ideal
+        # TODO : web browser zoom experience on x11 https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/530
         threshold = {
           swipe = 0.1;
           pinch = 0.1;
         };
         interval = {
           swipe = 1;
-          pinch = 0.15;
+          pinch = 0.2;
         };
         swipe = {
           "3" = {
-            # left = {
-            #   begin = {
-            #     command = "xdotool keydown alt";
-            #   };
-            #   update = {
-            #     command = "xdotool key Shift+Tab";
-            #     interval = 2;
-            #   };
-            #   end = {
-            #     command = "xdotool keyup alt";
-            #   };
-            # };
-            # right = {
-            #   begin = {
-            #     command = "xdotool keydown alt";
-            #   };
-            #   update = {
-            #     command = "xdotool key Tab";
-            #     interval = 2;
-            #   };
-            #   end = {
-            #     command = "xdotool keyup alt";
-            #   };
-            # };
-            up = {
-              command = "xdotool key super+s";
+            begin= {
+              command = "xdotool keydown Alt";
             };
-            down = {
-              command = "xdotool key Escape && xdotool key super+d";
+            right = {
+              update = {
+                command = "xdotool key Tab";
+                interval = 4;
+              };
+            };
+            left = {
+              update = {
+                command = "xdotool key Shift+Tab";
+                interval = 4;
+              };
+            };
+            end = {
+              command = "xdotool keyup Alt";
             };
           };
           "4" = {
@@ -310,16 +300,33 @@ in {
               command = "xdotool key ctrl+alt+Left";
             };
             up = {
-              command = "xdotool key super+a";
+              command = "xdotool key super+s";
+            };
+            down = {
+              command = "xdotool key Escape && xdotool key super+d";
             };
           };
         };
         pinch = {
-          "in" = {
-            command = "xdotool keydown ctrl click 5 keyup ctrl";
-          };
-          out = {
-            command = "xdotool keydown ctrl click 4 keyup ctrl";
+          # "2" = {
+          #   "in" = { # Zoom out
+          #     command = "xdotool keydown ctrl key minus keyup ctrl";
+          #     # OR 
+          #     command = "xdotool keydown ctrl click 5 keyup ctrl"
+          #   };
+          #   out = {
+          #     command = "xdotool keydown ctrl key plus keyup ctrl";
+          #     # OR
+          #     command = "xdotool keydown ctrl click 4 keyup ctrl"
+          #   };
+          # };
+          "3" = {
+            "in" = {
+              command = "xdotool key super+Down";
+            };
+            out = {
+              command = "xdotool key super+Up";
+            };
           };
         };
       };

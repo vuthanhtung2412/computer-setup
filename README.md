@@ -42,3 +42,4 @@ Set up script for my personal computer
 + Revert to previous version of home-manager [link](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
 + vi mode is not necessary on second thoughts and it messes up a lot of keybindings
 + NixGL set up with home manager [link](https://github.com/nix-community/nixGL/issues/114#issuecomment-1585323281)
++ Touchegg doesn't propose that much advantage over fusuma. 
