@@ -61,6 +61,7 @@ in {
       vscode-extensions.ms-toolsai.jupyter
       vscode-extensions.ms-python.python
       # TODO : Missing python env manager
+      # TODO : Missing python debugger
       vscode-extensions.njpwerner.autodocstring
       vscode-extensions.rust-lang.rust-analyzer
       vscode-extensions.bbenoist.nix
