@@ -51,6 +51,7 @@ in {
       "workbench.iconTheme" = "material-icon-theme";
       "git.confirmSync" = false;
       "git.suggestSmartCommit" = false;
+      "workbench.colorTheme" = "Catppuccin Mocha";
     };
     extensions = with pkgs; [
       # Git
