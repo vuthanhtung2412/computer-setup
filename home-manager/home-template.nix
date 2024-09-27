@@ -60,8 +60,9 @@ in {
       vscode-extensions.ms-vscode.live-server
       vscode-extensions.ms-toolsai.jupyter
       vscode-extensions.ms-python.python
+      vscode-extensions.ms-python.debugpy
+      vscode-extensions.ms-python.vscode-pylance
       # TODO : Missing python env manager
-      # TODO : Missing python debugger
       vscode-extensions.njpwerner.autodocstring
       vscode-extensions.rust-lang.rust-analyzer
       vscode-extensions.bbenoist.nix
@@ -96,7 +97,6 @@ in {
     jq
     yq
     ffmpeg
-    direnv
     bat
     tmux
     tmate
@@ -248,6 +248,11 @@ in {
       enable = true;
       git = true;
       icons = true;
+    };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+      enableZshIntegration = true;
     };
     chromium = {
       enable = true;
