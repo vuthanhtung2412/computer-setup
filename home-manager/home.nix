@@ -43,6 +43,15 @@ in {
   # VSCode
   programs.vscode = {
     enable = true;
+    enableUpdateCheck = false;
+    enableExtensionUpdateCheck = false;
+    mutableExtensionsDir = false;
+    userSettings = {
+      "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
+      "workbench.iconTheme" = "material-icon-theme";
+      "git.confirmSync" = false;
+      "git.suggestSmartCommit" = false;
+    };
     extensions = with pkgs; [
       # Git
       vscode-extensions.github.vscode-pull-request-github
