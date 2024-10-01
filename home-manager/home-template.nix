@@ -45,7 +45,7 @@ in {
     enable = true;
     enableUpdateCheck = false;
     enableExtensionUpdateCheck = false;
-    mutableExtensionsDir = false;
+    # mutableExtensionsDir = false;
     userSettings = {
       "terminal.integrated.fontFamily" = "'JetBrainsMono Nerd Font'";
       "workbench.iconTheme" = "material-icon-theme";
@@ -93,6 +93,7 @@ in {
       vscode-extensions.shd101wyy.markdown-preview-enhanced
       vscode-extensions.continue.continue
       vscode-extensions.tailscale.vscode-tailscale
+      # TODO : extensions for SQL tools are not available 
     ];
   };
 
@@ -170,6 +171,10 @@ in {
     azure-cli
     google-cloud-sdk-gce
     terraform
+    # SQL tools
+    sqlite-interactive
+    # NOTICE : for postgres it is easier to spin up a docker container and turn it off 
+    # postgresql_16_jit
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
