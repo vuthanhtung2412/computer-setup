@@ -131,7 +131,11 @@ in {
     ibus-engines.bamboo
     # ulauncher # ulauncher `launch on login` is not working and missing cask
     # Prgramming languages 
-    python312
+    (python312.withPackages(p: with p; [
+      python312Packages.jupyterlab
+      python312Packages.notebook  
+      python312Packages.pip
+    ]))
     jdk22
     go
     rustc
@@ -141,9 +145,6 @@ in {
     gcc13
     nodejs_22
     # Language tools 
-    python312Packages.jupyterlab
-    python312Packages.notebook
-    python312Packages.pip
     maven
     # Container related 
     # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
@@ -391,6 +392,7 @@ in {
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/"; # fix the problem of dynamic link in python package
   };
 
   # Let Home Manager install and manage itself.
