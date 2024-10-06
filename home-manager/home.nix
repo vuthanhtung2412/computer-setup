@@ -94,6 +94,8 @@ in {
       vscode-extensions.continue.continue
       vscode-extensions.tailscale.vscode-tailscale
       # TODO : extensions for SQL tools are not available 
+      # I have tried the syntax below and failed, it doesn't work like python 
+      # qwtel.sqlite-viewer
     ];
   };
 
@@ -131,10 +133,40 @@ in {
     ibus-engines.bamboo
     # ulauncher # ulauncher `launch on login` is not working and missing cask
     # Prgramming languages 
+    # The reason why python needs to bedeclared this way is similar to that of VSCode
+    # Link : https://www.reddit.com/r/NixOS/comments/qx490o/install_a_python_package_on_nixos_but_it_is_not/
     (python312.withPackages(p: with p; [
-      python312Packages.jupyterlab
-      python312Packages.notebook  
-      python312Packages.pip
+      pip
+      #######################
+      # Jupyter Environment #
+      #######################
+      jupyterlab            # Modern interactive development environment for notebooks, code, and data
+      notebook              # Original web-based notebook interface
+      ipykernel             # IPython kernel for Jupyter
+      ipywidgets            # Interactive HTML widgets for Jupyter notebooks
+
+      ################################
+      # Core Data Processing & Analysis
+      ################################
+      numpy                 # Fundamental package for numerical computations, provides powerful N-dimensional array object
+      pandas                # Data manipulation and analysis library, provides DataFrame objects
+
+      ###########################
+      # Machine Learning and AI #
+      ###########################
+      torch                 # PyTorch: Deep learning framework with strong GPU acceleration
+      scikit-learn          # Traditional machine learning algorithms (classification, regression, clustering)
+
+      ######################
+      # Data Visualization #
+      ######################
+      matplotlib            # Comprehensive library for creating static, animated, and interactive visualizations
+
+      #####################
+      # Development Tools #
+      #####################
+      pylint                # Static code analyzer and linter
+      # pytest                # Testing framework
     ]))
     jdk22
     go
@@ -392,7 +424,9 @@ in {
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-    LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/"; # fix the problem of dynamic link in python package
+    # fix the problem of dynamic link in python package
+    # Link : https://discourse.nixos.org/t/what-package-provides-libstdc-so-6/18707
+    LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/"; 
   };
 
   # Let Home Manager install and manage itself.
