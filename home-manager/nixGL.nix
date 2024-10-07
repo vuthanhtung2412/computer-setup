@@ -1,3 +1,4 @@
+# nixGL.nix
 # Call once on import to load global context
 { pkgs, config }:
 

@@ -1,3 +1,4 @@
+# home.nix
 { config, pkgs, ... }:
 
 let 
@@ -36,6 +37,7 @@ in {
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
+      cudaSupport = true; 
     };
   };
 
@@ -135,7 +137,8 @@ in {
     # Prgramming languages 
     # The reason why python needs to bedeclared this way is similar to that of VSCode
     # Link : https://www.reddit.com/r/NixOS/comments/qx490o/install_a_python_package_on_nixos_but_it_is_not/
-    (python312.withPackages(p: with p; [
+    # Python 311 is used because python312Packages.torch-bin has incompatible dependencies triton `triton-2.1.0 not supported for interpreter python3.12`
+    (python311.withPackages(p: with p; [
       pip
       #######################
       # Jupyter Environment #
@@ -154,7 +157,7 @@ in {
       ###########################
       # Machine Learning and AI #
       ###########################
-      torch                 # PyTorch: Deep learning framework with strong GPU acceleration
+      torch-bin            # PyTorch: Deep learning framework with strong GPU accelerati
       scikit-learn          # Traditional machine learning algorithms (classification, regression, clustering)
 
       ######################
@@ -174,7 +177,7 @@ in {
     cargo
     rustfmt 
     clippy
-    gcc13
+    # gcc13
     nodejs_22
     # Language tools 
     maven
@@ -208,6 +211,9 @@ in {
     sqlite-interactive
     # NOTICE : for postgres it is easier to spin up a docker container and turn it off 
     # postgresql_16_jit
+
+    # CUDA tools
+    cudaPackages.cudatoolkit
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -426,7 +432,15 @@ in {
     # EDITOR = "emacs";
     # fix the problem of dynamic link in python package
     # Link : https://discourse.nixos.org/t/what-package-provides-libstdc-so-6/18707
-    LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/"; 
+    # LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [
+    #   stdenv.cc.cc
+    #   cudaPackages.cudatoolkit
+    # ];
+    # CUDA_HOME = "${pkgs.cudaPackages.cudatoolkit}";
+    CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
+    EXTRA_LDFLAGS = "-L${pkgs.cudaPackages.cudatoolkit}/lib";
+    EXTRA_CCFLAGS = "-I${pkgs.cudaPackages.cudatoolkit}/include";
+    CUDA_HOME = "${pkgs.cudaPackages.cudatoolkit}";
   };
 
   # Let Home Manager install and manage itself.
@@ -434,7 +448,7 @@ in {
   imports = [ ./options.nix ];
 
   # This option `"${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL"` needs to be built with home manager impure options
-  nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
+  # nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
   
-  # nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
+  nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
 }

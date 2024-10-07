@@ -85,4 +85,8 @@ sudo tailscale up
 # Add user to input group for fumusa touchpad setup
 sudo usermod -aG input $(whoami) 
 
+# Install CUDA GPU driver
+# Docs : https://ubuntu.com/server/docs/nvidia-drivers-installation 
+sudo ubuntu-drivers install
+
 # Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa
