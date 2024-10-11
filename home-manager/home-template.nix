@@ -120,7 +120,6 @@ in {
     tldr
     diff-so-fancy
     z-lua
-    zoxide
     xclip
     git
     git-lfs
@@ -245,7 +244,6 @@ in {
           "Aloxaf/fzf-tab"
           "agkozak/zsh-z"
           "z-shell/zsh-eza"
-          "jeffreytse/zsh-vi-mode"
           "MichaelAquilina/zsh-you-should-use"
           "getantidote/use-omz"        
           "ohmyzsh/ohmyzsh path:lib"   
@@ -274,8 +272,15 @@ in {
         ];
       };
       initExtra = ''
+      # Need to press esc to enter `zsh-vi-mode`
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      if [[ $options[zle] = on ]]; then
+        fzf_bin=$(which fzf)
+        zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
+      fi
+      '';
+      initExtraFirst = ''
       alias gc='gcloud'
-      ZVM_INIT_MODE=sourcing
       export PATH=/usr/local/cuda/bin:$PATH
       '';
     };
@@ -300,6 +305,12 @@ in {
       enable = true;
       git = true;
       icons = true;
+    };
+    zoxide = {
+      enable = true;
+      options = [
+        "--cmd cd"  # This replaces the default 'z' command with 'cd'
+      ];
     };
     direnv = {
       enable = true;
@@ -449,7 +460,7 @@ in {
   imports = [ ./options.nix ];
 
   # This option `"${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL"` needs to be built with home manager impure options
-  nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
+  # nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
   
-  # nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
+  nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
 }
