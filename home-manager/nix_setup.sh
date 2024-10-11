@@ -85,4 +85,9 @@ sudo tailscale up
 # Add user to input group for fumusa touchpad setup
 sudo usermod -aG input $(whoami) 
 
+# Install Nvidia driver 550 since nix 24.05 linuxPackages.nvidia_x11 supports this version (however still mismatch 550.78 vs 550.107)
+# Mismatch nvidia driver cuda runtime and cuda toolkit version (12.4 vs 12.6) 
+# sudo ubuntu-drivers install (recommand v560). However, it is a beta version at the time and driver v550 is still recommended at https://www.nvidia.com/en-us/drivers/
+sudo ubuntu-drivers install nvidia:550
+
 # Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa
