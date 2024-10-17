@@ -237,6 +237,11 @@ in {
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
+      history = {
+        ignoreDups = false;        # Corresponds to HIST_IGNORE_DUPS
+        ignoreAllDups = true;    # Corresponds to unsetopt HIST_IGNORE_ALL_DUPS
+        expireDuplicatesFirst = true;  # Corresponds to unsetopt HIST_EXPIRE_DUPS_FIRST
+      };
       antidote = {
         enable = true;
         plugins =[
@@ -289,6 +294,8 @@ in {
       tmux.enableShellIntegration = true;
     };
     oh-my-posh = {
+      # I like cattpucin theme better but it doesn't have transient prompt 
+      # and squeeze command in the same line as context
       enable = true;
       useTheme = "slim";
     };
