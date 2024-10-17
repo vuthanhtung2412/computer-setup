@@ -125,4 +125,5 @@ There is some problem with this set up
 + `zsh vi mode` is not necessary on second thoughts and it messes up keybindings of `fzf`. one quick way to fix [link](https://stackoverflow.com/questions/73033698/fzf-keybindings-doesnt-work-with-zsh-vi-mode)
 + nixgl set up with home manager [link](https://github.com/nix-community/nixgl/issues/114#issuecomment-1585323281)
 + touchegg doesn't propose that much advantage over fusuma. furthermore, touchegg is not natively supported by `nix home-manager`
++ Good example of how to use nix https://github.com/sschleemilch/nix-config/blob/main/home/programs/terminal/oh-my-posh/default.nix
 

@@ -86,7 +86,7 @@ in {
       vscode-extensions.tim-koehler.helm-intellisense
       vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
       vscode-extensions.catppuccin.catppuccin-vsc
-      vscode-extensions.vscodevim.vim
+      # vscode-extensions.vscodevim.vim # vim in vscode is pretty shit better trying to swtich to neovim
       vscode-extensions.tomoki1207.pdf
       vscode-extensions.streetsidesoftware.code-spell-checker
       vscode-extensions.usernamehw.errorlens
@@ -112,8 +112,6 @@ in {
     yq
     ffmpeg
     bat
-    tmux
-    tmate
     yt-dlp
     ripgrep
     thefuck
@@ -126,7 +124,6 @@ in {
     gh
     btop
     parallel
-    vim
     neovim
     chezmoi
     nettools
@@ -241,7 +238,6 @@ in {
         ignoreDups = false;        # Corresponds to HIST_IGNORE_DUPS
         ignoreAllDups = true;    # Corresponds to unsetopt HIST_IGNORE_ALL_DUPS
         expireDuplicatesFirst = true;  # Corresponds to unsetopt HIST_EXPIRE_DUPS_FIRST
-        ignorePatterns = ["^( *)"];
       };
       antidote = {
         enable = true;
@@ -278,17 +274,66 @@ in {
         ];
       };
       initExtra = ''
-      # Need to press esc to enter `zsh-vi-mode`
-      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      if [[ $options[zle] = on ]]; then
-        fzf_bin=$(which fzf)
-        zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
-      fi
+      # # Need to press esc to enter `zsh-vi-mode`
+      # source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      # if [[ $options[zle] = on ]]; then
+      #   fzf_bin=$(which fzf)
+      #   zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
+      # fi
       '';
       initExtraFirst = ''
       alias gc='gcloud'
       export PATH=/usr/local/cuda/bin:$PATH
       '';
+    };
+    tmux = {
+      enable = true;
+      mouse = true;
+      plugins = with pkgs.tmuxPlugins; [
+        sensible
+        vim-tmux-navigator
+        yank
+        battery
+      ];
+      baseIndex = 1;
+      terminal = "tmux-256color";
+      shell = "${pkgs.zsh}/bin/zsh";
+      keyMode = "vi";
+      extraConfig = ''   
+      set-option -sa terminal-overrides ",xterm*:Tc"
+      # Ctrl b is still my preferred prefix
+
+      # Shift arrow to switch windows
+      bind -n S-Left  previous-window
+      bind -n S-Right next-window
+
+      # Shift Alt vim keys to switch windows
+      bind -n M-H previous-window
+      bind -n M-L next-window
+
+      # Split panes into current dir
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
+
+      # Use Alt-arrow keys without prefix key to switch panes
+      bind -n M-Left select-pane -L
+      bind -n M-Right select-pane -R
+      bind -n M-Up select-pane -U
+      bind -n M-Down select-pane -D
+
+      # set vi-mode for yank plugins
+      set-window-option -g mode-keys vi
+      # keybindings
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      '';
+    };
+    tmate = {
+      enable = true;
+    };
+    vim = {
+      enable = true;
     };
     fzf = {
       enable = true;
@@ -296,13 +341,18 @@ in {
     };
     oh-my-posh = {
       # I like cattpucin theme better but it doesn't have transient prompt 
-      #  and squeeze command in the same line as context
+      # and squeeze command in the same line as context
       enable = true;
       useTheme = "slim";
     };
     wezterm = {
       enable = true;
       package = (nixGL pkgs.wezterm);
+      extraConfig = ''
+      return {
+        color_scheme = "Catppuccin Mocha",
+      }
+      '';
     };
     yazi = {
       enable = true;
@@ -465,7 +515,12 @@ in {
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;  # Import external modules
-  imports = [ ./options.nix ];
+  imports = [ 
+    ./options.nix 
+  ];
+
+  catppuccin.flavor = "mocha";
+  catppuccin.enable = true;
 
   # This option `"${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL"` needs to be built with home manager impure options
   # nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
