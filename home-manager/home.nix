@@ -282,8 +282,6 @@ in {
       # fi
       '';
       initExtraFirst = ''
-      alias vi='nvim'
-      alias vim='nvim'
       alias gc='gcloud'
       export PATH=/usr/local/cuda/bin:$PATH
       '';
@@ -371,6 +369,9 @@ in {
       # and squeeze command in the same line as context
       enable = true;
       useTheme = "slim";
+    };
+    vim = {
+      enable = true;
     };
     wezterm = {
       enable = true;
