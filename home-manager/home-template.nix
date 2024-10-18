@@ -274,12 +274,13 @@ in {
         ];
       };
       initExtra = ''
-      # # Need to press esc to enter `zsh-vi-mode`
-      # source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      # if [[ $options[zle] = on ]]; then
-      #   fzf_bin=$(which fzf)
-      #   zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
-      # fi
+      # Need to press esc to enter `zsh-vi-mode`
+      # tmux vi mode doesn't have the same functionality
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+      if [[ $options[zle] = on ]]; then
+        fzf_bin=$(which fzf)
+        zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
+      fi
       '';
       initExtraFirst = ''
       alias gc='gcloud'
