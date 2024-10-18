@@ -282,6 +282,8 @@ in {
       # fi
       '';
       initExtraFirst = ''
+      alias vi='nvim'
+      alias vim='nvim'
       alias gc='gcloud'
       export PATH=/usr/local/cuda/bin:$PATH
       '';
@@ -358,9 +360,6 @@ in {
       '';
     };
     tmate = {
-      enable = true;
-    };
-    vim = {
       enable = true;
     };
     fzf = {
