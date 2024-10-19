@@ -142,7 +142,14 @@ There is some problem with this set up
   + search screenshot
     + **Conclusion (by claude)** : Among these, I would recommend Albert as it likely covers most of your requirements out of the box with the least configuration needed. Ulauncher would be my second choice as it's more modern but might need additional extensions. When installed with Nix, Ulauncher extensions are not usable, no cask found. Rofi need to much to configure eventhough it is supported by nix home-manager. (Albert has better integration with nix and it takes less time to config since it doesn't depend on 3rd party plugin, the UX is not so top, fzf is bad, timer is hard to use)
 + Setting up every dot file with home manager might not be the best solution since in a company set up dotfiles might be modified so it might be a good pratice to let it mutable. **Another set up to consider :** 
-  + Install every terminal tools with **Ansible (since it have a high adoption in industry and it should be declarative & idempotent for app installation) or nix**
-  + write dotfiles and track it with **chezmoi**
-  + About dev set up use **conda and direnv** to smoothly switch env between project. This also eliminate CUDA integration issue of nix packages 
-  + TODO : **nix for installation/Ansible for CUDA integrated app + dotfiles management with chezmoi + project-based Development env with conda and direnv**
+  + Solution 1: 
+    + Install every terminal tools with **Ansible (since it have a high adoption in industry and it should be declarative & idempotent for app installation) or nix**
+    + write dotfiles and track it with **chezmoi**
+    + About dev set up use **conda and direnv** to smoothly switch env between project. This also eliminate CUDA integration issue of nix packages 
+    + TODO : **nix for installation/Ansible for CUDA integrated app + dotfiles management with chezmoi + project-based Development env with conda and direnv**
+  + Solution 2 : 
+    + I can still govern the dotfiles with nix home manager, but the dotfiles is written in a way much more readable and not dependent on home-manager internals. [This repo](https://github.com/omerxx/dotfiles) have some pretty cool shit that i can learn form.
+    + fix CUDA integration problem of nix installed packages. 
+    + In every project, heavy package (eg. pytorch, tensorflow, torchvision) would be sourced with direnv via `use nix`
+    + [This Youtube channel](https://www.youtube.com/@devopstoolbox) is super based and exactly what I try to achieve.
+  
