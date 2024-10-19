@@ -67,9 +67,6 @@ mkdir -p ~/.kube
 chmod 0700 ~/.kube
 microk8s status --wait-ready
 microk8s kubectl get nodes
- 
-# Install ulauncher manually since it nix-installed version doesn't support start on login
-sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher
 
 # Set zsh (installed by nix) as default shell
 sudo sh -c 'echo /home/tung/.nix-profile/bin/zsh >> /etc/shells'

@@ -126,4 +126,19 @@ There is some problem with this set up
 + nixgl set up with home manager [link](https://github.com/nix-community/nixgl/issues/114#issuecomment-1585323281)
 + touchegg doesn't propose that much advantage over fusuma. furthermore, touchegg is not natively supported by `nix home-manager`
 + Good example of how to use nix https://github.com/sschleemilch/nix-config/blob/main/home/programs/terminal/oh-my-posh/default.nix
-
++ Features i need from app launcher 
+  + quickly open with shortcut
+  + search app in a fuzzy manner   
+  + translate   
+  + search   
+  + quick calculation   
+  + define    
+  + system command   
+  + clip board that can fuzzy search   
+  + music control   
+  + recent dir    
+  + recent doc    
+  + recent app   
+  + 1password   
+  + search screenshot
+  + **Conclusion (by claude)** : Among these, I would recommend Albert as it likely covers most of your requirements out of the box with the least configuration needed. Ulauncher would be my second choice as it's more modern but might need additional extensions. When installed with Nix, Ulauncher extensions are not usable, no cask found. Rofi need to much to configure eventhough it is supported by nix home-manager. (Albert has better integration with nix and it takes less time to config since it doesn't depend on 3rd party plugin, the UX is not so top, fzf is bad, timer is hard to use)

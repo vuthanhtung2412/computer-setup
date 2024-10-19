@@ -106,6 +106,7 @@ in {
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+    albert
     neofetch
     cowsay
     jq
@@ -127,8 +128,7 @@ in {
     neovim
     chezmoi
     nettools
-    ibus-engines.bamboo
-    # ulauncher # ulauncher `launch on login` is not working and missing cask
+    ibus-engines.bamboo 
     # Prgramming languages 
     # The reason why python needs to bedeclared this way is similar to that of VSCode
     # Link : https://www.reddit.com/r/NixOS/comments/qx490o/install_a_python_package_on_nixos_but_it_is_not/
@@ -412,7 +412,7 @@ in {
 
   # CopyQ
   services = {
-    copyq.enable = true;
+    copyq.enable = true; # it is a must for Albert clipboard extension
     # fusuma for touchpad gesture
     fusuma = {
       enable = true;

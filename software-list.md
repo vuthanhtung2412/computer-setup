@@ -72,7 +72,7 @@
 - vim
 - neovim
 - chezmoi
-- Ulauncher
+- Albert
 #### Installed with nix programs.<app>.enable
 - [fzf](https://github.com/junegunn/fzf)
 - oh-my-posh (over starship because it more aesthetic and have transient prompt [link](https://ohmyposh.net/oh-my-posh-vs-starship/))

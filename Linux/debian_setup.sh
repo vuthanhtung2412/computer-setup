@@ -207,9 +207,6 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/warpdotdev.gpg] ht
 rm warpdotdev.gpg
 sudo apt update && sudo apt install warp-terminal
 
-# Install ULancher
-sudo add-apt-repository universe -y && sudo add-apt-repository ppa:agornostal/ulauncher -y && sudo apt update && sudo apt install ulauncher
-
 ### TODO BELOW ###
 ## Number of fault ## 
 # bat missing 
