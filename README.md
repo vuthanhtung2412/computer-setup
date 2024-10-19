@@ -114,7 +114,6 @@ There is some problem with this set up
   False
   ```
 
-
 # Useful commands
 + Activate home manager `home-manager switch --flake ./home-manager` or `home-manager switch --impure --flake .` (if auto detect nixGL is used)
 + Update Fedora kernel `sudo dnf upgrade --refresh`
@@ -141,4 +140,9 @@ There is some problem with this set up
   + recent app   
   + 1password   
   + search screenshot
-  + **Conclusion (by claude)** : Among these, I would recommend Albert as it likely covers most of your requirements out of the box with the least configuration needed. Ulauncher would be my second choice as it's more modern but might need additional extensions. When installed with Nix, Ulauncher extensions are not usable, no cask found. Rofi need to much to configure eventhough it is supported by nix home-manager. (Albert has better integration with nix and it takes less time to config since it doesn't depend on 3rd party plugin, the UX is not so top, fzf is bad, timer is hard to use)
+    + **Conclusion (by claude)** : Among these, I would recommend Albert as it likely covers most of your requirements out of the box with the least configuration needed. Ulauncher would be my second choice as it's more modern but might need additional extensions. When installed with Nix, Ulauncher extensions are not usable, no cask found. Rofi need to much to configure eventhough it is supported by nix home-manager. (Albert has better integration with nix and it takes less time to config since it doesn't depend on 3rd party plugin, the UX is not so top, fzf is bad, timer is hard to use)
++ Setting up every dot file with home manager might not be the best solution since in a company set up dotfiles might be modified so it might be a good pratice to let it mutable. **Another set up to consider :** 
+  + Install every terminal tools with **Ansible (since it have a high adoption in industry and it should be declarative & idempotent for app installation) or nix**
+  + write dotfiles and track it with **chezmoi**
+  + About dev set up use **conda and direnv** to smoothly switch env between project. This also eliminate CUDA integration issue of nix packages 
+  + TODO : **nix for installation + dotfiles management with chezmoi + project-based Development env with conda and direnv**
