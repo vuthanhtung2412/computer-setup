@@ -148,8 +148,42 @@ There is some problem with this set up
     + About dev set up use **conda and direnv** to smoothly switch env between project. This also eliminate CUDA integration issue of nix packages 
     + TODO : **nix for installation/Ansible for CUDA integrated app + dotfiles management with chezmoi + project-based Development env with conda and direnv**
   + Solution 2 : 
-    + I can still govern the dotfiles with nix home manager, but the dotfiles is written in a way much more readable and not dependent on home-manager internals. [This repo](https://github.com/omerxx/dotfiles) have some pretty cool shit that i can learn form. A more flexible option can be using chezmoi which keep dotfiles mutables and track their changes, however, we can still reuse dotfiles from previous idea since it is not too home-manager dependent.
+    + I can still govern the dotfiles with nix home manager, but the dotfiles is written in a way much more readable and not dependent on home-manager internals. [This repo](https://github.com/omerxx/dotfiles) have some pretty cool shit that i can learn form. **A more flexible option can be using chezmoi which keep dotfiles mutables and track their changes, however, we can still reuse dotfiles from previous idea since it is not too home-manager dependent (preferred).**
     + fix CUDA integration problem of nix installed packages. 
     + In every project, heavy package (eg. pytorch, tensorflow, torchvision) would be sourced with direnv via `use nix`
     + [This Youtube channel](https://www.youtube.com/@devopstoolbox) is super based and exactly what I try to achieve.
+
+# TO LEARN NEOVIM 
++ Testing
++ Debuging 
++ Database 
++ LSP
+  + Auto lint 
+  + Install new LSP
+  + Error highlight 
++ Git 
+  + Change branch 
+  + checkout a file content from another branch
+  + Git commit / git push 
+  + Git stash
+  + Cherry pick 
+  + rebase
++ Movement
+  + 'd' is delete not cut
+  + 'jj' to escape to normal mode
+  + Jump to definition
+  + Display definition
+  + Jump back to where cursor was 
+  + Select and Edit multiple occurrence of a word 
+  + Jump to a specific word in a line 
+  + Refractoring 
+  + Navigate with Table of content of a file 
+  + Go to Declaration: Navigate to where a symbol is declared (useful for type definition
+  + Find all reference of a function or class 
+  + Find implementation of an abstract class
+  + Change case and format : switch between bold, italic, uppercase, lowercase  
+  + expand or contract text block
+  + duplicate line 
+  + move block of text up down (alt + up/down in vscode) 
+  + intellisense autocompletion
   
