@@ -507,6 +507,10 @@ in {
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".tung".text = ''
+    this is a test
+    '';
   };
 
   # Home Manager can also manage your environment variables through
