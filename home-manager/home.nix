@@ -276,6 +276,7 @@ in {
       initExtra = ''
         # Need to press esc to enter `zsh-vi-mode`
         # tmux vi mode doesn't have the same functionality
+        ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
         source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
         if [[ $options[zle] = on ]]; then
           fzf_bin=$(which fzf)
