@@ -114,6 +114,7 @@ in {
     ffmpeg
     bat
     yt-dlp
+    fd # this is added since many programs such as yazi and ulauncher depends on it to find files and dir
     ripgrep
     thefuck
     tldr
@@ -282,8 +283,18 @@ in {
           fzf_bin=$(which fzf)
           zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
         fi
-        '';
-        initExtraFirst = ''
+
+        # Initiallize yazi
+        function y() {
+          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+          yazi "$@" --cwd-file="$tmp"
+          if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+        }
+      '';
+      initExtraFirst = ''
         alias gc='gcloud'
         export PATH=/usr/local/cuda/bin:$PATH
       '';
@@ -553,6 +564,7 @@ in {
     ".tung".text = ''
       this is a test
     '';
+    # ".tung_source".source = dotfiles/tung_source;
   };
 
   # Home Manager can also manage your environment variables through

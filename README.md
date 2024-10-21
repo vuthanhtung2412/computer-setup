@@ -158,6 +158,7 @@ There is some problem with this set up
       ~#@❯ cat ~/.local/share/chezmoi/symlink_dot_tung
       /nix/store/hnyffcq6xpj6a567ah42nsc92c3l2kl2-home-manager-files/.tung 
       ```
+    + `home-manager switch` takes 20s while there is nothing to do. I dont think chezmoi takes that long 
 # TO LEARN NEOVIM 
 + Testing
 + Debuging 
