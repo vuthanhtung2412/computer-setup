@@ -274,17 +274,17 @@ in {
         ];
       };
       initExtra = ''
-      # Need to press esc to enter `zsh-vi-mode`
-      # tmux vi mode doesn't have the same functionality
-      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      if [[ $options[zle] = on ]]; then
-        fzf_bin=$(which fzf)
-        zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
-      fi
-      '';
-      initExtraFirst = ''
-      alias gc='gcloud'
-      export PATH=/usr/local/cuda/bin:$PATH
+        # Need to press esc to enter `zsh-vi-mode`
+        # tmux vi mode doesn't have the same functionality
+        source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+        if [[ $options[zle] = on ]]; then
+          fzf_bin=$(which fzf)
+          zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
+        fi
+        '';
+        initExtraFirst = ''
+        alias gc='gcloud'
+        export PATH=/usr/local/cuda/bin:$PATH
       '';
     };
     tmux = {
@@ -293,27 +293,27 @@ in {
       catppuccin = {
         enable = true;
         extraConfig = ''
-        # This is because version of catppuccin tmux extensions of nix pkgs < v0.3.0
-        set -g @catppuccin_window_left_separator ""
-        set -g @catppuccin_window_right_separator " "
-        set -g @catppuccin_window_middle_separator " █"
-        set -g @catppuccin_window_number_position "right"
+          # This is because version of catppuccin tmux extensions of nix pkgs < v0.3.0
+          set -g @catppuccin_window_left_separator ""
+          set -g @catppuccin_window_right_separator " "
+          set -g @catppuccin_window_middle_separator " █"
+          set -g @catppuccin_window_number_position "right"
 
-        set -g @catppuccin_window_default_fill "number"
-        set -g @catppuccin_window_default_text "#W"
+          set -g @catppuccin_window_default_fill "number"
+          set -g @catppuccin_window_default_text "#W"
 
-        set -g @catppuccin_window_current_fill "number"
-        set -g @catppuccin_window_current_text "#W"
+          set -g @catppuccin_window_current_fill "number"
+          set -g @catppuccin_window_current_text "#W"
 
-        set -g @catppuccin_date_time_text "%H:%M"
-        set -g @catppuccin_status_modules_right "directory user host session date_time battery"
+          set -g @catppuccin_date_time_text "%H:%M"
+          set -g @catppuccin_status_modules_right "directory user host session date_time battery"
 
-        set -g @catppuccin_status_left_separator  " "
-        set -g @catppuccin_status_right_separator ""
-        set -g @catppuccin_status_fill "icon"
-        set -g @catppuccin_status_connect_separator "no"
+          set -g @catppuccin_status_left_separator  " "
+          set -g @catppuccin_status_right_separator ""
+          set -g @catppuccin_status_fill "icon"
+          set -g @catppuccin_status_connect_separator "no"
 
-        set -g @catppuccin_directory_text "#{pane_current_path}"
+          set -g @catppuccin_directory_text "#{pane_current_path}"
         '';
       };
       plugins = with pkgs.tmuxPlugins; [
@@ -327,35 +327,35 @@ in {
       shell = "${pkgs.zsh}/bin/zsh";
       keyMode = "vi";
       extraConfig = ''   
-      # Correct color display (ex: Neovim catppuccin)
-      set-option -sa terminal-overrides ",xterm*:Tc"
+        # Correct color display (ex: Neovim catppuccin)
+        set-option -sa terminal-overrides ",xterm*:Tc"
 
-      # Ctrl b is still my preferred prefix
+        # Ctrl b is still my preferred prefix
 
-      # Shift arrow to switch windows
-      bind -n S-Left  previous-window
-      bind -n S-Right next-window
+        # Shift arrow to switch windows
+        bind -n S-Left  previous-window
+        bind -n S-Right next-window
 
-      # Shift Alt vim keys to switch windows
-      bind -n M-H previous-window
-      bind -n M-L next-window
+        # Shift Alt vim keys to switch windows
+        bind -n M-H previous-window
+        bind -n M-L next-window
 
-      # Split panes into current dir
-      bind '"' split-window -v -c "#{pane_current_path}"
-      bind % split-window -h -c "#{pane_current_path}"
+        # Split panes into current dir
+        bind '"' split-window -v -c "#{pane_current_path}"
+        bind % split-window -h -c "#{pane_current_path}"
 
-      # Use Alt-arrow keys without prefix key to switch panes
-      bind -n M-Left select-pane -L
-      bind -n M-Right select-pane -R
-      bind -n M-Up select-pane -U
-      bind -n M-Down select-pane -D
+        # Use Alt-arrow keys without prefix key to switch panes
+        bind -n M-Left select-pane -L
+        bind -n M-Right select-pane -R
+        bind -n M-Up select-pane -U
+        bind -n M-Down select-pane -D
 
-      # set vi-mode for yank plugins
-      set-window-option -g mode-keys vi
-      # keybindings
-      bind-key -T copy-mode-vi v send-keys -X begin-selection
-      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+        # set vi-mode for yank plugins
+        set-window-option -g mode-keys vi
+        # keybindings
+        bind-key -T copy-mode-vi v send-keys -X begin-selection
+        bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+        bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
       '';
     };
     tmate = {
@@ -374,14 +374,55 @@ in {
     };
     vim = {
       enable = true;
+      extraConfig = ''
+        " Enable system clipboard integration
+        set clipboard=unnamedplus
+
+        " Character deletion won't send to clipboard
+        nnoremap x "_x
+        vnoremap x "_x
+
+        " Line numbers configuration
+        set number          " Show current line number
+        set relativenumber  " Show relative line numbers
+
+        " Some recommended additions:
+        " Enable syntax highlighting
+        syntax on
+        
+        " Highlight current line
+        set cursorline
+        
+        " Enable mouse support
+        set mouse=a
+        
+        " Show command in bottom bar
+        set showcmd
+        
+        " Highlight matching brackets
+        set showmatch
+        
+        " Search as characters are entered
+        set incsearch
+        
+        " Highlight search matches
+        set hlsearch
+        
+        " Case insensitive search unless capital letter is used
+        set ignorecase
+        set smartcase
+
+        " Map jj to Escape in insert mode
+        inoremap jj <Esc>
+      '';
     };
     wezterm = {
       enable = true;
       package = (nixGL pkgs.wezterm);
       extraConfig = ''
-      return {
-        color_scheme = "Catppuccin Mocha",
-      }
+        return {
+          color_scheme = "Catppuccin Mocha",
+        }
       '';
     };
     yazi = {
@@ -509,7 +550,7 @@ in {
     # '';
 
     ".tung".text = ''
-    this is a test
+      this is a test
     '';
   };
 
@@ -530,7 +571,7 @@ in {
   #  /etc/profiles/per-user/thanhtung/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
     # fix the problem of dynamic link in python package
     # Link : https://discourse.nixos.org/t/what-package-provides-libstdc-so-6/18707
     # This global env var interfere with some programs such as `ubuntu-drivers`

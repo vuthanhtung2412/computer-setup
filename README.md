@@ -150,7 +150,7 @@ There is some problem with this set up
   + Solution 2 : 
     + I can still govern the dotfiles with nix home manager, but the dotfiles is written in a way much more readable and not dependent on home-manager internals. [This repo](https://github.com/omerxx/dotfiles) have some pretty cool shit that i can learn form. **A more flexible option can be using chezmoi which keep dotfiles mutables and track their changes, however, we can still reuse dotfiles from previous idea since it is not too home-manager dependent (preferred).**
     + fix CUDA integration problem of nix installed packages. 
-    + In every project, heavy package (eg. pytorch, tensorflow, torchvision) would be sourced with direnv via `use nix`
+    + In every project, heavy package (eg. pytorch, tensorflow, torchvision) would be sourced with direnv via `use nix`. **Since CUDA is not yet very well integrated with Nix package => temporary move to CONDA for dev env management**
     + [This Youtube channel](https://www.youtube.com/@devopstoolbox) is super based and exactly what I try to achieve.
 
 # TO LEARN NEOVIM 
