@@ -152,7 +152,12 @@ There is some problem with this set up
     + fix CUDA integration problem of nix installed packages. 
     + In every project, heavy package (eg. pytorch, tensorflow, torchvision) would be sourced with direnv via `use nix`. **Since CUDA is not yet very well integrated with Nix package => temporary move to CONDA for dev env management**
     + [This Youtube channel](https://www.youtube.com/@devopstoolbox) is super based and exactly what I try to achieve.
-
+    + Notes : some caveats after trying chezmoi with nix home-manager
+      ```
+      ~#@❯ chezmoi add ~/.tung
+      ~#@❯ cat ~/.local/share/chezmoi/symlink_dot_tung
+      /nix/store/hnyffcq6xpj6a567ah42nsc92c3l2kl2-home-manager-files/.tung 
+      ```
 # TO LEARN NEOVIM 
 + Testing
 + Debuging 
@@ -175,6 +180,7 @@ There is some problem with this set up
   + Display definition
   + Jump back to where cursor was 
   + Select and Edit multiple occurrence of a word 
+  + Fuzzy search command
   + Jump to a specific word in a line 
   + Refractoring 
   + Navigate with Table of content of a file 
