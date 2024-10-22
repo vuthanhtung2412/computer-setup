@@ -242,7 +242,7 @@ in {
       };
       antidote = {
         enable = true;
-        plugins =[
+        plugins = [
           # Basic
           "Aloxaf/fzf-tab"
           "agkozak/zsh-z"
@@ -274,6 +274,10 @@ in {
           "ohmyzsh/ohmyzsh path:plugins/npm"
         ];
       };
+      initExtraFirst = ''
+        alias gc='gcloud'
+        export PATH=/usr/local/cuda/bin:$PATH
+      '';
       initExtra = ''
         # Need to press esc to enter `zsh-vi-mode`
         # tmux vi mode doesn't have the same functionality
@@ -284,7 +288,9 @@ in {
           zvm_after_init_commands+=("eval \"\$($fzf_bin --zsh)\"")
         fi
 
-        # Initiallize yazi
+        # Initialize yazi like documentation : https://yazi-rs.github.io/docs/quick-start#shell-wrapper
+        # programs.yazi.ZshIntegration is not working correctly since i bind `cd` to `zoxide`
+        # error : zoxide: no match found
         function y() {
           local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
           yazi "$@" --cwd-file="$tmp"
@@ -294,11 +300,35 @@ in {
           rm -f -- "$tmp"
         }
       '';
-      initExtraFirst = ''
+    };
+
+    bash = {
+      enable = true;
+      historyControl = [
+        "erasedups"
+        "ignoredups"
+        "ignorespace"
+      ];
+      historyFileSize = 2000;
+      historySize = 1000;
+      bashrcExtra = ''
         alias gc='gcloud'
         export PATH=/usr/local/cuda/bin:$PATH
+
+        # Initialize yazi like documentation : https://yazi-rs.github.io/docs/quick-start#shell-wrapper
+        # programs.yazi.ZshIntegration is not working correctly since i bind `cd` to `zoxide`
+        # error : zoxide: no match found
+        function y() {
+          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+          yazi "$@" --cwd-file="$tmp"
+          if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+        }
       '';
     };
+
     tmux = {
       enable = true;
       mouse = true;
@@ -441,8 +471,6 @@ in {
     };
     yazi = {
       enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true; 
     };
     eza = {
       enable = true;
