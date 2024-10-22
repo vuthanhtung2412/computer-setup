@@ -566,7 +566,10 @@ in {
     ".tung".text = ''
       this is a test
     '';
-    # ".tung_source".source = dotfiles/tung_source;
+    ".tung_source" = {
+      source = ./dotfiles/tung_source;
+      recursive = true;
+    };
   };
 
   # Home Manager can also manage your environment variables through
