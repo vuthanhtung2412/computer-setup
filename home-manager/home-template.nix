@@ -393,6 +393,8 @@ in {
         " Character deletion won't send to clipboard
         nnoremap x "_x
         vnoremap x "_x
+        nnoremap X "_X
+        vnoremap X "_X
 
         " Line numbers configuration
         set number          " Show current line number
