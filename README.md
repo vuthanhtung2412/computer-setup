@@ -159,6 +159,15 @@ There is some problem with this set up
       /nix/store/hnyffcq6xpj6a567ah42nsc92c3l2kl2-home-manager-files/.tung 
       ```
     + `home-manager switch` takes 20s while there is nothing to do. I dont think chezmoi takes that long 
+    + **PROBLEM :** Nix flakes require all source files to be tracked by Git (using git add) before they can be referenced in your Home Manager configuration, otherwise they'll be invisible to Nix and cause "path does not exist" errors. 
+      ```
+      ".tung_source" = {
+        source = ./dotfiles/tung_source;
+        recursive = true;
+      };
+
+      # return error "error: path '/nix/store/idld4rz8gy18zvx7aabmcgxh6wdw8zfm-source/home-manager/dotfiles/tung_source'" does not exist if `./dotfiles/tung_source` is not tracked by git yet. 
+      ```
 # TO LEARN NEOVIM 
 + Testing
 + Debuging 
