@@ -186,6 +186,7 @@ There is some problem with this set up
   + Error highlight 
 + Git 
   + Change branch 
+  + Git diff
   + checkout a file content from another branch
   + Git commit / git push 
   + Git stash
@@ -210,6 +211,16 @@ There is some problem with this set up
   + duplicate line 
   + move block of text up down (alt + up/down in vscode) 
   + intellisense autocompletion
+
+# Plan to migrate from home-manager to condaWDirenv + home-manager + chezmoi
+  [] test how conda reusing package in base env
+  [] write a direnv function so that conda env with `$(pwd)` name is created or activated while cd into the dir
+  [] dotfiles for vscode extension recommendation
+  [] list all dotfiles that is managed by home manager
+  [] make a `.bak` file for all listed dot file 
+  [] Track all these `.bak` files with `chezmoi`
+  [] Gradually migrate dotfiles management of each program from `home-manager` to `chezmoi` 
+  [] Time `chezmoi` execution compare to `home-manager` 
   
 # FZF use case 
 + find files 

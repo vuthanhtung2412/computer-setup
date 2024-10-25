@@ -128,6 +128,7 @@ in {
     chezmoi
     nettools
     ibus-engines.bamboo 
+    xournalpp # pdf annotate tools
     # Prgramming languages 
     # The reason why python needs to bedeclared this way is similar to that of VSCode
     # Link : https://www.reddit.com/r/NixOS/comments/qx490o/install_a_python_package_on_nixos_but_it_is_not/
