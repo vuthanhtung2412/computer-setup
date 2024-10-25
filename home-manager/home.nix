@@ -124,7 +124,7 @@ in {
     gh
     btop
     parallel
-    neovim
+    neovim # not in programs because LazyVim is based -> config managed by home.file
     chezmoi
     nettools
     ibus-engines.bamboo 
@@ -476,6 +476,15 @@ in {
 
         " Map jj to Escape in insert mode
         inoremap jj <Esc>
+
+        " vim diff is not readable in wezterm
+        if &diff
+          " colorscheme evening
+          highlight DiffAdd    cterm=bold ctermfg=15 ctermbg=60 gui=none guifg=White guibg=#313244
+          highlight DiffDelete cterm=bold ctermfg=15 ctermbg=89 gui=none guifg=White guibg=#C74F81
+          highlight DiffChange cterm=bold ctermfg=15 ctermbg=60 gui=none guifg=White guibg=#313244
+          highlight DiffText   cterm=bold ctermfg=15 ctermbg=89 gui=none guifg=White guibg=#C74F81
+        endif
       '';
     };
     wezterm = {
