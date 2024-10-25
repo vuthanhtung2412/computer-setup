@@ -112,13 +112,11 @@ in {
     jq
     yq
     ffmpeg
-    bat
     yt-dlp
     fd # this is added since many programs such as yazi and ulauncher depends on it to find files and dir
     ripgrep
     thefuck
     tldr
-    diff-so-fancy
     z-lua
     xclip
     git
@@ -299,6 +297,18 @@ in {
           fi
           rm -f -- "$tmp"
         }
+
+        # recommended fzf tab config at : https://github.com/Aloxaf/fzf-tab?tab=readme-ov-file#Configure
+        # disable sort when completing `git checkout`
+        zstyle ':completion:*:git-checkout:*' sort false
+        zstyle ':completion:*:descriptions' format '[%d]'
+        zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        zstyle ':completion:*' menu no
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+        zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+        zstyle ':fzf-tab:*' use-fzf-default-opts yes
+        zstyle ':fzf-tab:*' switch-group '<' '>'
+        zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
       '';
     };
 
@@ -403,10 +413,18 @@ in {
     tmate = {
       enable = true;
     };
+
+    bat.enable = true;
+
     fzf = {
       enable = true;
       tmux.enableShellIntegration = true;
+      fileWidgetCommand = "fd --type f";
+      fileWidgetOptions = [
+        "--preview 'bat --style=numbers --color=always --line-range :300 {}'"
+      ];
     };
+
     oh-my-posh = {
       # I like cattpucin theme better but it doesn't have transient prompt 
       # and squeeze command in the same line as context

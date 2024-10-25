@@ -61,7 +61,6 @@
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [thefuck](https://github.com/nvbn/thefuck)
 - tldr
-- [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 - [z](https://github.com/rupa/z)
 - zoxide (make z smarter)
 - pbcopy (Mac) / xclip (Linux)

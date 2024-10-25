@@ -122,9 +122,15 @@ There is some problem with this set up
 
 # Bullshit note
 + `zsh vi mode` is not necessary on second thoughts and it messes up keybindings of `fzf`. one quick way to fix [link](https://stackoverflow.com/questions/73033698/fzf-keybindings-doesnt-work-with-zsh-vi-mode)
++ Open source project idea (search image with ocr as you type in linux)
 + nixgl set up with home manager [link](https://github.com/nix-community/nixgl/issues/114#issuecomment-1585323281)
++ Comparing terminal diff tools (delta vs difftastic vs diff-so-fancy)
+  + diff-so-fancy is not as well maintained as the two other tools
+  + For a diff tools i need it to have good integration with git and side-by-side view. side-by-side view work out of the box on both delta and difftastic, however git pager of delta is much better than difftastic.
+  + In the end LazyVim is pretty based for diffing and `git diff`
 + touchegg doesn't propose that much advantage over fusuma. furthermore, touchegg is not natively supported by `nix home-manager`
 + Good example of how to use nix https://github.com/sschleemilch/nix-config/blob/main/home/programs/terminal/oh-my-posh/default.nix
++ Another things why `requirements.txt` is not enough for reproducibility is that where to get these version and all of the dependency from 
 + Features i need from app launcher 
   + quickly open with shortcut
   + search app in a fuzzy manner   
@@ -150,7 +156,7 @@ There is some problem with this set up
   + Solution 2 : 
     + I can still govern the dotfiles with nix home manager, but the dotfiles is written in a way much more readable and not dependent on home-manager internals. [This repo](https://github.com/omerxx/dotfiles) have some pretty cool shit that i can learn form. **A more flexible option can be using chezmoi which keep dotfiles mutables and track their changes, however, we can still reuse dotfiles from previous idea since it is not too home-manager dependent (preferred).**
     + fix CUDA integration problem of nix installed packages. 
-    + In every project, heavy package (eg. pytorch, tensorflow, torchvision) would be sourced with direnv via `use nix`. **Since CUDA is not yet very well integrated with Nix package => temporary move to CONDA for dev env management**
+    + In every project, heavy package (eg. pytorch, tensorflow, torchvision) would be sourced with direnv via `use nix`. **Since CUDA is not yet very well integrated with Nix package => temporary move to CONDA for dev env management** (some opinions that seconds my conda choice [link](https://news.ycombinator.com/item?id=39388080))
     + [This Youtube channel](https://www.youtube.com/@devopstoolbox) is super based and exactly what I try to achieve.
     + Notes : some caveats after trying chezmoi with nix home-manager
       ```
@@ -203,3 +209,9 @@ There is some problem with this set up
   + move block of text up down (alt + up/down in vscode) 
   + intellisense autocompletion
   
+# FZF use case 
++ find files 
++ find dir with inner files/dir preview 
++ search history 
++ fzf file content can be achieved with `nvim` so it is not too necessary
++ if I master fd and use it with fzf it would be extremely useful since fd can easily filter by **file extension, regex, chained command** (on second thoughts fuzzy search is not working well with long text so fd is perfect for long text search)
