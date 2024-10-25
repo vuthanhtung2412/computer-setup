@@ -2,6 +2,15 @@
 
 let 
   nixGL = import ./nixGL.nix { inherit pkgs config; };
+  neovim-10 = pkgs.neovim-unwrapped.overrideAttrs (old: {
+    version = "0.10.2";
+    src = pkgs.fetchFromGitHub {
+      owner = "neovim";
+      repo = "neovim";
+      rev = "v0.10.2";  # or use a commit hash
+      sha256 = "+qjjelYMB3MyjaESfCaGoeBURUzSVh/50uxUqStxIfY="; # Leave empty first, Nix will tell you the correct hash
+    };
+  });
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -124,7 +133,7 @@ in {
     gh
     btop
     parallel
-    neovim # not in programs because LazyVim is based -> config managed by home.file
+    neovim-10 # not in programs because LazyVim is based -> config managed by home.file
     chezmoi
     nettools
     ibus-engines.bamboo 
@@ -306,7 +315,7 @@ in {
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} # Example of how to escape nix variable
         zstyle ':completion:*' menu no
         zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-        zstyle ':fzf-tab:*' fzf-flags --bind=tab:accept
+        zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
         zstyle ':fzf-tab:*' use-fzf-default-opts yes
         zstyle ':fzf-tab:*' switch-group '<' '>'
         zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
