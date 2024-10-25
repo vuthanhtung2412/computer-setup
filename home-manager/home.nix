@@ -134,6 +134,7 @@ in {
     btop
     parallel
     neovim-10 # not in programs because LazyVim is based -> config managed by home.file
+    delta
     chezmoi
     nettools
     ibus-engines.bamboo 
@@ -425,6 +426,17 @@ in {
     };
 
     bat.enable = true;
+
+    lazygit = {
+      enable = true;
+      settings = {
+        git.paging = {
+          colorArg = "always";
+          # link https://www.reddit.com/r/neovim/comments/10nfhqa/comment/j68qrsh/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+          pager = "delta --dark --paging=never --syntax-theme base16-256 --diff-so-fancy -s";
+        };
+      };
+    };
 
     fzf = {
       enable = true;
