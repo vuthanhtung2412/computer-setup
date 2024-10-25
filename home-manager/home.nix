@@ -478,6 +478,7 @@ in {
         inoremap jj <Esc>
 
         " vim diff is not readable in wezterm
+        " link : https://stackoverflow.com/questions/2019281/load-different-colorscheme-when-using-vimdiff
         if &diff
           " colorscheme evening
           highlight DiffAdd    cterm=bold ctermfg=15 ctermbg=60 gui=none guifg=White guibg=#313244
