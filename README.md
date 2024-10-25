@@ -119,6 +119,8 @@ There is some problem with this set up
 + Update Fedora kernel `sudo dnf upgrade --refresh`
 + Stop using home-manager completely by deleting ~/.nix-profile `rm -rf ~/.nix-profile`
 + Revert to previous version of home-manager [link](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
++ `du -sh /nix/store` check size of nix store
++ `nix-collect-garbage --delete-old` delete old generations and clean unreachable objects
 
 # Bullshit note
 + `zsh vi mode` is not necessary on second thoughts and it messes up keybindings of `fzf`. one quick way to fix [link](https://stackoverflow.com/questions/73033698/fzf-keybindings-doesnt-work-with-zsh-vi-mode)
