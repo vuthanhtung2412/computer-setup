@@ -375,9 +375,10 @@ in {
     };
     vim = {
       enable = true;
+      packageConfigurable = pkgs.vim-darwin;
       extraConfig = ''
         " Enable system clipboard integration
-        set clipboard=unnamedplus
+        set clipboard=unnamed
 
         " Character deletion won't send to clipboard
         nnoremap x "_x
