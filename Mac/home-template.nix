@@ -225,6 +225,8 @@ in {
           rm -f -- "$tmp"
         }
 
+        export PATH="/opt/homebrew/bin:$PATH"
+
         # recommended fzf tab config at : https://github.com/Aloxaf/fzf-tab?tab=readme-ov-file#Configure
         # disable sort when completing `git checkout`
         zstyle ':completion:*:git-checkout:*' sort false
