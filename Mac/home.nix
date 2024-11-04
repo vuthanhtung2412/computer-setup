@@ -235,7 +235,6 @@ in {
         zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
         zstyle ':fzf-tab:*' use-fzf-default-opts yes
         zstyle ':fzf-tab:*' switch-group '<' '>'
-        zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
       '';
     };
 
@@ -353,6 +352,8 @@ in {
         };
       };
     };
+
+    mise.enable = true;
 
     fzf = {
       enable = true;
