@@ -114,7 +114,7 @@ in {
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    coreutils
+    coreutils # because mac does come with GNU coreutils
     neofetch
     cowsay
     jq
@@ -143,7 +143,6 @@ in {
     obsidian
     awscli2
     azure-cli
-    google-cloud-sdk-gce
     terraform
     # SQL tools
     sqlite-interactive
