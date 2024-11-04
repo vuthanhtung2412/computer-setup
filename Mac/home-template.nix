@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let 
-  nixGL = import ./nixGL.nix { inherit pkgs config; };
   neovim-10 = pkgs.neovim-unwrapped.overrideAttrs (old: {
     version = "0.10.2";
     src = pkgs.fetchFromGitHub {
@@ -14,8 +13,8 @@ let
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "tung"; # TODO : to be replace by $USER
-  home.homeDirectory = "/Users/tung"; # TODO : to be replace by $HOME
+  home.username = "<user>"; # TODO : to be replace by $USER
+  home.homeDirectory = "<home>"; # TODO : to be replace by $HOME
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -115,13 +114,11 @@ in {
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    albert
     neofetch
     cowsay
     jq
     yq
     ffmpeg
-    yt-dlp
     fd # this is added since many programs such as yazi, fzf and ulauncher depends on it to find files and dir
     ripgrep
     thefuck
@@ -137,99 +134,18 @@ in {
     delta
     chezmoi
     nettools
-    ibus-engines.bamboo 
-    xournalpp # pdf annotate tools
-    # Prgramming languages 
-    # The reason why python needs to bedeclared this way is similar to that of VSCode
-    # Link : https://www.reddit.com/r/NixOS/comments/qx490o/install_a_python_package_on_nixos_but_it_is_not/
-    (python311.withPackages(p: with p; [
-      pip
-      #######################
-      # Jupyter Environment #
-      #######################
-      jupyterlab            # Modern interactive development environment for notebooks, code, and data
-      notebook              # Original web-based notebook interface
-      ipykernel             # IPython kernel for Jupyter
-      ipywidgets            # Interactive HTML widgets for Jupyter notebooks
-
-      ################################
-      # Core Data Processing & Analysis
-      ################################
-      numpy                 # Fundamental package for numerical computations, provides powerful N-dimensional array object
-      pandas                # Data manipulation and analysis library, provides DataFrame objects
-
-      ###########################
-      # Machine Learning and AI #
-      ###########################
-      torch-bin             # PyTorch: Deep learning framework with strong GPU acceleration
-      scikit-learn          # Traditional machine learning algorithms (classification, regression, clustering)
-
-      ######################
-      # Data Visualization #
-      ######################
-      matplotlib            # Comprehensive library for creating static, animated, and interactive visualizations
-
-      #####################
-      # Development Tools #
-      #####################
-      pylint                # Static code analyzer and linter
-      # pytest                # Testing framework
-    ]))
-    jdk22
-    go
-    rustc
-    cargo
-    rustfmt 
-    clippy
-    gcc13
-    nodejs_22
-    # Language tools 
-    maven
-    # Container related 
-    # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
-    # Docker needed to be patched with apt or dnf
-    # TODO : Install Docker and microk8s and docker desktop via command line
     kubectl 
     kubectx
     k9s
     kubernetes-helm
-    # Warp terminal
-    (nixGL warp-terminal)
     # Obsidian
     obsidian
-    # Zoom
-    # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
-    # zoom-us 
-    # OBS studio 
-    (nixGL obs-studio)
-    # tailscale
-    # TODO : need to be installed manually because tailscaled service is non existing
-    # tailscale
-    # tailscaled
-    # Cloud related tools 
     awscli2
     azure-cli
     google-cloud-sdk-gce
     terraform
     # SQL tools
     sqlite-interactive
-    # NOTICE : for postgres it is easier to spin up a docker container and turn it off 
-    # postgresql_16_jit
-
-    # CUDA tool
-    # cudaPackages_12_1.cudatoolkit
-    # autoAddDriverRunpath
-    # linuxPackages.nvidia_x11
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # TODO : the code below is not workings. Tested with fc-list | grep FantasqueSansMono 
-    # (pkgs.nerdfonts.override { fonts = [ 
-    #   "FantasqueSansMono"
-    #   "JetBrainsMono"
-    # ];})
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -510,15 +426,6 @@ in {
         endif
       '';
     };
-    wezterm = {
-      enable = true;
-      package = (nixGL pkgs.wezterm);
-      extraConfig = ''
-        return {
-          color_scheme = "Catppuccin Mocha",
-        }
-      '';
-    };
     yazi = {
       enable = true;
     };
@@ -538,94 +445,7 @@ in {
       enableBashIntegration = true;
       enableZshIntegration = true;
     };
-    chromium = {
-      enable = true;
-      package = (nixGL pkgs.chromium);
-    };
   };
-
-  # CopyQ
-  services = {
-    copyq.enable = true; # it is a must for Albert clipboard extension
-    # fusuma for touchpad gesture
-    fusuma = {
-      enable = true;
-      settings = {
-        # Ctrl plus/minus for 2 fingers pinch is not ideal
-        # Limitation of pinch to zoom in xserver : https://www.reddit.com/r/firefox/comments/wtdb7d/pinch_to_zoom_not_working_on_ubuntu/ 
-        # TODO : web browser zoom experience on x11 https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/530
-        threshold = {
-          swipe = 0.1;
-          pinch = 0.1;
-        };
-        interval = {
-          swipe = 1;
-          pinch = 0.2;
-        };
-        swipe = {
-          "3" = {
-            begin= {
-              command = "xdotool keydown Alt";
-            };
-            right = {
-              update = {
-                command = "xdotool key Tab";
-                interval = 4;
-              };
-            };
-            left = {
-              update = {
-                command = "xdotool key Shift+Tab";
-                interval = 4;
-              };
-            };
-            end = {
-              command = "xdotool keyup Alt";
-            };
-          };
-          "4" = {
-            left = {
-              command = "xdotool key ctrl+alt+Right";
-            };
-            right = {
-              command = "xdotool key ctrl+alt+Left";
-            };
-            up = {
-              command = "xdotool key super+s";
-            };
-            down = {
-              command = "xdotool key Escape && xdotool key super+d";
-            };
-          };
-        };
-        pinch = {
-          "2" = {
-            # Use in conjunction with mouse-pinch-to-zoom
-            "in" = { # Zoom out
-              # command = "xdotool keydown ctrl key minus keyup ctrl";
-              # OR 
-              command = "xdotool keydown ctrl click 5 keyup ctrl";
-            };
-            out = {
-              # command = "xdotool keydown ctrl key plus keyup ctrl";
-              # OR
-              command = "xdotool keydown ctrl click 4 keyup ctrl";
-            };
-          };
-          "3" = {
-            "in" = {
-              command = "xdotool key super+Down";
-            };
-            out = {
-              command = "xdotool key super+Up";
-            };
-          };
-        };
-      };
-    };
-  };
-  # Window manager 
-  xsession.windowManager.i3.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -668,33 +488,14 @@ in {
   #
   home.sessionVariables = {
     EDITOR = "nvim";
-    # fix the problem of dynamic link in python package
-    # Link : https://discourse.nixos.org/t/what-package-provides-libstdc-so-6/18707
-    # This global env var interfere with some programs such as `ubuntu-drivers`
-    # LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/"; 
-    # LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [
-    #   stdenv.cc.cc
-    #   cudaPackages.cudatoolkit
-    #   cudaPackages.cudnn
-    # ];
-
-    # CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
-    # EXTRA_LDFLAGS = "-L${pkgs.cudaPackages.cudatoolkit}/lib";
-    # EXTRA_CCFLAGS = "-I${pkgs.cudaPackages.cudatoolkit}/include";
-    # CUDA_HOME = "${pkgs.cudaPackages.cudatoolkit}";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;  # Import external modules
-  imports = [ 
-    ./options.nix 
-  ];
+  # imports = [ 
+  #  ./options.nix 
+  # ];
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
-
-  # This option `"${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL"` needs to be built with home manager impure options
-  # nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
-  
-  nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
 }
