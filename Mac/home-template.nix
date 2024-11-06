@@ -205,6 +205,13 @@ in {
       initExtraFirst = ''
         alias gc='gcloud'
         export PATH=/usr/local/cuda/bin:$PATH
+
+        function pr() {
+          branch=$(git rev-parse --abbrev-ref HEAD)
+          if [ "$branch" != "main" ]; then
+            gh pr view "$branch" --web >/dev/null 2>&1 || gh pr create --web --base main >/dev/null 2>&1
+          fi
+        }
       '';
       initExtra = ''
         # Need to press esc to enter `zsh-vi-mode`
