@@ -146,6 +146,9 @@ in {
     terraform
     # SQL tools
     sqlite-interactive
+    # API development
+    postman
+    openapi-generator-cli
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -161,9 +164,9 @@ in {
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       history = {
-        ignoreDups = false;        # Corresponds to HIST_IGNORE_DUPS
-        ignoreAllDups = true;    # Corresponds to unsetopt HIST_IGNORE_ALL_DUPS
-        expireDuplicatesFirst = true;  # Corresponds to unsetopt HIST_EXPIRE_DUPS_FIRST
+        ignoreDups = false;      
+        ignoreAllDups = true;
+        expireDuplicatesFirst = true;
       };
       antidote = {
         enable = true;
