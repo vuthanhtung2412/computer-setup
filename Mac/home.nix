@@ -208,7 +208,18 @@ in {
 
         function pr() {
           branch=$(git rev-parse --abbrev-ref HEAD)
-          if [ "$branch" != "main" ]; then
+          
+          # Check if the branch is 'main'
+          if [ "$branch" = "main" ]; then
+            echo "You're on the 'main' branch. No pull request action will be taken."
+          else
+            # Check if the branch exists on the remote (origin)
+            if ! git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
+              echo "Branch '$branch' is not yet on origin. Pushing branch..."
+              git push -u origin "$branch"
+            fi
+            
+            # Try to view the PR, or create one if it doesn't exist
             gh pr view "$branch" --web >/dev/null 2>&1 || gh pr create --web --base main >/dev/null 2>&1
           fi
         }
