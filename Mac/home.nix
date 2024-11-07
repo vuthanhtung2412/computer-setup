@@ -223,6 +223,10 @@ in {
             gh pr view "$branch" --web >/dev/null 2>&1 || gh pr create --web --base main >/dev/null 2>&1
           fi
         }
+
+        # Make fzf Alt+c works in Mac
+        bindkey "ç" fzf-cd-widget
+
       '';
       initExtra = ''
         # Need to press esc to enter `zsh-vi-mode`
