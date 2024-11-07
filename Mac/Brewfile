@@ -6,4 +6,6 @@
 # home-manager
 # brew 
 # warp
-# openapi-generator
+# no special char when press option key
+# no action when press fn
+# only switch keyboard mode with ctrol+option+space
