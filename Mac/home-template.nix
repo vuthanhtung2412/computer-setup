@@ -476,14 +476,7 @@ in {
       enableBashIntegration = true;
       enableZshIntegration = true;
     };
-    wezterm = {
-      enable = true;
-      extraConfig = ''
-        return {
-          color_scheme = "Catppuccin Mocha",
-        }
-      '';
-    };
+    kitty.enable=true;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
