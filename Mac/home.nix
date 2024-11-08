@@ -149,6 +149,7 @@ in {
     # API development
     postman
     openapi-generator-cli
+    warp-terminal
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -474,6 +475,14 @@ in {
       enable = true;
       enableBashIntegration = true;
       enableZshIntegration = true;
+    };
+    wezterm = {
+      enable = true;
+      extraConfig = ''
+        return {
+          color_scheme = "Catppuccin Mocha",
+        }
+      '';
     };
   };
 
