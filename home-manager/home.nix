@@ -15,7 +15,7 @@ in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tung"; # TODO : to be replace by $USER
-  home.homeDirectory = "/Users/tung"; # TODO : to be replace by $HOME
+  home.homeDirectory = "/home/tung"; # TODO : to be replace by $HOME
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -142,49 +142,49 @@ in {
     # Prgramming languages 
     # The reason why python needs to bedeclared this way is similar to that of VSCode
     # Link : https://www.reddit.com/r/NixOS/comments/qx490o/install_a_python_package_on_nixos_but_it_is_not/
-    (python311.withPackages(p: with p; [
-      pip
-      #######################
-      # Jupyter Environment #
-      #######################
-      jupyterlab            # Modern interactive development environment for notebooks, code, and data
-      notebook              # Original web-based notebook interface
-      ipykernel             # IPython kernel for Jupyter
-      ipywidgets            # Interactive HTML widgets for Jupyter notebooks
+    # (python311.withPackages(p: with p; [
+    #  pip
+    #  #######################
+    #  # Jupyter Environment #
+    #  #######################
+    #  jupyterlab            # Modern interactive development environment for notebooks, code, and data
+    #  notebook              # Original web-based notebook interface
+    #  ipykernel             # IPython kernel for Jupyter
+    #  ipywidgets            # Interactive HTML widgets for Jupyter notebooks
 
-      ################################
-      # Core Data Processing & Analysis
-      ################################
-      numpy                 # Fundamental package for numerical computations, provides powerful N-dimensional array object
-      pandas                # Data manipulation and analysis library, provides DataFrame objects
+    #  ################################
+    #  # Core Data Processing & Analysis
+    #  ################################
+    #  numpy                 # Fundamental package for numerical computations, provides powerful N-dimensional array object
+    #  pandas                # Data manipulation and analysis library, provides DataFrame objects
 
-      ###########################
-      # Machine Learning and AI #
-      ###########################
-      torch-bin             # PyTorch: Deep learning framework with strong GPU acceleration
-      scikit-learn          # Traditional machine learning algorithms (classification, regression, clustering)
+    #  ###########################
+    #  # Machine Learning and AI #
+    #  ###########################
+    #  torch-bin             # PyTorch: Deep learning framework with strong GPU acceleration
+    #  scikit-learn          # Traditional machine learning algorithms (classification, regression, clustering)
 
-      ######################
-      # Data Visualization #
-      ######################
-      matplotlib            # Comprehensive library for creating static, animated, and interactive visualizations
+    #  ######################
+    #  # Data Visualization #
+    #  ######################
+    #  matplotlib            # Comprehensive library for creating static, animated, and interactive visualizations
 
-      #####################
-      # Development Tools #
-      #####################
-      pylint                # Static code analyzer and linter
-      # pytest                # Testing framework
-    ]))
-    jdk22
-    go
-    rustc
-    cargo
-    rustfmt 
-    clippy
-    gcc13
-    nodejs_22
+    #  #####################
+    #  # Development Tools #
+    #  #####################
+    #  pylint                # Static code analyzer and linter
+    #  # pytest                # Testing framework
+    #]))
+    # jdk22
+    # go
+    # rustc
+    # cargo
+    # rustfmt 
+    # clippy
+    # gcc13
+    # nodejs_22
     # Language tools 
-    maven
+    # maven
     # Container related 
     # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
     # Docker needed to be patched with apt or dnf
@@ -285,6 +285,7 @@ in {
       };
       initExtraFirst = ''
         alias gc='gcloud'
+        alias hms='home-manager switch --impure --show-trace --flake . -b backup'
         export PATH=/usr/local/cuda/bin:$PATH
       '';
       initExtra = ''
@@ -421,9 +422,8 @@ in {
         bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
       '';
     };
-    tmate = {
-      enable = true;
-    };
+    tmate.enable = true;
+    mise.enable = true;
 
     bat.enable = true;
 

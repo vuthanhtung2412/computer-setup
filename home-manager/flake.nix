@@ -15,7 +15,7 @@
   outputs = { nixpkgs, catppuccin, home-manager, nixgl, ... }:
   let
     pkgs = import nixpkgs {
-      system = "aarch64-darwin"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
+      system = "x86_64-linux"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
       overlays = [ nixgl.overlay ];
     };
   in {
