@@ -121,6 +121,7 @@ in {
     yq
     ffmpeg
     fd # this is added since many programs such as yazi, fzf and ulauncher depends on it to find files and dir
+    sqlfluff
     ripgrep
     thefuck
     tldr
