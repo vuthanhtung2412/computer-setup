@@ -116,6 +116,7 @@ in {
     # # "Hello, world!" when run.
     # pkgs.hello
     albert
+    blueman # linux bluetooth is pretty dogshit
     neofetch
     cowsay
     jq
@@ -285,7 +286,7 @@ in {
       };
       initExtraFirst = ''
         alias gc='gcloud'
-        alias hms='home-manager switch --impure --show-trace --flake . -b backup'
+        alias nv='nvim'
         export PATH=/usr/local/cuda/bin:$PATH
       '';
       initExtra = ''
@@ -510,15 +511,23 @@ in {
         endif
       '';
     };
-    wezterm = {
+    # wezterm = {
+    #   enable = true;
+    #   package = (nixGL pkgs.wezterm);
+    #   extraConfig = ''
+    #     return {
+    #       color_scheme = "Catppuccin Mocha",
+    #     }
+    #   '';
+    # };
+
+    # Kittt creator is not very nice but it doesn't send any telemetry 
+    # https://github.com/kovidgoyal/kitty/issues/3802
+    kitty = {
       enable = true;
-      package = (nixGL pkgs.wezterm);
-      extraConfig = ''
-        return {
-          color_scheme = "Catppuccin Mocha",
-        }
-      '';
+      package = (nixGL pkgs.kitty);
     };
+
     yazi = {
       enable = true;
     };
