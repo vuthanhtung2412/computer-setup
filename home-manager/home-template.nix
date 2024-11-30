@@ -141,22 +141,26 @@ in {
     nettools
     ibus-engines.bamboo 
     xournalpp # pdf annotate tools
-    # Programming languages
+    #########################
+    # Programming languages #
+    #########################
     # This contains only the most lightweight for global setup more specific 
-    python311
+    python311 # this is solely for albert plugins installation
     python311Packages.pip
-    jdk22
-    go
-    rustc
-    cargo
-    nodejs_22
+    # jdk22
+    # go
+    # rustc
+    # cargo
+    # nodejs_22
     # Programming languages tools (linter, LSP)
-    rustfmt
-    clippy
-    ruff
-    gopls
-    sqlfluff
-    # Container related 
+    # rustfmt
+    # clippy
+    # ruff
+    # gopls
+    # sqlfluff
+    #####################
+    # Container related # 
+    #####################
     # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
     # Docker needed to be patched with apt or dnf
     # TODO : Install Docker and microk8s and docker desktop via command line
@@ -392,6 +396,16 @@ in {
       # `mise implode` to purge every thing
       # `mise prune` to gc (state of every cofig file is kept in `~/.local/state/mise/tracked-configs` so it is good)
       enable = true;
+      globalConfig = {
+        tools = {
+          # I prefer all quick tests is organized in to a dir
+          # python = "3.12";
+          # java = "21";
+          # rust = "1.81";
+          # go = "1.22";
+          # node = "lts";
+        };
+      };
     };
 
     bat.enable = true;
