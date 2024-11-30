@@ -1,4 +1,5 @@
 # nixGL.nix
+# https://github.com/nix-community/nixGL/issues/114#issuecomment-1585323281
 # Call once on import to load global context
 { pkgs, config }:
 

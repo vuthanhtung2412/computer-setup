@@ -177,8 +177,7 @@ in {
     # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
     # zoom-us 
     # OBS studio 
-    # (nixGL obs-studio)
-    obs-studio
+    # (nixGL obs-studio) # 24.11 fucks up obs studio somehow
     # tailscale
     # TODO : need to be installed manually because tailscaled service is non existing
     # tailscale
