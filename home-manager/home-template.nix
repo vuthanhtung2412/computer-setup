@@ -167,6 +167,8 @@ in {
     # Zoom
     # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
     # zoom-us 
+    # Blender
+    (nixGL blender)
     # OBS studio 
     # (nixGL obs-studio) # 24.11 fucks up obs studio somehow
     # tailscale
@@ -657,5 +659,6 @@ in {
   # This option `"${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL"` needs to be built with home manager impure options
   # nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
   
-  nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
+  # nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
+  nixGLPrefix = "${pkgs.nixgl.auto.nixGLNvidia}/bin/nixGLNvidia-550.120"; # 550.120 is to be figured out manually when run `warp-terminal`
 }
