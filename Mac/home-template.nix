@@ -335,6 +335,7 @@ in {
       shell = "${pkgs.zsh}/bin/zsh";
       keyMode = "vi";
       extraConfig = ''   
+        # Disale option for character modifier : https://stackoverflow.com/questions/11876485/how-to-disable-generating-special-characters-when-pressing-the-alta-optiona
         # Correct color display (ex: Neovim catppuccin)
         set-option -sa terminal-overrides ",xterm*:Tc"
 

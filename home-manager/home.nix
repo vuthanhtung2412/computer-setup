@@ -140,52 +140,21 @@ in {
     nettools
     ibus-engines.bamboo 
     xournalpp # pdf annotate tools
-    # Prgramming languages 
-    # The reason why python needs to bedeclared this way is similar to that of VSCode
-    # Link : https://www.reddit.com/r/NixOS/comments/qx490o/install_a_python_package_on_nixos_but_it_is_not/
-    # (python311.withPackages(p: with p; [
-    #  pip
-    #  #######################
-    #  # Jupyter Environment #
-    #  #######################
-    #  jupyterlab            # Modern interactive development environment for notebooks, code, and data
-    #  notebook              # Original web-based notebook interface
-    #  ipykernel             # IPython kernel for Jupyter
-    #  ipywidgets            # Interactive HTML widgets for Jupyter notebooks
-
-    #  ################################
-    #  # Core Data Processing & Analysis
-    #  ################################
-    #  numpy                 # Fundamental package for numerical computations, provides powerful N-dimensional array object
-    #  pandas                # Data manipulation and analysis library, provides DataFrame objects
-
-    #  ###########################
-    #  # Machine Learning and AI #
-    #  ###########################
-    #  torch-bin             # PyTorch: Deep learning framework with strong GPU acceleration
-    #  scikit-learn          # Traditional machine learning algorithms (classification, regression, clustering)
-
-    #  ######################
-    #  # Data Visualization #
-    #  ######################
-    #  matplotlib            # Comprehensive library for creating static, animated, and interactive visualizations
-
-    #  #####################
-    #  # Development Tools #
-    #  #####################
-    #  pylint                # Static code analyzer and linter
-    #  # pytest                # Testing framework
-    #]))
-    # jdk22
-    # go
-    # rustc
-    # cargo
-    # rustfmt 
-    # clippy
-    # gcc13
-    # nodejs_22
-    # Language tools 
-    # maven
+    # Programming languages
+    # This contains only the most lightweight for global setup more specific 
+    python311
+    python311Packages.pip
+    jdk22
+    go
+    rustc
+    cargo
+    nodejs_22
+    # Programming languages tools (linter, LSP)
+    rustfmt
+    clippy
+    ruff
+    gopls
+    sqlfluff
     # Container related 
     # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
     # Docker needed to be patched with apt or dnf
@@ -216,11 +185,6 @@ in {
     sqlite-interactive
     # NOTICE : for postgres it is easier to spin up a docker container and turn it off 
     # postgresql_16_jit
-
-    # CUDA tool
-    # cudaPackages_12_1.cudatoolkit
-    # autoAddDriverRunpath
-    # linuxPackages.nvidia_x11
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -321,7 +285,6 @@ in {
         zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
         zstyle ':fzf-tab:*' use-fzf-default-opts yes
         zstyle ':fzf-tab:*' switch-group '<' '>'
-        zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
       '';
     };
 
@@ -424,7 +387,11 @@ in {
       '';
     };
     tmate.enable = true;
-    mise.enable = true;
+    mise = {
+      # `mise implode` to purge every thing
+      # `mise prune` to gc (state of every cofig file is kept in `~/.local/state/mise/tracked-configs` so it is good)
+      enable = true;
+    };
 
     bat.enable = true;
 
@@ -511,15 +478,6 @@ in {
         endif
       '';
     };
-    # wezterm = {
-    #   enable = true;
-    #   package = (nixGL pkgs.wezterm);
-    #   extraConfig = ''
-    #     return {
-    #       color_scheme = "Catppuccin Mocha",
-    #     }
-    #   '';
-    # };
 
     # Kittt creator is not very nice but it doesn't send any telemetry 
     # https://github.com/kovidgoyal/kitty/issues/3802
@@ -677,20 +635,6 @@ in {
   #
   home.sessionVariables = {
     EDITOR = "nvim";
-    # fix the problem of dynamic link in python package
-    # Link : https://discourse.nixos.org/t/what-package-provides-libstdc-so-6/18707
-    # This global env var interfere with some programs such as `ubuntu-drivers`
-    # LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib/"; 
-    # LD_LIBRARY_PATH = with pkgs; lib.makeLibraryPath [
-    #   stdenv.cc.cc
-    #   cudaPackages.cudatoolkit
-    #   cudaPackages.cudnn
-    # ];
-
-    # CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
-    # EXTRA_LDFLAGS = "-L${pkgs.cudaPackages.cudatoolkit}/lib";
-    # EXTRA_CCFLAGS = "-I${pkgs.cudaPackages.cudatoolkit}/include";
-    # CUDA_HOME = "${pkgs.cudaPackages.cudatoolkit}";
   };
 
   # Let Home Manager install and manage itself.
