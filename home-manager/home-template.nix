@@ -2,15 +2,6 @@
 
 let 
   nixGL = import ./nixGL.nix { inherit pkgs config; };
-  neovim-10 = pkgs.neovim-unwrapped.overrideAttrs (old: {
-    version = "0.10.2";
-    src = pkgs.fetchFromGitHub {
-      owner = "neovim";
-      repo = "neovim";
-      rev = "v0.10.2";  # or use a commit hash
-      sha256 = "+qjjelYMB3MyjaESfCaGoeBURUzSVh/50uxUqStxIfY="; # Leave empty first, Nix will tell you the correct hash
-    };
-  });
 in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -135,7 +126,7 @@ in {
     gh
     btop
     parallel
-    neovim-10 # not in programs because LazyVim is based -> config managed by home.file
+    neovim # not in programs because LazyVim is based -> config managed by home.file
     delta
     chezmoi
     nettools
@@ -158,7 +149,7 @@ in {
     # clippy
     # ruff
     # gopls
-    # sqlfluff
+    sqlfluff
     #####################
     # Container related # 
     #####################
@@ -257,6 +248,7 @@ in {
       initExtraFirst = ''
         alias gc='gcloud'
         alias nv='nvim'
+        alias lg='lazygit'
         export PATH=/usr/local/cuda/bin:$PATH
       '';
       initExtra = ''
