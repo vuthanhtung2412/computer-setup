@@ -145,8 +145,9 @@ in {
     # Programming languages #
     #########################
     # This contains only the most lightweight for global setup more specific 
-    python311 # this is solely for albert plugins installation
-    python311Packages.pip
+    (python311.withPackages (ps: with ps; [ # this is solely for albert plugins installation, and it also make sense since python is a scripting languages
+      pip
+    ])) 
     # jdk22
     # go
     # rustc
@@ -507,7 +508,7 @@ in {
     eza = {
       enable = true;
       git = true;
-      icons = true;
+      # icons = true;
     };
     zoxide = {
       enable = true;
