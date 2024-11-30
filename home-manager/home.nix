@@ -177,7 +177,8 @@ in {
     # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
     # zoom-us 
     # OBS studio 
-    (nixGL obs-studio)
+    # (nixGL obs-studio)
+    obs-studio
     # tailscale
     # TODO : need to be installed manually because tailscaled service is non existing
     # tailscale
@@ -508,7 +509,7 @@ in {
     eza = {
       enable = true;
       git = true;
-      # icons = true;
+      icons = "always";
     };
     zoxide = {
       enable = true;
