@@ -53,6 +53,8 @@ in {
       "git.confirmSync" = false;
       "git.suggestSmartCommit" = false;
       "workbench.colorTheme" = "Catppuccin Mocha";
+      "terminal.integrated.sendKeybindingsToShell" = true;
+      # "terminal.integrated.allowChords" = false;
     };
     extensions = with pkgs; [
       # Git
