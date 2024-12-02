@@ -276,6 +276,16 @@ in {
           rm -f -- "$tmp"
         }
 
+        detach() {
+          if [ -z "$1" ]; then
+            echo "Usage: detach <command> [arguments...]"
+            return 1
+          fi
+
+          nohup "$@" >/dev/null 2>&1 &
+          echo "Process detached with PID: $!"
+        }
+
         # recommended fzf tab config at : https://github.com/Aloxaf/fzf-tab?tab=readme-ov-file#Configure
         # disable sort when completing `git checkout`
         zstyle ':completion:*:git-checkout:*' sort false
