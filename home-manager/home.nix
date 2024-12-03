@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nixGL,... }:
 
-let 
-  nixGL = import ./nixGL.nix { inherit pkgs config; };
-in {
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "tung"; # TODO : to be replace by $USER
@@ -15,8 +13,10 @@ in {
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  nixGL.packages = nixGL.packages;
+  nixGL.defaultWrapper = "nvidia";
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -35,8 +35,7 @@ in {
       # Disable if you don't want unfree packages
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      allowUnfreePredicate = _: true;
-      # supportCuda = true;
+      allowUnfreePredicate = (pkg: true);
     };
   };
 
@@ -163,17 +162,16 @@ in {
     k9s
     kubernetes-helm
     # Warp terminal
-    (nixGL warp-terminal)
+    (config.lib.nixGL.wrap warp-terminal)
     # Obsidian
     obsidian
     # Zoom
     # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
     # zoom-us 
     # Blender
-    (nixGL blender)
+    (config.lib.nixGL.wrap blender)
     # OBS studio 
-    # (nixGL obs-studio) # 24.11 fucks up obs studio somehow
-    obs-studio # However this works need to be launch from a terminal with `nixGL obs`
+    (config.lib.nixGL.wrap obs-studio) 
     # tailscale
     # TODO : need to be installed manually because tailscaled service is non existing
     # tailscale
@@ -506,12 +504,10 @@ in {
     # https://github.com/kovidgoyal/kitty/issues/3802
     kitty = {
       enable = true;
-      package = (nixGL pkgs.kitty);
+      package = (config.lib.nixGL.wrap pkgs.kitty);
     };
 
-    yazi = {
-      enable = true;
-    };
+    yazi.enable = true;
     eza = {
       enable = true;
       git = true;
@@ -528,9 +524,9 @@ in {
       enableBashIntegration = true;
       enableZshIntegration = true;
     };
-    chromium = {
+    chromium={
       enable = true;
-      package = (nixGL pkgs.chromium);
+      package = (config.lib.nixGL.wrap pkgs.chromium);
     };
   };
 
@@ -668,10 +664,4 @@ in {
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
-
-  # This option `"${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL"` needs to be built with home manager impure options
-  # nixGLPrefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
-  
-  # nixGLPrefix = "${pkgs.nixgl.nixGLIntel}/bin/nixGLIntel";
-  nixGLPrefix = "${pkgs.nixgl.auto.nixGLNvidia}/bin/nixGLNvidia-550.120"; # 550.120 is to be figured out manually when run `warp-terminal`
 }

@@ -9,19 +9,25 @@
       url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl = { url = "github:nix-community/nixGL"; };
+    nixGL = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, catppuccin, home-manager, nixgl, ... }:
+  outputs = { nixpkgs, catppuccin, home-manager, nixGL, ... }:
   let
     pkgs = import nixpkgs {
       system = "<system>"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
-      overlays = [ nixgl.overlay ];
+      # overlays = [ nixGL.overlay ];
     };
   in {
     homeConfigurations."<user>" = home-manager.lib.homeManagerConfiguration { # TODO : <user> to be replace by $USER env var
       inherit pkgs;
-
+      
+      extraSpecialArgs = {
+          inherit nixGL;
+      };
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
       modules = [ 
