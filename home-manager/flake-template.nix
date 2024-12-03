@@ -11,23 +11,21 @@
     };
     nixGL = {
       url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = { nixpkgs, catppuccin, home-manager, nixGL, ... }:
   let
+    system = "<system>"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
     pkgs = import nixpkgs {
-      system = "<system>"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
-      # overlays = [ nixGL.overlay ];
+      inherit system;
+      config.allowUnfree = true;
     };
   in {
     homeConfigurations."<user>" = home-manager.lib.homeManagerConfiguration { # TODO : <user> to be replace by $USER env var
       inherit pkgs;
       
-      extraSpecialArgs = {
-          inherit nixGL;
-      };
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
       modules = [ 
@@ -36,6 +34,9 @@
       ];
 
       # Optionally use extraSpecialArgs
+      extraSpecialArgs = {
+        inherit nixGL;
+      };
       # to pass through arguments to home.nix
     };
   };
