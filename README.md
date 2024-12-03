@@ -117,6 +117,7 @@ There is some problem with this set up
 # Useful commands
 + Activate home manager `home-manager switch --flake ./home-manager` or `home-manager switch --impure --show-trace --flake . -b backup`
 + Update Fedora kernel `sudo dnf upgrade --refresh`
++ Update flake lock files `nix flake update`
 + Stop using home-manager completely by deleting ~/.nix-profile `rm -rf ~/.nix-profile`
 + Revert to previous version of home-manager [link](https://nix-community.github.io/home-manager/index.xhtml#sec-usage-rollbacks)
 + `du -sh /nix/store` check size of nix store
