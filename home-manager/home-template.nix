@@ -668,7 +668,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;  # Import external modules
   imports = [ 
-    ./options.nix 
   ];
 
   catppuccin.flavor = "mocha";
