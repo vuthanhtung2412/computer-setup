@@ -384,7 +384,17 @@ in {
       };
     };
 
-    mise.enable = true;
+    mise= {
+      enable = true;
+      globalConfig = {
+        tools = {
+          node = "lts";
+          rust = "1.82";
+          go = "1.22";
+          java = "21";
+        };
+      };
+    };
 
     fzf = {
       enable = true;

@@ -144,21 +144,12 @@
     #########################
     # Programming languages #
     #########################
-    # This contains only the most lightweight for global setup more specific 
+    # All programming languages should be taken care of by mise and specific package manager 
+    # While LSP and linter is taken care of by mason
     (python311.withPackages (ps: with ps; [ # this is solely for albert plugins installation, and it also make sense since python is a scripting languages
       pip
     ])) 
-    # jdk22
-    # go
-    # rustc
-    # cargo
-    # nodejs_22
-    # Programming languages tools (linter, LSP)
-    # rustfmt
-    # clippy
-    # ruff
-    # gopls
-    sqlfluff
+    nixfmt-rfc-style # not available in mason yet
     #####################
     # Container related # 
     #####################
@@ -412,12 +403,11 @@
       enable = true;
       globalConfig = {
         tools = {
-          # I prefer all quick tests is organized in to a dir
           # python = "3.12";
-          # java = "21";
-          # rust = "1.81";
-          # go = "1.22";
-          # node = "lts";
+          java = "21";
+          rust = "1.81";
+          go = "1.22";
+          node = "lts";
         };
       };
     };

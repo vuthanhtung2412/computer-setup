@@ -1,4 +1,9 @@
-{ config, pkgs, nixGL,... }:
+{
+  config,
+  pkgs,
+  nixGL,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -17,7 +22,7 @@
 
   nixGL.packages = nixGL.packages;
   # use this instead of "nvidia" because my nvidia GPU is a secondary GPU while the integrated Intel one in the primary
-  nixGL.defaultWrapper = "mesa"; 
+  nixGL.defaultWrapper = "mesa";
   nixGL.offloadWrapper = "nvidiaPrime";
   nixpkgs = {
     # You can add overlays here
@@ -40,7 +45,6 @@
       allowUnfreePredicate = (pkg: true);
     };
   };
-
 
   # VSCode
   programs.vscode = {
@@ -65,7 +69,7 @@
       # Collaborative coding
       vscode-extensions.ms-vsliveshare.vsliveshare
       vscode-extensions.ms-vscode-remote.remote-ssh
-      # Language support 
+      # Language support
       vscode-extensions.ms-vscode.cpptools-extension-pack
       vscode-extensions.vscjava.vscode-java-pack
       vscode-extensions.golang.go
@@ -97,8 +101,8 @@
       vscode-extensions.shd101wyy.markdown-preview-enhanced
       vscode-extensions.continue.continue
       vscode-extensions.tailscale.vscode-tailscale
-      # TODO : extensions for SQL tools are not available 
-      # I have tried the syntax below and failed, it doesn't work like python 
+      # TODO : extensions for SQL tools are not available
+      # I have tried the syntax below and failed, it doesn't work like python
       # qwtel.sqlite-viewer
     ];
   };
@@ -139,33 +143,27 @@
     delta
     chezmoi
     nettools
-    ibus-engines.bamboo 
+    ibus-engines.bamboo
     xournalpp # pdf annotate tools
     #########################
     # Programming languages #
     #########################
-    # This contains only the most lightweight for global setup more specific 
-    (python311.withPackages (ps: with ps; [ # this is solely for albert plugins installation, and it also make sense since python is a scripting languages
-      pip
-    ])) 
-    # jdk22
-    # go
-    # rustc
-    # cargo
-    # nodejs_22
-    # Programming languages tools (linter, LSP)
-    # rustfmt
-    # clippy
-    # ruff
-    # gopls
-    sqlfluff
+    # All programming languages should be taken care of by mise and specific package manager
+    # While LSP and linter is taken care of by mason
+    (python311.withPackages (
+      ps: with ps; [
+        # this is solely for albert plugins installation, and it also make sense since python is a scripting languages
+        pip
+      ]
+    ))
+    nixfmt-rfc-style # not available in mason yet
     #####################
-    # Container related # 
+    # Container related #
     #####################
     # Services problem with Nix (Non NixOS) https://discourse.nixos.org/t/how-to-run-docker-daemon-from-nix-not-nixos/43413
     # Docker needed to be patched with apt or dnf
     # TODO : Install Docker and microk8s and docker desktop via command line
-    kubectl 
+    kubectl
     kubectx
     k9s
     kubernetes-helm
@@ -178,28 +176,28 @@
     # (config.lib.nixGL.wrap zoom-us)
     # Blender
     (config.lib.nixGL.wrapOffload blender)
-    # OBS studio 
-    (config.lib.nixGL.wrapOffload obs-studio) 
+    # OBS studio
+    (config.lib.nixGL.wrapOffload obs-studio)
     # tailscale
     # TODO : need to be installed manually because tailscaled service is non existing
     # tailscale
     # tailscaled
-    # Cloud related tools 
+    # Cloud related tools
     awscli2
     azure-cli
     google-cloud-sdk-gce
     terraform
     # SQL tools
     sqlite-interactive
-    # NOTICE : for postgres it is easier to spin up a docker container and turn it off 
+    # NOTICE : for postgres it is easier to spin up a docker container and turn it off
     # postgresql_16_jit
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
-    # TODO : the code below is not workings. Tested with fc-list | grep FantasqueSansMono 
-    # (pkgs.nerdfonts.override { fonts = [ 
+    # TODO : the code below is not workings. Tested with fc-list | grep FantasqueSansMono
+    # (pkgs.nerdfonts.override { fonts = [
     #   "FantasqueSansMono"
     #   "JetBrainsMono"
     # ];})
@@ -212,15 +210,15 @@
     # '')
   ];
 
-  programs = {    
+  programs = {
     zsh = {
       enable = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       history = {
-        ignoreDups = false;        # Corresponds to HIST_IGNORE_DUPS
-        ignoreAllDups = true;    # Corresponds to unsetopt HIST_IGNORE_ALL_DUPS
-        expireDuplicatesFirst = true;  # Corresponds to unsetopt HIST_EXPIRE_DUPS_FIRST
+        ignoreDups = false; # Corresponds to HIST_IGNORE_DUPS
+        ignoreAllDups = true; # Corresponds to unsetopt HIST_IGNORE_ALL_DUPS
+        expireDuplicatesFirst = true; # Corresponds to unsetopt HIST_EXPIRE_DUPS_FIRST
       };
       antidote = {
         enable = true;
@@ -230,8 +228,8 @@
           "agkozak/zsh-z"
           "z-shell/zsh-eza"
           "MichaelAquilina/zsh-you-should-use"
-          "getantidote/use-omz"        
-          "ohmyzsh/ohmyzsh path:lib"   
+          "getantidote/use-omz"
+          "ohmyzsh/ohmyzsh path:lib"
           "ohmyzsh/ohmyzsh path:plugins/thefuck"
           "ohmyzsh/ohmyzsh path:plugins/zoxide"
           # Docker + k8s
@@ -373,7 +371,7 @@
       terminal = "tmux-256color";
       shell = "${pkgs.zsh}/bin/zsh";
       keyMode = "vi";
-      extraConfig = ''   
+      extraConfig = ''
         # Correct color display (ex: Neovim catppuccin)
         set-option -sa terminal-overrides ",xterm*:Tc"
 
@@ -412,12 +410,11 @@
       enable = true;
       globalConfig = {
         tools = {
-          # I prefer all quick tests is organized in to a dir
           # python = "3.12";
-          # java = "21";
-          # rust = "1.81";
-          # go = "1.22";
-          # node = "lts";
+          java = "21";
+          rust = "1.81";
+          go = "1.22";
+          node = "lts";
         };
       };
     };
@@ -445,7 +442,7 @@
     };
 
     oh-my-posh = {
-      # I like cattpucin theme better but it doesn't have transient prompt 
+      # I like cattpucin theme better but it doesn't have transient prompt
       # and squeeze command in the same line as context
       # TODO : Write a customize config to get rid of info already provided by tmux (host, user, dir, battery, time). Most important prompt is dev env info and exec time
       enable = true;
@@ -470,25 +467,25 @@
         " Some recommended additions:
         " Enable syntax highlighting
         syntax on
-        
+
         " Highlight current line
         set cursorline
-        
+
         " Enable mouse support
         set mouse=a
-        
+
         " Show command in bottom bar
         set showcmd
-        
+
         " Highlight matching brackets
         set showmatch
-        
+
         " Search as characters are entered
         set incsearch
-        
+
         " Highlight search matches
         set hlsearch
-        
+
         " Case insensitive search unless capital letter is used
         set ignorecase
         set smartcase
@@ -508,7 +505,7 @@
       '';
     };
 
-    # Kittt creator is not very nice but it doesn't send any telemetry 
+    # Kittt creator is not very nice but it doesn't send any telemetry
     # https://github.com/kovidgoyal/kitty/issues/3802
     kitty = {
       enable = true;
@@ -524,7 +521,7 @@
     zoxide = {
       enable = true;
       options = [
-        "--cmd cd"  # This replaces the default 'z' command with 'cd'
+        "--cmd cd" # This replaces the default 'z' command with 'cd'
       ];
     };
     direnv = {
@@ -547,7 +544,7 @@
       enable = true;
       settings = {
         # Ctrl plus/minus for 2 fingers pinch is not ideal
-        # Limitation of pinch to zoom in xserver : https://www.reddit.com/r/firefox/comments/wtdb7d/pinch_to_zoom_not_working_on_ubuntu/ 
+        # Limitation of pinch to zoom in xserver : https://www.reddit.com/r/firefox/comments/wtdb7d/pinch_to_zoom_not_working_on_ubuntu/
         # TODO : web browser zoom experience on x11 https://gitlab.freedesktop.org/xorg/xserver/-/merge_requests/530
         threshold = {
           swipe = 0.1;
@@ -559,7 +556,7 @@
         };
         swipe = {
           "3" = {
-            begin= {
+            begin = {
               command = "xdotool keydown Alt";
             };
             right = {
@@ -596,9 +593,10 @@
         pinch = {
           "2" = {
             # Use in conjunction with mouse-pinch-to-zoom
-            "in" = { # Zoom out
+            "in" = {
+              # Zoom out
               # command = "xdotool keydown ctrl key minus keyup ctrl";
-              # OR 
+              # OR
               command = "xdotool keydown ctrl click 5 keyup ctrl";
             };
             out = {
@@ -619,7 +617,7 @@
       };
     };
   };
-  # Window manager 
+  # Window manager
   xsession.windowManager.i3.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -666,9 +664,10 @@
   };
 
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;  # Import external modules
-  imports = [ 
-  ];
+  programs.home-manager.enable = true; # Import external modules
+  imports =
+    [
+    ];
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
