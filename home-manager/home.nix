@@ -16,7 +16,9 @@
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
   nixGL.packages = nixGL.packages;
-  nixGL.defaultWrapper = "nvidia";
+  # use this instead of "nvidia" because my nvidia GPU is a secondary GPU while the integrated Intel one in the primary
+  nixGL.defaultWrapper = "nvidiaPrime"; 
+  nixGL.installScripts = [ "nvidiaPrime"];
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -109,6 +111,12 @@
     # pkgs.hello
     albert
     blueman # linux bluetooth is pretty dogshit
+    # Chromium application can't find libGL
+    # https://github.com/NixOS/nixpkgs/issues/269104
+    # https://github.com/NixOS/nixpkgs/pull/269345
+    # TODO: enable GPU for chromium based browser
+    # (config.lib.nixGL.wrap brave)
+    brave
     neofetch
     cowsay
     jq
@@ -167,7 +175,7 @@
     obsidian
     # Zoom
     # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
-    # zoom-us 
+    # (config.lib.nixGL.wrap zoom-us)
     # Blender
     (config.lib.nixGL.wrap blender)
     # OBS studio 
@@ -524,10 +532,11 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
     };
-    chromium={
-      enable = true;
-      package = (config.lib.nixGL.wrap pkgs.chromium);
-    };
+    # chromium={
+    #   enable = true;
+    #   package = (config.lib.nixGL.wrap pkgs.chromium); # libGL problem with chromium-based browser
+    # };
+    chromium.enable = true;
   };
 
   # CopyQ
