@@ -17,8 +17,8 @@
 
   nixGL.packages = nixGL.packages;
   # use this instead of "nvidia" because my nvidia GPU is a secondary GPU while the integrated Intel one in the primary
-  nixGL.defaultWrapper = "nvidiaPrime"; 
-  nixGL.installScripts = [ "nvidiaPrime"];
+  nixGL.defaultWrapper = "mesa"; 
+  nixGL.offloadWrapper = "nvidiaPrime";
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -177,9 +177,9 @@
     # TODO : Zoom is not working when installed by Nix yet. https://github.com/NixOS/nixpkgs/issues/267663
     # (config.lib.nixGL.wrap zoom-us)
     # Blender
-    (config.lib.nixGL.wrap blender)
+    (config.lib.nixGL.wrapOffload blender)
     # OBS studio 
-    (config.lib.nixGL.wrap obs-studio) 
+    (config.lib.nixGL.wrapOffload obs-studio) 
     # tailscale
     # TODO : need to be installed manually because tailscaled service is non existing
     # tailscale
