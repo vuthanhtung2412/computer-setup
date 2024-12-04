@@ -410,7 +410,7 @@
       enable = true;
       globalConfig = {
         tools = {
-          # python = "3.12";
+          python = "3.12";
           java = "21";
           rust = "1.81";
           go = "1.22";
