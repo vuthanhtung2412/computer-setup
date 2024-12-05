@@ -132,7 +132,7 @@
     thefuck
     hurl
     tldr
-    z-lua
+    # z-lua # replaced by z from zsh
     xclip
     git
     git-lfs
@@ -505,7 +505,7 @@
       '';
     };
 
-    # Kittt creator is not very nice but it doesn't send any telemetry
+    # Kitty creator is not very nice but it doesn't send any telemetry
     # https://github.com/kovidgoyal/kitty/issues/3802
     kitty = {
       enable = true;
@@ -666,7 +666,7 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; # Import external modules
   imports = [
-    ../modules/hello.nix
+    ../modules/hello_world.nix
   ];
 
   catppuccin.flavor = "mocha";
