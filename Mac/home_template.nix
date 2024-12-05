@@ -408,7 +408,7 @@ in {
     oh-my-posh = {
       # I like cattpucin theme better but it doesn't have transient prompt 
       # and squeeze command in the same line as context
-      # TODO : Write a customize config to get rid of info already provided by tmux (host, user, dir, battery, time). Most important prompt is dev env info and exec time
+      # TODO: Write a customize config to get rid of info already provided by tmux (host, user, dir, battery, time). Most important prompt is dev env info and exec time
       enable = true;
       useTheme = "slim";
     };

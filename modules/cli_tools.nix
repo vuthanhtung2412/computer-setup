@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nixGL,
   ...
 }:
 {
@@ -68,7 +67,7 @@
       git = true;
       icons = "always";
     };
-    
+
     zoxide = {
       enable = true;
       options = [
@@ -81,11 +80,10 @@
       enableBashIntegration = true;
       enableZshIntegration = true;
     };
-
-    # chromium={
-    #   enable = true;
-    #   package = (config.lib.nixGL.wrap pkgs.chromium); # libGL problem with chromium-based browser
-    # };
-    chromium.enable = true;
+  };
+  services = {
+    # git-sync.enable = true;
+    # pbgopy.enable = true;
+    # syncthing.enable = true;
   };
 }

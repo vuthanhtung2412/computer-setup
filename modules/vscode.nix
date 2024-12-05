@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nixGL,
   ...
 }:
 
@@ -16,6 +15,7 @@
       "git.confirmSync" = false;
       "git.suggestSmartCommit" = false;
       "workbench.colorTheme" = "Catppuccin Mocha";
+      "editor.accessibilitySupport" = "off"; # mute sounds 
       "terminal.integrated.sendKeybindingsToShell" = true;
     };
     extensions = with pkgs; [
@@ -55,8 +55,10 @@
       vscode-extensions.usernamehw.errorlens
       vscode-extensions.pkief.material-icon-theme
       vscode-extensions.shd101wyy.markdown-preview-enhanced
-      vscode-extensions.continue.continue
       vscode-extensions.tailscale.vscode-tailscale
+      # vscode-extensions.continue.continue
+      vscode-extensions.github.copilot
+      vscode-extensions.github.copilot-chat
       # Unavailable extensions can be put in .vscode_rec_extensions/.vscode/extensions.json
     ];
   };

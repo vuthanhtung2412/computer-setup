@@ -19,7 +19,17 @@
     (config.lib.nixGL.wrapOffload blender)
     (config.lib.nixGL.wrapOffload obs-studio)
   ];
+  programs = {
+    # chromium={
+    #   enable = true;
+    #   package = (config.lib.nixGL.wrap pkgs.chromium); # libGL problem with chromium-based browser
+    # };
+    chromium.enable = true;
+  };
   services = {
+    # nextcloud-client.enable = true;
+    # polybar.enable = true;
+    # spotifyd.enable = true;
     copyq.enable = true; # it is a must for Albert clipboard extension
     # fusuma for touchpad gesture
     fusuma = {

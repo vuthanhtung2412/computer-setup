@@ -11,40 +11,37 @@
       catppuccin = {
         enable = true;
         extraConfig = ''
-          # This is because version of catppuccin tmux extensions of nix pkgs < v0.3.0
-          set -g @catppuccin_window_left_separator ""
-          set -g @catppuccin_window_right_separator " "
-          set -g @catppuccin_window_middle_separator " █"
-          set -g @catppuccin_window_number_position "right"
+          # You can check the version of catppuccin/tmux by lurking ~/.config/tmux/tmux.conf file
+          # The read README.md from nix derivation to set this up
+          set -g @catppuccin_window_status_style "rounded"
 
-          set -g @catppuccin_window_default_fill "number"
-          set -g @catppuccin_window_default_text "#W"
+          # stop nvim rename window status
+          set-option -g allow-rename off
 
-          set -g @catppuccin_window_current_fill "number"
-          set -g @catppuccin_window_current_text "#W"
+          # by default window text include shell name + file path
+          set -g @catppuccin_window_default_text "#{b:pane_current_path}"
+          set -g @catppuccin_window_current_text "#{b:pane_current_path}"
 
-          set -g @catppuccin_date_time_text "%H:%M"
-          set -g @catppuccin_status_modules_right "directory user host session date_time battery"
+          set -g status-left ""
+          set -g status-right ""
 
-          set -g @catppuccin_status_left_separator  " "
-          set -g @catppuccin_status_right_separator ""
-          set -g @catppuccin_status_fill "icon"
-          set -g @catppuccin_status_connect_separator "no"
-
-          set -g @catppuccin_directory_text "#{pane_current_path}"
+          # Not necessary since oh my posh and nvim status line got it all
+          # set -g status-right "#{E:@catppuccin_status_user}"
+          # set -ag status-right "#{E:@catppuccin_status_host}"
         '';
       };
       plugins = with pkgs.tmuxPlugins; [
         sensible
         vim-tmux-navigator
         yank
-        battery
       ];
       baseIndex = 1;
       terminal = "tmux-256color";
       shell = "${pkgs.zsh}/bin/zsh";
       keyMode = "vi";
       extraConfig = ''
+        # Inspire by : https://github.com/dreamsofcode-io/tmux/blob/main/tmux.conf
+
         # Correct color display (ex: Neovim catppuccin)
         set-option -sa terminal-overrides ",xterm*:Tc"
 
