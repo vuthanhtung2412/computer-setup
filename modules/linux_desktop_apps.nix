@@ -27,6 +27,7 @@
     chromium.enable = true;
   };
   services = {
+    # TODO:
     # nextcloud-client.enable = true;
     # polybar.enable = true;
     # spotifyd.enable = true;

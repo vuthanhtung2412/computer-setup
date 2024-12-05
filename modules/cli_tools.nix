@@ -82,6 +82,7 @@
     };
   };
   services = {
+    # TODO:
     # git-sync.enable = true;
     # pbgopy.enable = true;
     # syncthing.enable = true;
