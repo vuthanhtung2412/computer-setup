@@ -1,5 +1,4 @@
 docker
-zoom 
 tailscale
 JetBrainsMono
 home-manager
