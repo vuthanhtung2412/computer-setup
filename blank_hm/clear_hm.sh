@@ -33,8 +33,8 @@ while IFS= read -r file; do
   if [ -f "$backup_file" ]; then
     # Restore the file from backup
     cp "$backup_file" "$file"
-    echo -e "${GREEN}Restored: $file from $backup_file${NC}"
+    echo -e "${GREEN}✓ Restored: $file from $backup_file${NC}"
   else
-    echo -e "${RED}Backup not found for: $file${NC}"
+    echo -e "${RED}✗ Backup not found for: $file${NC}"
   fi
 done <"$file_list"
