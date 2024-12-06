@@ -9,7 +9,7 @@ cd "$parent_path"
 
 ./make_hm.sh
 export NIXPKGS_ALLOW_UNFREE=1
-home-manager switch --impure --show-trace --flake . -b backup | tee hms.log
+home-manager switch --impure --show-trace --flake . -b bak | tee hms.log
 
 # Track backed up files 
 cat hms.log | grep -o "Existing file '[^']*'" | cut -d"'" -f2 >> ../../backed_up_files.txt
