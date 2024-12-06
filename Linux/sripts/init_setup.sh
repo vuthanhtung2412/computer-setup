@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Update and upgrade the system
 sudo apt update && sudo apt upgrade -y# update and upgrade apt
 
@@ -88,4 +90,3 @@ sudo usermod -aG input $(whoami)
 sudo ubuntu-drivers install nvidia:550
 
 # Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa
-
