@@ -12,15 +12,9 @@ source ~/.bashrc
 exec bash
 
 # Install home manager
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.05.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
 nix-channel --update
 nix-shell '<home-manager>' -A install
-
-# create generate flake.nix file
-. create_flake.sh
-
-# Installation with home manager
-home-manager switch --impure --flake .
 
 # Install nerd font
 echo "[-] Download fonts [-]"
@@ -29,16 +23,6 @@ wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrains
 unzip JetBrainsMono.zip -d ~/.fonts
 fc-cache -fv
 echo "done!"
-
-# Set up nerdfont for terminal and vscode
-# "terminal.integrated.fontFamily": "'JetBrainsMono Nerd Font'"
-
-# Install Brave
-sudo apt install curl
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install brave-browser
 
 # kickstart neovim
 git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
@@ -90,3 +74,11 @@ sudo usermod -aG input $(whoami)
 sudo ubuntu-drivers install nvidia:550
 
 # Use xorg instead of wayland by default : https://askubuntu.com/questions/1434298/set-ubuntu-on-xorg-by-default-globally-but-without-preventing-the-choice-of-wa
+
+# set up ibus bamboo for vietnamese typing
+sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
+sudo apt-get update
+sudo apt-get install ibus ibus-bamboo --install-recommends
+ibus restart
+# Đặt ibus-bamboo làm bộ gõ mặc định
+env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']" && gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"

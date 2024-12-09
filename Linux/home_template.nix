@@ -70,7 +70,7 @@
     # Adds the 'hello' command to your environment. It prints a friendly
     # "Hello, world!" when run.
     # hello
-    
+
     # It is sometimes useful to fine-tune packages, for example, by applying
     # overrides. You can do that directly here, just don't forget the
     # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -104,11 +104,20 @@
     # };
   };
 
-  # for more `services` and `programs` options checkout 
+  # for more `services` and `programs` options checkout
   # https://nix-community.github.io/home-manager/options.xhtml
 
   # Window manager
   xsession.windowManager.i3.enable = true;
+
+  # vietnamese keyboard
+  # TODO:
+  # i18n.inputMethod = {
+  #   enabled = "ibus";
+  #   ibus.engines = with pkgs.ibus-engines; [
+  #     bamboo
+  #   ];
+  # };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
