@@ -12,22 +12,22 @@
         enable = true;
         extraConfig = ''
           # You can check the version of catppuccin/tmux by lurking ~/.config/tmux/tmux.conf file
-          # The read README.md from nix derivation to set this up
+          # All options can be found at tmux/docs/reference/configuration.md
+          
+          set -g @catppuccin_flavor 'mocha'
           set -g @catppuccin_window_status_style "rounded"
 
-          # stop nvim rename window status
-          set-option -g allow-rename off
+          # window default format
+          set -g @catppuccin_window_text ' #[fg=green]#{pane_current_command} #[fg=blue]#(echo "#{pane_current_path}" | sed "s|$HOME|~|" | rev | cut -d'/' -f-1 | rev) #[fg=white]'
 
-          # by default window text include shell name + file path
-          set -g @catppuccin_window_default_text "#{b:pane_current_path}"
-          set -g @catppuccin_window_current_text "#{b:pane_current_path}"
+          # window current format
+          set -g @catppuccin_window_current_text ' #[fg=green]#{pane_current_command} #[fg=blue]#(echo "#{pane_current_path}" | sed "s|$HOME|~|" | rev | cut -d'/' -f-3 | rev) #[fg=white]'
 
+          set -g @catppuccin_window_number_color "#{@thm_blue}"
+          set -g @catppuccin_window_current_number_color "#{@thm_peach}"
+          
           set -g status-left ""
           set -g status-right ""
-
-          # Not necessary since oh my posh and nvim status line got it all
-          # set -g status-right "#{E:@catppuccin_status_user}"
-          # set -ag status-right "#{E:@catppuccin_status_host}"
         '';
       };
       plugins = with pkgs.tmuxPlugins; [
