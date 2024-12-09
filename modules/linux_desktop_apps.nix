@@ -7,9 +7,12 @@
   home.packages = with pkgs; [
     albert
     blueman
-    # Chromium application can't find libGL
+    # Multiple error
+    # Nvidia : Chromium application can't find libGL
+    # Mesa : Gtk-Message: 11:11:28.256: Failed to load module "canberra-gtk-module"
     # https://github.com/NixOS/nixpkgs/issues/269104
     # https://github.com/NixOS/nixpkgs/pull/269345
+    # https://github.com/NixOS/nixpkgs/issues/244742
     # TODO: enable GPU for chromium based browser
     # (config.lib.nixGL.wrap brave)
     brave
