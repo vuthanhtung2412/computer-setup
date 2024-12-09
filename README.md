@@ -141,6 +141,7 @@ There is some problem with this set up
 + TODO: long term solution for backup files
 + `zsh vi mode` is not necessary on second thoughts and it messes up keybindings of `fzf`. one quick way to fix [link](https://stackoverflow.com/questions/73033698/fzf-keybindings-doesnt-work-with-zsh-vi-mode)
 + Open source project idea (search image with ocr as you type in linux)
++ `nix-shell -p nix-info --run "nix-info -m"` check system info with nixd
 + nixgl set up with home manager [link](https://github.com/nix-community/nixgl/issues/114#issuecomment-1585323281)
 + Comparing terminal diff tools (delta vs difftastic vs diff-so-fancy)
   + diff-so-fancy is not as well maintained as the two other tools

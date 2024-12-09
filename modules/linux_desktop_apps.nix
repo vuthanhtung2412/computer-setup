@@ -7,27 +7,28 @@
   home.packages = with pkgs; [
     albert
     blueman
+    (config.lib.nixGL.wrap _1password-gui)
     # Multiple error
     # Nvidia : Chromium application can't find libGL
-    # Mesa : Gtk-Message: 11:11:28.256: Failed to load module "canberra-gtk-module"
-    # https://github.com/NixOS/nixpkgs/issues/269104
+    # Different issue from the one below 
+    # ERR: Display.cpp:1066 (initialize): ANGLE Display::initialize error 12289: Could not dlopen native EGL: libEGL.so.1: cannot open shared object file: No such file or directory
+    # ERR: Display.cpp:1062 (initialize): ANGLE Display::initialize error 12289: Invalid visual ID requested.
+    # https://github.com/NixOS/nixpkgs/issues/269104 
     # https://github.com/NixOS/nixpkgs/pull/269345
     # https://github.com/NixOS/nixpkgs/issues/244742
-    # TODO: enable GPU for chromium based browser
-    # (config.lib.nixGL.wrap brave)
-    brave
-    ibus-engines.bamboo
-    xournalpp
-    obsidian
+    # Mesa : Gtk-Message: 11:11:28.256: Failed to load module "canberra-gtk-module"
+    # TODO: enable Nvidia GPU for chromium based browser
+    (config.lib.nixGL.wrap brave)
+    (config.lib.nixGL.wrap xournalpp)
+    (config.lib.nixGL.wrap obsidian)
     (config.lib.nixGL.wrapOffload blender)
     (config.lib.nixGL.wrapOffload obs-studio)
   ];
   programs = {
-    # chromium={
-    #   enable = true;
-    #   package = (config.lib.nixGL.wrap pkgs.chromium); # libGL problem with chromium-based browser
-    # };
-    chromium.enable = true;
+    chromium={
+      enable = true;
+      package = (config.lib.nixGL.wrapOffload pkgs.chromium); # libGL problem with chromium-based browser
+    };
   };
   services = {
     # TODO:
