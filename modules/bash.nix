@@ -15,7 +15,6 @@
     historySize = 1000;
     bashrcExtra = ''
       alias gc='gcloud'
-      export PATH=/usr/local/cuda/bin:$PATH
 
       # Initialize yazi like documentation : https://yazi-rs.github.io/docs/quick-start#shell-wrapper
       # programs.yazi.ZshIntegration is not working correctly since i bind `cd` to `zoxide`

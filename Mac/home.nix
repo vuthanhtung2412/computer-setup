@@ -44,7 +44,6 @@ in {
       allowUnfree = true;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
-      # supportCuda = true;
     };
   };
 
@@ -211,7 +210,6 @@ in {
         # Make fzf Alt+c works in Mac
         bindkey "ç" fzf-cd-widget
 
-        export PATH=/usr/local/cuda/bin:$PATH
       '';
       initExtra = ''
         # Need to press esc to enter `zsh-vi-mode`
@@ -261,7 +259,6 @@ in {
       historySize = 1000;
       bashrcExtra = ''
         alias gc='gcloud'
-        export PATH=/usr/local/cuda/bin:$PATH
 
         # Initialize yazi like documentation : https://yazi-rs.github.io/docs/quick-start#shell-wrapper
         # programs.yazi.ZshIntegration is not working correctly since i bind `cd` to `zoxide`

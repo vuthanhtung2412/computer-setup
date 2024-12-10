@@ -50,6 +50,8 @@
     initExtraFirst = ''
       alias gc='gcloud'
       alias nv='nvim'
+      alias xc='xclip -selection clipboard' # copy command output to clipboard
+      alias xp='xclip -selection clipboard -o' # paste from clipboard
       # https://github.com/jesseduffield/lazygit?tab=readme-ov-file#changing-directory-on-exit
       lg() {
         export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
@@ -59,7 +61,6 @@
           rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
         fi
       }
-      export PATH=/usr/local/cuda/bin:$PATH
     '';
     initExtra = ''
       # Need to press esc to enter `zsh-vi-mode`
