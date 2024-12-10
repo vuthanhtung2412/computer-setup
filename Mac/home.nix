@@ -212,24 +212,6 @@ in {
         bindkey "ç" fzf-cd-widget
 
         export PATH=/usr/local/cuda/bin:$PATH
-
-        function pr() {
-          branch=$(git rev-parse --abbrev-ref HEAD)
-          
-          # Check if the branch is 'main'
-          if [ "$branch" = "main" ]; then
-            echo "You're on the 'main' branch. No pull request action will be taken."
-          else
-            # Check if the branch exists on the remote (origin)
-            if ! git ls-remote --exit-code --heads origin "$branch" > /dev/null; then
-              echo "Branch '$branch' is not yet on origin. Pushing branch..."
-              git push -u origin "$branch"
-            fi
-            
-            # Try to view the PR, or create one if it doesn't exist
-            gh pr view "$branch" --web >/dev/null 2>&1 || gh pr create --web --base main >/dev/null 2>&1
-          fi
-        }
       '';
       initExtra = ''
         # Need to press esc to enter `zsh-vi-mode`
@@ -335,6 +317,7 @@ in {
       shell = "${pkgs.zsh}/bin/zsh";
       keyMode = "vi";
       extraConfig = ''   
+        # Disale option for character modifier : https://stackoverflow.com/questions/11876485/how-to-disable-generating-special-characters-when-pressing-the-alta-optiona
         # Correct color display (ex: Neovim catppuccin)
         set-option -sa terminal-overrides ",xterm*:Tc"
 
@@ -383,7 +366,17 @@ in {
       };
     };
 
-    mise.enable = true;
+    mise= {
+      enable = true;
+      globalConfig = {
+        tools = {
+          node = "lts";
+          rust = "1.82";
+          go = "1.22";
+          java = "21";
+        };
+      };
+    };
 
     fzf = {
       enable = true;
@@ -397,7 +390,7 @@ in {
     oh-my-posh = {
       # I like cattpucin theme better but it doesn't have transient prompt 
       # and squeeze command in the same line as context
-      # TODO : Write a customize config to get rid of info already provided by tmux (host, user, dir, battery, time). Most important prompt is dev env info and exec time
+      # TODO: Write a customize config to get rid of info already provided by tmux (host, user, dir, battery, time). Most important prompt is dev env info and exec time
       enable = true;
       useTheme = "slim";
     };
