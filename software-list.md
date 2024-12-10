@@ -1,4 +1,5 @@
 ### Visual Studio Code (VSCode) Extensions and Tools
+
 - **Version Control and Collaboration**
   - GitHub PR
   - GitLens
@@ -18,10 +19,10 @@
     - Jupyter
     - Python
     - Python Environment Manager
-    - autoDocstring 
+    - autoDocstring
     - Intellicode (already in java extension pack, this intellicode support java, python, ts and js)
     - Rust-analyzer
-    - Nix IDE 
+    - Nix IDE
     - code runner
   - Formatting
     - Prettier
@@ -29,7 +30,7 @@
 
 - **Other Tools**
   - Docker
-  - Helm 
+  - Helm
   - K8s
   - Theme: Catpuccin Frappe
   - Vim
@@ -43,12 +44,14 @@
   - Continue with Codestral
 
 ### ZSH Configuration and Plugins
+
 - Oh my ZSH
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [Transient Prompt](https://www.zsh.org/mla/users/2019/msg00633.html) (In the case starship is used)
 
 ### Terminal Tools
+
 - jq
 - yq
 - ffmpeg
@@ -72,19 +75,24 @@
 - neovim
 - chezmoi
 - Albert
+
 #### Installed with nix programs.<app>.enable
+
 - [fzf](https://github.com/junegunn/fzf)
 - oh-my-posh (over starship because it more aesthetic and have transient prompt [link](https://ohmyposh.net/oh-my-posh-vs-starship/))
 - wezterm
 - yazi
+
 #### home manager services
+
 - CopyQ
 
 ### Languages and Tools
+
 - Python
   - Jupyter lab
   - Jypyter notebook
-- Java 
+- Java
   - maven
 - C/C++
 - Node
@@ -92,6 +100,7 @@
 - Rust
 
 ### Additional Tools and Extensions
+
 - Warp
 - Obsidian
   - Calidraw
@@ -103,25 +112,28 @@
   - [obsidian-export](https://github.com/zoni/obsidian-export)
 
 ### Browsers and Browser Tools
-- Chromium 
+
+- Chromium
 - Brave (installed manually)
 
 ### NeoVim Configuration (Kickstart.nvim is more than enough)
 
 ### Window Management
-- I3 (Linux)
+
 - Rectangle (Mac)
 
 ### Docker and Kubernetes
+
 - Docker
 - Kubernetes (K8s)
 - Helm
 - k9s
 
-### List of shortcut 
-+ Copy : Cmd + C (This must be configure with gnome tweaks)
-+ Paste : Cmd + V
-+ Cut : Cmd + X
-+ Save : Cmd + S
-+ Toggle clipboard : Ctrl + Option + C
-+ Screen capture : Cmd + Shift + 4
+### List of shortcut
+- Copy : Cmd + C (This must be configure with gnome tweaks)
+- Paste : Cmd + V
+- Cut : Cmd + X
+- Save : Cmd + S
+- Toggle clipboard : Ctrl + Option + C
+- Screen capture : Cmd + Shift + 4
+

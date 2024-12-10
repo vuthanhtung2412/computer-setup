@@ -107,9 +107,10 @@
   # for more `services` and `programs` options checkout
   # https://nix-community.github.io/home-manager/options.xhtml
 
-  # Window manager
-  xsession.windowManager.i3.enable = true;
-
+  # i3 is not needed, set linux custom shortcut is good enough
+  # Super + Q to close current active window 
+  # Alt + 1/2/3/4 to switch to corresponding desktop
+  
   # vietnamese keyboard
   # TODO:
   # i18n.inputMethod = {

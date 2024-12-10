@@ -62,8 +62,6 @@ apps=(
   # Services
   "copyq"
 
-  # Window Manager
-  "i3"
 )
 
 # Colors for output
