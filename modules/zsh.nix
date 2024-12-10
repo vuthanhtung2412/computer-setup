@@ -52,6 +52,11 @@
       alias nv='nvim'
       alias xc='xclip -selection clipboard' # copy command output to clipboard
       alias xp='xclip -selection clipboard -o' # paste from clipboard
+
+      smr() {
+        mv "$1" ~/.local/share/Trash/files/
+      }
+
       # https://github.com/jesseduffield/lazygit?tab=readme-ov-file#changing-directory-on-exit
       lg() {
         export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
