@@ -24,9 +24,6 @@ unzip JetBrainsMono.zip -d ~/.fonts
 fc-cache -fv
 echo "done!"
 
-# kickstart neovim
-git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
-
 # Docker
 # Add Docker's official GPG key:
 sudo apt-get update
@@ -82,3 +79,10 @@ sudo apt-get install ibus ibus-bamboo --install-recommends
 ibus restart
 # Đặt ibus-bamboo làm bộ gõ mặc định
 env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['BambooUs', 'Bamboo']" && gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Bamboo')]"
+
+# Install Brave browser
+sudo apt install curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+sudo apt update
+sudo apt install brave-browser

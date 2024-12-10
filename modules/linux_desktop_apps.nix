@@ -10,22 +10,25 @@
     (config.lib.nixGL.wrap _1password-gui)
     # Multiple error
     # Nvidia : Chromium application can't find libGL
-    # Different issue from the one below 
+    # Different issue from the one below
     # ERR: Display.cpp:1066 (initialize): ANGLE Display::initialize error 12289: Could not dlopen native EGL: libEGL.so.1: cannot open shared object file: No such file or directory
     # ERR: Display.cpp:1062 (initialize): ANGLE Display::initialize error 12289: Invalid visual ID requested.
-    # https://github.com/NixOS/nixpkgs/issues/269104 
+    # https://github.com/NixOS/nixpkgs/issues/269104
     # https://github.com/NixOS/nixpkgs/pull/269345
     # https://github.com/NixOS/nixpkgs/issues/244742
     # Mesa : Gtk-Message: 11:11:28.256: Failed to load module "canberra-gtk-module"
     # TODO: enable Nvidia GPU for chromium based browser
-    (config.lib.nixGL.wrap brave)
+    # Brave will be installed externally since I use a lot of vietnamese typing and ibus bamboo is not supported by home-manager yet
+    # (config.lib.nixGL.wrap brave)
     (config.lib.nixGL.wrap xournalpp)
     (config.lib.nixGL.wrap obsidian)
     (config.lib.nixGL.wrapOffload blender)
     (config.lib.nixGL.wrapOffload obs-studio)
   ];
   programs = {
-    chromium={
+    # Vulkan is a must for chromium-based app offloading
+    # https://forums.developer.nvidia.com/t/offloading-chrome/242735
+    chromium = {
       enable = true;
       package = (config.lib.nixGL.wrapOffload pkgs.chromium); # libGL problem with chromium-based browser
     };
