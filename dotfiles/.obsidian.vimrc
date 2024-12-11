@@ -18,8 +18,10 @@ nnoremap X "_X
 nnoremap d "_d
 vnoremap d "_d
 nnoremap D "_D
+vnoremap D "_D
 nnoremap c "_c
 vnoremap c "_c
+nnoremap C "_C
 nnoremap C "_C
 nnoremap r "_r
 
@@ -51,8 +53,8 @@ nmap <C-i> :forward<CR>
 " To be continued : 
 " Extend with obscommand, cmcommand, jscommand and jsfile
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " action + i/a + g : on the whole file 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO: This is not working (perhaps it is not working with Code Mirror vim) "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nmap dig GVggd

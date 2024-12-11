@@ -8,14 +8,60 @@
     vim = {
       enable = true;
       extraConfig = ''
-        " Enable system clipboard integration
+        " frequently used action : c/r/y/d
+        " UPPERCASE ACTION : till the end of the line
+        " C/D already works fine
+        noremap Y y$
+
+        " jj to escape insert mode
+        inoremap jj <Esc>
+
+        " send to clipboard
         set clipboard=unnamedplus
 
-        " Character deletion won't send to clipboard
+        " x send to register only in visual mode
         nnoremap x "_x
-        vnoremap x "_x
         nnoremap X "_X
-        vnoremap X "_X
+
+        " y always send to register
+        " d/c/r/D/C shouldn't send to clipboard/register
+        nnoremap d "_d
+        vnoremap d "_d
+        nnoremap D "_D
+        vnoremap D "_D
+        nnoremap c "_c
+        vnoremap c "_c
+        nnoremap C "_C
+        vnoremap C "_C
+        nnoremap r "_r
+
+        " k/j : up/down visually instead of logically
+        nmap j gj
+        vmap j gj
+        nmap k gk
+        vmap k gk
+
+        " tab equal to 2 spaces
+        set tabstop=2
+
+        " action + i/a + '/"/`/{/[/< : on the surrounded block
+        " Already works !
+
+        " action + i/a + p : on the current paragraph
+        " Already works !
+
+        " action + i/a + s : on the current sentence (surrounded by dots)
+        " Already works !
+
+        " action + i/a + g : on the whole file 
+        nmap dig GVggd
+        nmap dag GVggd
+        nmap yig :%y<CR>
+        nmap yag :%y<CR>
+        nmap cig GVggc
+        nmap cag GVggc
+        nmap vig G$vgg
+        nmap Vig GVgg
 
         " Line numbers configuration
         set number          " Show current line number
@@ -46,9 +92,6 @@
         " Case insensitive search unless capital letter is used
         set ignorecase
         set smartcase
-
-        " Map jj to Escape in insert mode
-        inoremap jj <Esc>
 
         " vim diff is not readable in wezterm
         " link : https://stackoverflow.com/questions/2019281/load-different-colorscheme-when-using-vimdiff
