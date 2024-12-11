@@ -35,12 +35,6 @@
         vnoremap C "_C
         nnoremap r "_r
 
-        " k/j : up/down visually instead of logically
-        nmap j gj
-        vmap j gj
-        nmap k gk
-        vmap k gk
-
         " tab equal to 2 spaces
         set tabstop=2
 
