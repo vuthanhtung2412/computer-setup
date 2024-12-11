@@ -30,7 +30,10 @@
           "foreground": "#b4befe",
           "template": " in {{ .Path }}",
           "properties": {
-            "style": "mixed"
+            "folder_icon": "\ue5fe",
+            "home_icon": "\uf015",
+            "max_depth": 2,
+            "style": "agnoster_short"
           }
         },
         {
@@ -60,6 +63,16 @@
         {
           "type": "git",
           "style": "plain",
+          "foreground_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#fab387{{ end }}",
+            "{{ if gt .Ahead 0 }}#2EC4B6{{ end }}",
+            "{{ if gt .Behind 0 }}#cba6f7{{ end }}"
+          ],
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true
+          },
           "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#f38ba8>\uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#a6e3a1>\uf046 {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} <#f9e2af>\ueb4b {{ .StashCount }}</>{{ end }} ",
           "foreground": "#94e2d5"
         },
