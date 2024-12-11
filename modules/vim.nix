@@ -14,6 +14,8 @@
         noremap Y y$
 
         " jj to escape insert mode
+        " ;; is also a good escape because of rare occurence 
+        " but i don't like it because it hurt my pinky
         inoremap jj <Esc>
 
         " send to clipboard
@@ -34,6 +36,12 @@
         nnoremap C "_C
         vnoremap C "_C
         nnoremap r "_r
+
+        " j/k nav by visual line not vertical line 
+        noremap j gj
+        noremap k gk
+        noremap J j
+        noremap K k
 
         " tab equal to 2 spaces
         set tabstop=2

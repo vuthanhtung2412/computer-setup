@@ -25,6 +25,12 @@ nnoremap C "_C
 nnoremap C "_C
 nnoremap r "_r
 
+" j/k nav by visual line not vertical line 
+noremap j gj
+noremap k gk
+noremap J j
+noremap K k
+
 " tab equal to 2 spaces
 set tabstop=2
 
@@ -44,15 +50,31 @@ nmap <C-o> :back<CR>
 exmap forward obcommand app:go-forward
 nmap <C-i> :forward<CR>
 
-" To be continued : 
-" Extend with obscommand, cmcommand, jscommand and jsfile
+" Emulate Folding https://vimhelp.org/fold.txt.html#fold-commands
+exmap togglefold obcommand editor:toggle-fold
+nmap zo :togglefold<CR>
+nmap zc :togglefold<CR>
+nmap za :togglefold<CR>
 
+exmap unfoldall obcommand editor:unfold-all
+nmap zR :unfoldall<CR>
+
+exmap foldall obcommand editor:fold-all
+nmap zM :foldall<CR>
+
+exmap tabnext obcommand workspace:next-tab
+nmap gt :tabnext<CR>
+exmap tabprev obcommand workspace:previous-tab
+nmap gT :tabprev<CR>
+
+" TO BE CONTINUED:
 " action + i/a + g : on the whole file 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO: This is not working (perhaps it is not working with Code Mirror vim) "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nmap dig GVggd
 " nmap dag GVggd
+" :%y<CR> : yank the curr line instead of whole file idk tf why
 " nmap yig :%y<CR>
 " nmap yag :%y<CR>
 " nmap cig GVggc
