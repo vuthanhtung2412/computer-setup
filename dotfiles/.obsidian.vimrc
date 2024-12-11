@@ -41,8 +41,18 @@ set tabstop=2
 " action + i/a + s : on the current sentence (surrounded by dots)
 " Already works !
 
-" action + i/a + g : on the whole file 
+" Go back and forward with Ctrl+O and Ctrl+I
+" (make sure to remove default Obsidian shortcuts for these to work)
+exmap back obcommand app:go-back
+nmap <C-o> :back<CR>
+exmap forward obcommand app:go-forward
+nmap <C-i> :forward<CR>
+
+" To be continued : 
+" Extend with obscommand, cmcommand, jscommand and jsfile
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" action + i/a + g : on the whole file 
 " TODO: This is not working (perhaps it is not working with Code Mirror vim) "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nmap dig GVggd
@@ -54,14 +64,6 @@ set tabstop=2
 " nmap vig G$vgg
 " nmap Vig GVgg
 
-" Go back and forward with Ctrl+O and Ctrl+I
-" (make sure to remove default Obsidian shortcuts for these to work)
-exmap back obcommand app:go-back
-nmap <C-o> :back<CR>
-exmap forward obcommand app:go-forward
-nmap <C-i> :forward<CR>
-
-" To be continued : 
-" Extend with obscommand, cmcommand, jscommand and jsfile
 " action + i/a + i : on the same identation
 " leap.nvim like
+
