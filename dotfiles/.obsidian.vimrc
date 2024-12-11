@@ -63,3 +63,4 @@ nmap <C-i> :forward<CR>
 
 " To be continued : 
 " Extend with obscommand, cmcommand, jscommand and jsfile
+" leap.nvim like
