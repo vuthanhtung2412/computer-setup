@@ -42,17 +42,17 @@ set tabstop=2
 " Already works !
 
 " action + i/a + g : on the whole file 
-""""""""""""""""""""""""""""""""""""""""""""""
-" TODO: This is not working I don't know why "
-""""""""""""""""""""""""""""""""""""""""""""""
-" nmap dig :%d<CR>
-" nmap dag :%d<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TODO: This is not working (perhaps it is not working with Code Mirror vim) "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nmap dig GVggd
+" nmap dag GVggd
 " nmap yig :%y<CR>
 " nmap yag :%y<CR>
-" nmap cig :%c<CR>
-" nmap cag :%c<CR>
-" nmap vig G$vgg^
-" nmap Vig GVgg^
+" nmap cig GVggc
+" nmap cag GVggc
+" nmap vig G$vgg
+" nmap Vig GVgg
 
 " Go back and forward with Ctrl+O and Ctrl+I
 " (make sure to remove default Obsidian shortcuts for these to work)
