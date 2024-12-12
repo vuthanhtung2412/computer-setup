@@ -27,6 +27,7 @@
           set -g @catppuccin_window_current_number_color "#{@thm_peach}"
           
           set -g status-left ""
+          set -g status-right ""
           # right status : host, user (optional: kube, time)
           # set -g @catppuccin_date_time_text "%H:%M"
           # set -g status-right "#{E:@catppuccin_status_date_time}#{E:@catppuccin_status_user}#{E:@catppuccin_status_host}"

@@ -107,10 +107,10 @@
   # for more `services` and `programs` options checkout
   # https://nix-community.github.io/home-manager/options.xhtml
 
-  # i3 is not needed, set linux custom shortcut is good enough
-  # Super + Q to close current active window 
+  # i3 is optional, set linux custom shortcut is good enough
+  # Super + Q to close current active window
   # Alt + 1/2/3/4 to switch to corresponding desktop
-  
+
   # vietnamese keyboard
   # TODO:
   # i18n.inputMethod = {
@@ -139,6 +139,7 @@
     '';
 
     ".tung_source".source = ../dotfiles/tung_source;
+    ".config/pev.html".source = ../modules/pev.html;
   };
 
   # Home Manager can also manage your environment variables through

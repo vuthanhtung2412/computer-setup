@@ -5,6 +5,14 @@
 }:
 {
   home.packages = with pkgs; [
+    # app launcher requirement : fzf app, window, copyq, emoji
+    # rofi is too much of a hustle to setup eventhough it satisfied the requirment
+    # Some resources
+    # rofi style : https://github.com/adi1090x/rofi
+    # copyq integration : https://github.com/cjbassi/rofi-copyq
+    # rofi theme : https://github.com/newmanls/rofi-themes-collection?tab=readme-ov-file
+    # for any integration to work I need to provide my own style
+    # rofi
     albert
     blueman
     (config.lib.nixGL.wrap _1password-gui)
