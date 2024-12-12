@@ -19,6 +19,7 @@
     git
     git-lfs
     gh
+    glab
     btop
     parallel
     neovim # not defined in programs because LazyVim is based -> config managed by home.file

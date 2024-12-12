@@ -26,6 +26,9 @@
           go = "1.22";
           node = "lts";
         };
+        settings = {
+          env_file = ".env";
+        };
       };
     };
   };
