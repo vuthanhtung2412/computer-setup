@@ -110,6 +110,10 @@
   # i3 is optional, set linux custom shortcut is good enough
   # Super + Q to close current active window
   # Alt + 1/2/3/4 to switch to corresponding desktop
+  # Alt + 1 : web
+  # Alt + 2 : nvim
+  # Alt + 3 : notes
+  # Other monitor : chat + music 
 
   # vietnamese keyboard
   # TODO:

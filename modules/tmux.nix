@@ -36,7 +36,6 @@
       plugins = with pkgs.tmuxPlugins; [
         sensible
         vim-tmux-navigator
-        tmux-fzf
         resurrect
         yank
       ];
@@ -50,8 +49,10 @@
         # Correct color display (ex: Neovim catppuccin)
         set-option -sa terminal-overrides ",xterm*:Tc"
 
-        # Ctrl b is still my preferred prefix
-
+        set -g prefix M-b
+        unbind C-b
+        bind M-b send-prefix
+        
         # Shift arrow to switch windows
         bind -n S-Left  previous-window
         bind -n S-Right next-window
