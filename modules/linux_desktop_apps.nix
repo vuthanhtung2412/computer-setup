@@ -31,6 +31,8 @@
     (config.lib.nixGL.wrap xournalpp)
     (config.lib.nixGL.wrap obsidian)
     (config.lib.nixGL.wrapOffload blender)
+    (config.lib.nixGL.wrapOffload vlc)
+    (config.lib.nixGL.wrapOffload gimp)
     (config.lib.nixGL.wrapOffload obs-studio)
   ];
   programs = {
