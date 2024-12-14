@@ -64,6 +64,15 @@
     ../modules/zsh.nix
   ];
 
+  # TODO:
+  # dconf.settings
+  # example :
+  # gsettings set org.gnome.desktop.wm.preferences focus-new-windows 'strict'
+
+  # TODO: (optional)
+  # xdg.mime & xdg.mimeApps
+  # Set default application to open a file
+  
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
@@ -113,7 +122,7 @@
   # Alt + 1 : web
   # Alt + 2 : nvim
   # Alt + 3 : notes
-  # Other monitor : chat + music 
+  # Other monitor : chat + music
 
   # vietnamese keyboard
   # TODO:

@@ -26,6 +26,7 @@
     delta
     chezmoi
     nettools
+    lazydocker
     # TODO : need to be installed manually because tailscaled service is non existing
     # tailscale
     # tailscaled

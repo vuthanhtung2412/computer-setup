@@ -53,6 +53,7 @@
       alias pev='xdg-open $HOME/.config/pev.html'
       alias xc='xclip -selection clipboard' # copy command output to clipboard
       alias xp='xclip -selection clipboard -o' # paste from clipboard
+      alias ld='lazydocker'
 
       smr() {
         mv "$1" ~/.local/share/Trash/files/
@@ -71,6 +72,7 @@
     initExtra = ''
       # Need to press esc to enter `zsh-vi-mode`
       # tmux vi mode doesn't have the same functionality
+      # clipboard integration is in progress
       ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       if [[ $options[zle] = on ]]; then
