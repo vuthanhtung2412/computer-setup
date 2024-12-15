@@ -13,19 +13,19 @@
         extraConfig = ''
           # You can check the version of catppuccin/tmux by lurking ~/.config/tmux/tmux.conf file
           # All options can be found at tmux/docs/reference/configuration.md
-          
+
           set -g @catppuccin_flavor 'mocha'
           set -g @catppuccin_window_status_style "rounded"
 
           # window default format
-          set -g @catppuccin_window_text ' #[fg=green]#{pane_current_command} #[fg=blue]#(echo "#{pane_current_path}" | sed "s|$HOME|~|" | rev | cut -d'/' -f-1 | rev) #[fg=white]'
+          set -g @catppuccin_window_text ' #{pane_current_command} #(echo "#{pane_current_path}" | sed "s|$HOME|~|" | rev | cut -d'/' -f-1 | rev)'
 
           # window current format
-          set -g @catppuccin_window_current_text ' #[fg=green]#{pane_current_command} #[fg=blue]#(echo "#{pane_current_path}" | sed "s|$HOME|~|" | rev | cut -d'/' -f-3 | rev) #[fg=white]'
+          set -g @catppuccin_window_current_text ' #{pane_current_command} #(echo "#{pane_current_path}" | sed "s|$HOME|~|" | rev | cut -d'/' -f-3 | rev)'
 
           set -g @catppuccin_window_number_color "#{@thm_blue}"
           set -g @catppuccin_window_current_number_color "#{@thm_peach}"
-          
+
           set -g status-left ""
           set -g status-right ""
           # right status : host, user (optional: kube, time)
@@ -37,6 +37,7 @@
         sensible
         vim-tmux-navigator
         resurrect
+        continuum
         yank
       ];
       baseIndex = 1;
@@ -52,7 +53,7 @@
         set -g prefix M-b
         unbind C-b
         bind M-b send-prefix
-        
+
         # Shift arrow to switch windows
         bind -n S-Left  previous-window
         bind -n S-Right next-window
