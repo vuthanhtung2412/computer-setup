@@ -13,6 +13,8 @@
         extraConfig = ''
           # You can check the version of catppuccin/tmux by lurking ~/.config/tmux/tmux.conf file
           # All options can be found at tmux/docs/reference/configuration.md
+          
+          set -g @continuum-restore 'on'
 
           set -g @catppuccin_flavor 'mocha'
           set -g @catppuccin_window_status_style "rounded"
@@ -37,8 +39,10 @@
         sensible
         vim-tmux-navigator
         resurrect
-        continuum
         yank
+        # continuous saving each 15 min
+        # prefix + ctrl-s to trigger saving manually
+        continuum
       ];
       baseIndex = 1;
       terminal = "tmux-256color";
