@@ -58,6 +58,17 @@
         unbind C-b
         bind M-b send-prefix
 
+        # vim style pane selection done with tmux-vim-navigator plugins
+        # Navigate panes with Ctrl +h/j/k/l
+        
+        # Start window from 1 is done with `baseIndex` home manager option
+
+        # Use Alt-arrow keys without prefix key to switch panes
+        bind -n M-Left select-pane -L
+        bind -n M-Right select-pane -R
+        bind -n M-Up select-pane -U
+        bind -n M-Down select-pane -D
+
         # Shift arrow to switch windows
         bind -n S-Left  previous-window
         bind -n S-Right next-window
@@ -69,12 +80,6 @@
         # Split panes into current dir
         bind '"' split-window -v -c "#{pane_current_path}"
         bind % split-window -h -c "#{pane_current_path}"
-
-        # Use Alt-arrow keys without prefix key to switch panes
-        bind -n M-Left select-pane -L
-        bind -n M-Right select-pane -R
-        bind -n M-Up select-pane -U
-        bind -n M-Down select-pane -D
 
         # set vi-mode for yank plugins
         set-window-option -g mode-keys vi
