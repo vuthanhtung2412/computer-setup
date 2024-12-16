@@ -69,6 +69,12 @@
         bind -n M-Up select-pane -U
         bind -n M-Down select-pane -D
 
+        # Enable direct resizing with Ctrl + arrow keys
+        bind -n C-Left  resize-pane -L  # Shrink pane left
+        bind -n C-Right resize-pane -R  # Expand pane right
+        bind -n C-Up    resize-pane -U  # Expand pane up
+        bind -n C-Down  resize-pane -D  # Shrink pane down
+
         # Shift arrow to switch windows
         bind -n S-Left  previous-window
         bind -n S-Right next-window

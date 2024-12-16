@@ -54,6 +54,8 @@
       alias xc='xclip -selection clipboard' # copy command output to clipboard
       alias xp='xclip -selection clipboard -o' # paste from clipboard
       alias ld='lazydocker'
+      alias q='exit'
+      alias e='exit'
 
       smr() {
         mv "$1" ~/.local/share/Trash/files/
