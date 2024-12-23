@@ -37,7 +37,7 @@
       extraConfig = {
         user = {
           name = "vuthanhtung2412";
-          email = "vuthanhtung2016hn@gmai.com";
+          email = "vuthanhtung2016hn@gmail.com";
         };
         credential = {
           "https://gitlab.com".helper = "glab auth git-credential";
