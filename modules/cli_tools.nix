@@ -40,8 +40,8 @@
           email = "vuthanhtung2016hn@gmail.com";
         };
         credential = {
-          "https://gitlab.com".helper = "glab auth git-credential";
-          "https://github.com".helper = "gh auth git-credential";
+          "https://gitlab.com".helper = "!glab auth git-credential";
+          "https://github.com".helper = "!gh auth git-credential";
         };
         core = {
           excludesfile = "~/.gitignore_global";
