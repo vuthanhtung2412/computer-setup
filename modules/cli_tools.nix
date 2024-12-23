@@ -16,7 +16,6 @@
     hurl
     tldr
     xclip
-    git
     git-lfs
     gh
     glab
@@ -32,6 +31,20 @@
     # tailscaled
   ];
   programs = {
+    git = {
+      # the config file reside at ~ ~/.config/git/config
+      enable = true;
+      extraConfig = {
+        user = {
+          name = "vuthanhtung2412";
+          email = "vuthanhtung2016hn@gmai.com";
+        };
+        core = {
+          excludesfile = "~/.gitignore_global";
+        };
+      };
+    };
+
     bat.enable = true;
 
     lazygit = {

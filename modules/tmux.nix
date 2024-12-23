@@ -63,12 +63,6 @@
         
         # Start window from 1 is done with `baseIndex` home manager option
 
-        # Use Alt-arrow keys without prefix key to switch panes
-        bind -n M-Left select-pane -L
-        bind -n M-Right select-pane -R
-        bind -n M-Up select-pane -U
-        bind -n M-Down select-pane -D
-
         # Enable direct resizing with Ctrl + arrow keys
         bind -n C-Left  resize-pane -L  # Shrink pane left
         bind -n C-Right resize-pane -R  # Expand pane right
