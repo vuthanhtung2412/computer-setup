@@ -152,7 +152,7 @@
     '';
 
     ".tung_source".source = ../dotfiles/tung_source;
-    ".config/pev.html".source = ../modules/pev.html;
+    ".local/bin/pev.html".source = ../modules/pev.html;
     ".gitignore_global".source = ../dotfiles/gitignore_global;
   };
 

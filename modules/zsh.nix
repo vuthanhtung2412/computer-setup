@@ -50,12 +50,14 @@
     initExtraFirst = ''
       alias gc='gcloud'
       alias nv='nvim'
-      alias pev='xdg-open $HOME/.config/pev.html'
+      alias pev='open $HOME/.local/bin/pev.html'
       alias xc='xclip -selection clipboard' # copy command output to clipboard
       alias xp='xclip -selection clipboard -o' # paste from clipboard
       alias ld='lazydocker'
       alias q='exit'
       alias e='exit'
+      alias o='open'
+      alias c='clear'
 
       smr() {
         mv "$1" ~/.local/share/Trash/files/
