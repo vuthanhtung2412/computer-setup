@@ -74,6 +74,13 @@ backup_item "$USER_HOME/.config/tmux/tmux.conf"
 backup_item "$USER_HOME/.vimrc"
 backup_item "$USER_HOME/.vim/vimrc"
 
+# Fzf options is stored in environment variables
+# ❯ env | grep -i fzf
+# FZF_CTRL_T_COMMAND=fd --type f
+# FZF_DEFAULT_OPTS=--color bg:#1e1e2e,bg+:#313244,fg:#cdd6f4,fg+:#cdd6f4,header:#cba6f7,hl:#cba6f7,hl+:#cba6f7,info:#cba6f7,marker:#cba6f7,pointer:#cba6f7,prompt:#cba6f7,spinner:#f5e0dc
+# FZF_CTRL_T_OPTS=--preview 'bat --style=numbers --color=always --line-range :300 {}'
+# FZF_TMUX=1
+
 echo -e "\nBackup completed! Files are stored in $SCRIPT_DIR"
 echo "Backup summary:"
 ls -la "$SCRIPT_DIR" | tail -n +4  # Skip the first 3 lines (total and . / ..)
