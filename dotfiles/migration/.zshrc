@@ -1,4 +1,3 @@
-
 alias gc='gcloud'
 alias nv='nvim'
 alias pev='open $HOME/.local/bin/pev.html'
