@@ -46,6 +46,9 @@
         core = {
           excludesfile = "~/.gitignore_global";
         };
+        pull = {
+          rebase = false;
+        };
       };
     };
 
