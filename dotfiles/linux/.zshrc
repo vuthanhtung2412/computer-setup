@@ -48,6 +48,7 @@ HELPDIR="$HOME/.nix-profile/share/zsh/5.9/help"
 source "$HOME/.nix-profile/share/antidote/antidote.zsh"
 antidote load "$HOME/.zsh_plugins.txt"
 
+ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 # Oh-My-Zsh/Prezto calls compinit during initialization,
 # calling it twice causes slight start up slowdown
@@ -122,3 +123,11 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
   kitty-integration
   unfunction kitty-integration
 fi
+
+#eza set up
+alias -- eza='eza --icons always --git'
+alias -- la='eza -a'
+alias -- ll='eza -l'
+alias -- lla='eza -la'
+alias -- ls=eza
+alias -- lt='eza --tree'
