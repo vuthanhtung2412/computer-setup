@@ -1,0 +1,9 @@
+chezmoi add --follow --encrypt=false ~/.bashrc
+chezmoi add --follow --encrypt=false ~/.zshrc
+chezmoi add --follow --encrypt=false ~/.config/git/config
+chezmoi add --follow --encrypt=false ~/.config/bat/config
+chezmoi add --follow --encrypt=false ~/.config/lazygit/config.yml
+chezmoi add --follow --encrypt=false ~/.config/oh-my-posh/config.json
+chezmoi add --follow --encrypt=false ~/.config/yazi
+chezmoi add --follow --encrypt=false ~/.config/mise/config.toml
+chezmoi add --follow --encrypt=false ~/.config/tmux/tmux.conf

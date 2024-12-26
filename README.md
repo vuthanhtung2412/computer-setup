@@ -170,6 +170,7 @@ There is some problem with this set up
   + Solution 1:
     + Install every terminal tools with **Ansible (since it have a high adoption in industry and it should be declarative & idempotent for app installation) or nix**
     + write dotfiles and track it with **chezmoi**
+    + to reset chezmoi `rm -rf ~/.local/share/chezmoi` 
     + About dev set up use **conda and direnv** to smoothly switch env between project. This also eliminate CUDA integration issue of nix packages
     + TODO : **nix for installation/Ansible for CUDA integrated app + dotfiles management with chezmoi + project-based Development env with conda and direnv**
   + Solution 2 :
