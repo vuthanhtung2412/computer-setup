@@ -1,0 +1,13 @@
+[env]
+CARGO_TARGET_DIR = "target"
+
+[settings]
+env_file = ".env"
+
+[tools]
+go = "1.22"
+java = "21"
+node = "20.18"
+python = "3.12"
+rust = "1.81"
+uv = "0.5"
