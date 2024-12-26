@@ -15,7 +15,6 @@
     # rofi
     albert
     blueman
-    (config.lib.nixGL.wrap _1password-gui)
     # Multiple error
     # Nvidia : Chromium application can't find libGL
     # Different issue from the one below

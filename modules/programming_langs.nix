@@ -27,9 +27,6 @@
           uv = "0.5";
           node = "20.18";
         };
-        settings = {
-          env_file = ".env";
-        };
         env = {
           CARGO_TARGET_DIR = "target";
         };

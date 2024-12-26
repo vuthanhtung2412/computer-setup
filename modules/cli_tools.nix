@@ -14,6 +14,7 @@
     ripgrep
     thefuck
     hurl
+    fzf
     tldr
     xclip
     git-lfs
@@ -26,6 +27,8 @@
     chezmoi
     nettools
     lazydocker
+    thefuck
+    rbw
     # TODO : need to be installed manually because tailscaled service is non existing
     # tailscale
     # tailscaled
@@ -65,15 +68,6 @@
       };
     };
 
-    fzf = {
-      enable = true;
-      tmux.enableShellIntegration = true;
-      fileWidgetCommand = "fd --type f";
-      fileWidgetOptions = [
-        "--preview 'bat --style=numbers --color=always --line-range :300 {}'"
-      ];
-    };
-
     # terminal status line
     # on the left : OS, user, host, path, status code,
     # on the right : docker, kube, git, az, gcp, aws
@@ -103,12 +97,6 @@
       options = [
         "--cmd cd" # This replaces the default 'z' command with 'cd'
       ];
-    };
-
-    direnv = {
-      enable = true;
-      enableBashIntegration = true;
-      enableZshIntegration = true;
     };
   };
   services = {
