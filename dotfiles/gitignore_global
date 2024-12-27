@@ -1,21 +1,137 @@
-# Packages
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
+# ========================================
+# General OS and Editor Files
+# ========================================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*~
+*.bak
+*.old
+*.orig
+*.rej
 
-# Logs and databases
+# ========================================
+# Logs and Temporary Files
+# ========================================
 *.log
+*.pid
+*.seed
+*.lock
 
+# ========================================
+# Compressed Files
+# ========================================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+*.bz2
+*.xz
+
+# ========================================
+# Build Artifacts and Generated Files
+# ========================================
+dist/
+out/
+build/
+target/
+bin/
+obj/
+*.d
+*.o
+*.so
+*.a
+*.exe
+*.dll
+*.class
+*.jar
+*.war
+*.pyc
+*.pyo
+__pycache__/
+
+# ========================================
+# Python
+# ========================================
+venv/
+env/
+.idea/
+.ipynb_checkpoints/
+.mypy_cache/
+.pytest_cache/
+*.coverage
+htmlcov/
+
+# ========================================
+# Go
+# ========================================
+*.exe
+*.out
+*.test
+*.log
+*.prof
+*.cover
+vendor/
+# Go modules
+go.sum
+
+# ========================================
+# Rust
+# ========================================
+/target/
+Cargo.lock
+*.rs.bk
+*.rs.orig
+
+# ========================================
+# C/C++
+# ========================================
+*.d
+*.a
+*.out
+*.o
+*.so
+*.exe
+*.dll
+*.elf
+*.map
+
+# ========================================
+# TypeScript/JavaScript
+# ========================================
+node_modules/
+*.tsbuildinfo
+*.js.map
+*.ts.map
+*.d.ts
+npm-debug.log*
+
+# ========================================
+# IDE and Editor Configurations
+# ========================================
+.vscode/
+.idea/
+*.iml
+*.sublime-workspace
+*.code-workspace
+*.project
+*.classpath
+
+# ========================================
+# Version Control System Files
+# ========================================
+.git/
+.hg/
+.svn/
+*.orig
+*.rej
+
+# ========================================
 # md format
+# ========================================
 .markdownlint.json
 
-# vscode
-.vscode
-
-# lock files
-*.lock
