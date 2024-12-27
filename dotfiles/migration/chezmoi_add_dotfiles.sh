@@ -12,3 +12,4 @@ chezmoi add --follow --encrypt=false ~/.config/tmux/tmux.conf
 chezmoi add --follow --encrypt=false ~/.config/kitty/theme.conf
 chezmoi add --follow --encrypt=false ~/.config/yazi
 chezmoi add --follow --encrypt=false ~/.config/Code/extensions/.vscode/extensions.json
+chezmoi add --follow --encrypt=false ~/.zsh_plugins.txt
