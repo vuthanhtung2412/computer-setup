@@ -31,7 +31,8 @@ check_diff "$HOME/.config/mise/config.toml" "./dot_config_mise_config.toml"
 check_diff "$HOME/.config/oh-my-posh/config.json" "./dot_config_oh-my-posh_config.json"
 check_diff "$HOME/.config/tmux/tmux.conf" "./dot_config_tmux_tmux.conf"
 check_diff "$HOME/.config/kitty/theme.conf" "./dot_config_kitty_theme.conf"
-# TODO: yazi
+check_diff "$HOME/.config/yazi/Catppuccin-mocha.tmTheme" "./dot_config_yazi/Catppuccin-mocha.tmTheme"
+check_diff "$HOME/.config/yazi/theme.toml" "./dot_config_yazi/theme.toml"
 check_diff "$HOME/.config/Code/extensions/.vscode/extensions.json" "./vscode_extensions.json"
 check_diff "$HOME/.zsh_plugins.txt" "./dot_zsh_plugins.txt"
 

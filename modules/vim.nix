@@ -8,5 +8,5 @@
     vim
   ];
 
-  home.file.".vimrc".source = ../dotfiles/linux/.vimrc;
+  # home.file.".vimrc".source = ../dotfiles/linux/.vimrc;
 }

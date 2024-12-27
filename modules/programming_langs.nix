@@ -15,5 +15,5 @@
     nixfmt-rfc-style # not available in mason yet
   ];
 
-  home.file.".config/mise/config.toml".source = ../dotfiles/linux/dot_config_mise_config.toml;
+  # home.file.".config/mise/config.toml".source = ../dotfiles/linux/dot_config_mise_config.toml;
 }
