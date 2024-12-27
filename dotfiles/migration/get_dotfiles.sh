@@ -2,13 +2,14 @@
 
 RED='\033[0;31m'   # Red
 GREEN='\033[0;32m' # Green
+NC='\033[0m'       # No Color
 
 # Get the current user's home directory
 if [ -n "$SUDO_USER" ]; then
   USER_HOME=$(getent passwd "$SUDO_USER" | cut -d: -f6)
 else
-  echo -e "${RED}Some command might fail without root previlege"
-  echo -e "${RED}Please run 'sudo ./get_dotfiles.sh'"
+  echo -e "${RED}Some command might fail without root previlege $NC"
+  echo -e "${RED}Please run 'sudo ./get_dotfiles.sh' $NC"
   echo "---"
   USER_HOME="$HOME"
 fi
@@ -57,14 +58,14 @@ backup_item() {
   if [ -f "$path" ]; then
     local filename="$(normalize_name "$path")"
     cp "$path" "$SCRIPT_DIR/$filename"
-    echo -e "$GREEN✓ Backed up file: $path as $filename"
+    echo -e "$GREEN✓ Backed up file: $path as $filename $NC"
   elif [ -d "$path" ]; then
     local dirname="$(normalize_name "$path")"
     mkdir -p "$SCRIPT_DIR/$dirname"
     cp -r "$path/"* "$SCRIPT_DIR/$dirname/" 2>/dev/null
-    echo -e "$GREEN✓ Backed up directory: $path as $dirname"
+    echo -e "$GREEN✓ Backed up directory: $path as $dirname $NC"
   else
-    echo -e "$RED✗ Not found or unsupported: $path"
+    echo -e "$RED✗ Not found or unsupported: $path $NC"
   fi
 }
 

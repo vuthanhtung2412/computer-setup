@@ -9,12 +9,13 @@ cd "$parent_path"
 
 RED='\033[0;31m'   # Red
 GREEN='\033[0;32m' # Green
+NC='\033[0m'       # No Color
 
 check_diff() {
   if diff "$1" "$2" > /dev/null; then
-    echo -e "$GREEN✓ chezmoi and hm '$1' are the same."
+    echo -e "$GREEN✓ chezmoi and hm '$1' are the same.$NC"
   else
-    echo -e "$RED✗ chezmoi and hm '$1' are different."
+    echo -e "$RED✗ chezmoi and hm '$1' are different.$NC"
   fi
 }
 

@@ -34,6 +34,7 @@
     (config.lib.nixGL.wrapOffload gimp)
     (config.lib.nixGL.wrapOffload obs-studio)
   ];
+  home.file.".local/bin/pev.html".source = ./pev.html;
   programs = {
     # Vulkan is a must for chromium-based app offloading
     # https://forums.developer.nvidia.com/t/offloading-chrome/242735

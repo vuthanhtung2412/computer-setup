@@ -152,8 +152,6 @@
     '';
 
     ".tung_source".source = ../dotfiles/tung_source;
-    ".local/bin/pev.html".source = ../modules/pev.html;
-    ".gitignore_global".source = ../dotfiles/gitignore_global;
   };
 
   # Home Manager can also manage your environment variables through
