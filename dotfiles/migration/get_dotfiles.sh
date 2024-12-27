@@ -58,14 +58,14 @@ backup_item() {
     if [ -f "$path" ]; then
         local filename="$(normalize_name "$path")"
         cp "$path" "$SCRIPT_DIR/$filename"
-        echo -e "$GREEN✓ Backed up file: $path as $filename $NC"
+        echo -e "$GREEN✓ Backed up file: $path as $filename"
     elif [ -d "$path" ]; then
         local dirname="$(normalize_name "$path")"
         mkdir -p "$SCRIPT_DIR/$dirname"
         cp -r "$path/"* "$SCRIPT_DIR/$dirname/" 2>/dev/null
-        echo -e "$GREEN✓ Backed up directory: $path as $dirname $NC"
+        echo -e "$GREEN✓ Backed up directory: $path as $dirname"
     else
-        echo -e "$RED✗ Not found or unsupported: $path$NC"
+        echo -e "$RED✗ Not found or unsupported: $path"
     fi
 }
 
