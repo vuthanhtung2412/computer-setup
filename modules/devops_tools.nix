@@ -19,7 +19,7 @@
   ];
   services = {
     # TODO:
-    # Au lieu de docker since docker require a deamon
+    # Au lieu de docker since docker requires a deamon
     # podman.enable = true;
   };
 }
