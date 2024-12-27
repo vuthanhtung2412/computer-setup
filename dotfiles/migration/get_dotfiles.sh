@@ -73,6 +73,7 @@ backup_item "$USER_HOME/.config/mise/config.toml"
 backup_item "$USER_HOME/.config/tmux/tmux.conf"
 backup_item "$USER_HOME/.vimrc"
 backup_item "$USER_HOME/.vim/vimrc"
+backup_item "$USER_HOME/.config/kitty/kitty.conf"
 
 # Fzf options is stored in environment variables
 # ❯ env | grep -i fzf

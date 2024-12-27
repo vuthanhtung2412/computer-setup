@@ -124,7 +124,7 @@ if test -n "$KITTY_INSTALLATION_DIR"; then
   unfunction kitty-integration
 fi
 
-#eza set up
+# eza set up
 alias -- eza='eza --icons always --git'
 alias -- la='eza -a'
 alias -- ll='eza -l'
