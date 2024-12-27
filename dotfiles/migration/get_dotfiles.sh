@@ -83,6 +83,7 @@ backup_item "$USER_HOME/.vimrc"
 backup_item "$USER_HOME/.vim/vimrc"
 backup_item "$USER_HOME/.config/kitty/kitty.conf"
 backup_item "$USER_HOME/.config/Code/User/settings.json"
+backup_item "$USER_HOME/.zsh_plugins.txt"
 
 # Fzf options is stored in environment variables
 # ❯ env | grep -i fzf
