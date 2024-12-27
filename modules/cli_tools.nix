@@ -8,6 +8,7 @@
     neofetch
     jq
     yq
+    tree
     ffmpeg
     yt-dlp
     fd
