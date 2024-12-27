@@ -15,4 +15,3 @@ ls -la ~/.config/kitty/theme.conf
 ls -la ~/.config/yazi
 ls -la ~/.config/Code/extensions/.vscode/extensions.json
 ls -la ~/.zsh_plugins.txt
-

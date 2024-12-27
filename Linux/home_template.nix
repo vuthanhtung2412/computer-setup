@@ -146,12 +146,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-
-    ".tung".text = ''
-      this is a test
-    '';
-
-    ".tung_source".source = ../dotfiles/tung_source;
   };
 
   # Home Manager can also manage your environment variables through
