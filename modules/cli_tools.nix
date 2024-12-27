@@ -44,6 +44,7 @@
   home.file.".config/bat/config".source = ../dotfiles/linux/dot_config_bat_config;
   home.file.".config/oh-my-posh/config.json".source = ../dotfiles/linux/dot_config_oh-my-posh_config.json;
   home.file.".config/git/config".source = ../dotfiles/linux/dot_config_git_config;
+  home.file.".gitignore_global".source = ../dotfiles/linux/dot_gitignore_global;
   home.file.".config/lazygit/config.yml".source = ../dotfiles/linux/dot_config_lazygit_config.yml;
   services = {
     # TODO:
