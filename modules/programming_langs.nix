@@ -5,6 +5,7 @@
 }:
 {
   home.packages = with pkgs; [
+    # TODO: mise zsh competion is not working
     mise
     (python311.withPackages (
       ps: with ps; [
