@@ -47,6 +47,9 @@
   # home.file.".gitignore_global".source = ../dotfiles/linux/dot_gitignore_global;
   # home.file.".config/lazygit/config.yml".source = ../dotfiles/linux/dot_config_lazygit_config.yml;
   # home.file.".config/yazi".source = ../dotfiles/linux/dot_config_yazi;
+ 
+  # chezmoi is an exception since `~/.config/chezmoi/` can't be managed with chezmoi
+  home.file.".config/chezmoi/chezmoi.toml".source = ../dotfiles/linux/dot_config_chezmoi_chezmoi.toml;
   services = {
     # TODO:
     # git-sync.enable = true;

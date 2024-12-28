@@ -5,7 +5,7 @@
 }:
 {
   home.packages = with pkgs; [
-    vim
+    vim-full
   ];
 
   # home.file.".vimrc".source = ../dotfiles/linux/.vimrc;
