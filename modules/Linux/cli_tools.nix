@@ -8,8 +8,8 @@
     neofetch
     jq
     yq
-    tree
-    ffmpeg
+    tree # idk why tf this is not installed by default
+    ffmpeg # -full
     yt-dlp
     fd
     ripgrep
@@ -28,7 +28,6 @@
     chezmoi
     nettools
     lazydocker
-    thefuck
     rbw
     bat
     zoxide

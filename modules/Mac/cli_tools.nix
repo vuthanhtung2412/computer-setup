@@ -9,7 +9,7 @@
     # brew
     jq
     yq
-    ffmpeg
+    ffmpeg # -full
     yt-dlp
     fd
     ripgrep
@@ -25,9 +25,7 @@
     neovim # not defined in programs because LazyVim is based -> config managed by home.file
     delta
     chezmoi
-    nettools
     lazydocker
-    thefuck
     rbw
     bat
     zoxide
