@@ -5,8 +5,8 @@
 }:
 {
   home.packages = with pkgs; [
-    neofetch
-    brew
+    # TODO: manage brew with nix
+    # brew
     jq
     yq
     ffmpeg
