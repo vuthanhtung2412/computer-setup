@@ -51,17 +51,16 @@
   };
 
   imports = [
-    ../modules/bash.nix
-    ../modules/cli_tools.nix
-    ../modules/devops_tools.nix
-    ../modules/hello_world.nix
-    ../modules/linux_desktop_apps.nix
-    ../modules/linux_term_emulators.nix
-    ../modules/programming_langs.nix
-    ../modules/tmux.nix
-    ../modules/vim.nix
-    ../modules/vscode.nix
-    ../modules/zsh.nix
+    ../modules/Linux/bash.nix
+    ../modules/Linux/cli_tools.nix
+    ../modules/Linux/devops_tools.nix
+    ../modules/Linux/desktop_apps.nix
+    ../modules/Linux/term_emulators.nix
+    ../modules/Linux/programming_langs.nix
+    ../modules/Linux/tmux.nix
+    ../modules/Linux/vim.nix
+    ../modules/Linux/vscode.nix
+    ../modules/Linux/zsh.nix
   ];
 
   # TODO:

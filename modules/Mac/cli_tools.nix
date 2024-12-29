@@ -47,7 +47,7 @@
   # home.file.".config/yazi".source = ../dotfiles/linux/dot_config_yazi;
  
   # chezmoi is an exception since `~/.config/chezmoi/` can't be managed with chezmoi
-  home.file.".config/chezmoi/chezmoi.toml".source = ../dotfiles/linux/dot_config_chezmoi_chezmoi.toml;
+  home.file.".config/chezmoi/chezmoi.toml".source = ../../dotfiles/linux/dot_config_chezmoi_chezmoi.toml;
   services = {
     # TODO:
     # git-sync.enable = true;
