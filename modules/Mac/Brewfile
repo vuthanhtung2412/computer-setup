@@ -9,7 +9,7 @@ brew "docker"
 brew "tailscale"
 
 # Fonts
-cask "font-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
 
 # Browsers
 cask "brave-browser"
@@ -17,7 +17,7 @@ cask "google-chrome"
 
 # Video editing and production
 cask "capcut"
-cask "davinci-resolve"
+# cask "davinci-resolve" # davinci-resolve is not available on brew
 
 # Productivity tools
 cask "raycast"
