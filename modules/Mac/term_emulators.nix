@@ -6,8 +6,6 @@
 {
   home.packages = with pkgs; [
     warp-terminal
+    kitty
   ];
-  programs = {
-    kitty.enable = true;
-  };
 }

@@ -1,0 +1,30 @@
+# Brewfile for installing applications
+
+# Homebrew taps
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+
+# CLI tools
+brew "docker"
+brew "tailscale"
+
+# Fonts
+cask "font-jetbrains-mono-nerd-font"
+
+# Browsers
+cask "brave-browser"
+cask "google-chrome"
+
+# Video editing and production
+cask "capcut"
+# cask "davinci-resolve" # davinci-resolve is not available on brew
+
+# Productivity tools
+cask "raycast"
+cask "homerow"
+cask "rectangle"
+
+# Creative tools
+cask "blender"
+cask "obs"
+cask "obsidian"

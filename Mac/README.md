@@ -1,14 +1,17 @@
-# Some necessary set up outside of home-manager
-+ docker 
-+ nerd font
-+ google chrome
-+ home-manager
-+ rectangle
-+ brew
-+ raycast
-+ no action when press fn
-+ only switch keyboard mode with ctrol+option+space
+# Setup step by step
 
-# Brain Dumps
-+ kitty in mac looks much cleaner and doesn't have wierd print when open in terminal compare to wezterm
-+ wezterm and kitty still have the same tmux resizing problem
+## Must
+
+1. Install brew
+2. Install nix by run `./scripts/init_setup.sh`
+3. Run nix setup `./scripts/hms.sh`
+4. (Optional) Install desktop app with brew `brew bundle --file ~/.tung-setup/Brewfile`
+
+## Optional improvement
+
++ key board repeat rate too slow 
+  + Keyboard > key repeat rate max fast + delay until repeat max short
++ option is used to alternate char
+  + Solution at [this link](https://apple.stackexchange.com/a/461625) which available in [my chezmoi config](https://github.com/vuthanhtung2412/dotfiles/blob/d01c7f0a63f659074215777aa63fdbc418d7ad11/private_Library/private_Keyboard%20Layouts/QWERTY%20no%20option.keylayout)
++ dock always on
+  + desktop & Dock > Automatically show and hide the dock + size 1/3

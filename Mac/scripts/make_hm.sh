@@ -1,5 +1,12 @@
 #!/bin/bash
 
+set -e
+parent_path=$(
+  cd "$(dirname "${BASH_SOURCE[0]}")"
+  pwd -P
+)
+cd "$parent_path"
+
 # Detect system architecture
 ARCH=$(uname -m)
 case $ARCH in
@@ -37,6 +44,6 @@ echo User : $USER
 echo Home : $HOME
 echo System : $SYSTEM
 
+cd ..
 sed -e "s|<system>|$SYSTEM|g" -e "s|<user>|$USER|g" "flake_template.nix" >flake.nix
 sed -e "s|<home>|$HOME|g" -e "s|<user>|$USER|g" -e "s|<system>|$SYSTEM|g" "home_template.nix" >home.nix
-
