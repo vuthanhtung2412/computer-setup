@@ -3,34 +3,31 @@
 
   inputs = {
     # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     catppuccin.url = "github:catppuccin/nix";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl = { url = "github:nix-community/nixGL"; };
   };
 
-  outputs = { nixpkgs, catppuccin, home-manager, nixgl, ... }:
+  outputs = { nixpkgs, catppuccin, home-manager, ... }:
   let
+    system = "aarch64-darwin"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
     pkgs = import nixpkgs {
-      system = "aarch64-darwin"; # TODO : replace by either [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
-      overlays = [ nixgl.overlay ];
+      inherit system;
+      config.allowUnfree = true;
     };
   in {
     homeConfigurations."tung" = home-manager.lib.homeManagerConfiguration { # TODO : tung to be replace by $USER env var
       inherit pkgs;
-
+      
       # Specify your home configuration modules here, for example,
       # the path to your home.nix.
       modules = [ 
         ./home.nix 
         catppuccin.homeManagerModules.catppuccin
       ];
-
-      # Optionally use extraSpecialArgs
-      # to pass through arguments to home.nix
     };
   };
 }
