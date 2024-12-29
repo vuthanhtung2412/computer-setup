@@ -4,7 +4,8 @@
 # ~/.config - App configs
 # ~/.local/share - App data, icons, desktop entries
 # ~/.cache - Temp data
+# ~/Library/Caches/ - Temp data
 # ~/.local/state - Persistent state info
 
-rm -rf ~/.cache/antidote
+rm -rf ~/Library/Caches/antidote
 rm -rf ~/.vscode/extensions
