@@ -4,12 +4,12 @@
 sudo apt update && sudo apt upgrade -y# update and upgrade apt
 
 # Install nix
+# https://github.com/DeterminateSystems/nix-installer
 sudo apt install curl
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
 # Restart shell
-source ~/.bashrc
-exec bash
+bash
 
 # Install home manager
 nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
@@ -81,6 +81,6 @@ env DCONF_PROFILE=ibus dconf write /desktop/ibus/general/preload-engines "['Bamb
 # Install Brave browser
 sudo apt install curl
 sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
 sudo apt install brave-browser
