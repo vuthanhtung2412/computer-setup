@@ -5,7 +5,7 @@ apps=(
   "code"
   "albert"
   "blueman-applet"
-  "brave"
+  "brave-browser"
   "neofetch"
   "jq"
   "yq"
@@ -57,7 +57,6 @@ apps=(
   "yazi"
   "eza"
   "zoxide"
-  "direnv"
   "chromium"
 
   # Services

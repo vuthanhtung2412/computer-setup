@@ -53,7 +53,6 @@ apps=(
   "yazi"
   "eza"
   "zoxide"
-  "direnv"
 )
 
 # Colors for output
