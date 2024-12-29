@@ -1,12 +1,8 @@
 # Brewfile for installing applications
 
-# Homebrew taps
-tap "homebrew/cask"
-tap "homebrew/cask-fonts"
-
 # CLI tools
-brew "docker"
-brew "tailscale"
+cask "docker"
+cask "tailscale"
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
