@@ -14,7 +14,7 @@
     # Cloud related tools
     awscli2
     azure-cli
-    google-cloud-sdk-gce
+    google-cloud-sdk
     terraform
   ];
   services = {
