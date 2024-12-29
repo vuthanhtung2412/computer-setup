@@ -3,8 +3,6 @@
 # Array of applications to check
 apps=(
   "code"
-  "albert"
-  "blueman-applet"
   "brave"
   "neofetch"
   "jq"
@@ -16,7 +14,6 @@ apps=(
   "thefuck"
   "hurl"
   "tldr"
-  "xclip"
   "git"
   "git-lfs"
   "gh"
@@ -27,7 +24,6 @@ apps=(
   "delta"
   "chezmoi"
   "ifconfig"
-  "xournalpp"
   "docker"
   "python"
   "nixfmt"
@@ -58,11 +54,6 @@ apps=(
   "eza"
   "zoxide"
   "direnv"
-  "chromium"
-
-  # Services
-  "copyq"
-
 )
 
 # Colors for output

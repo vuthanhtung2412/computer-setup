@@ -9,7 +9,6 @@
     brew
     jq
     yq
-    tree
     ffmpeg
     yt-dlp
     fd
@@ -18,7 +17,6 @@
     hurl
     fzf
     tldr
-    xclip
     git-lfs
     gh
     glab

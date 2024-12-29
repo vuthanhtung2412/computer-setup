@@ -1,5 +1,6 @@
 # Some necessary set up outside of home-manager
-+ docker 
+
++ docker
 + nerd font
 + google chrome
 + home-manager
@@ -10,5 +11,6 @@
 + only switch keyboard mode with ctrol+option+space
 
 # Brain Dumps
+
 + kitty in mac looks much cleaner and doesn't have wierd print when open in terminal compare to wezterm
 + wezterm and kitty still have the same tmux resizing problem
