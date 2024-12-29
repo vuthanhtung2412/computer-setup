@@ -1,0 +1,28 @@
+# Brewfile for installing applications
+
+# Homebrew taps
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+
+# CLI tools
+brew "docker"
+
+# Fonts
+cask "font-nerd-font"
+
+# Browsers
+cask "brave-browser"
+cask "google-chrome"
+
+# Video editing and production
+cask "capcut"
+cask "davinci-resolve"
+
+# Productivity tools
+cask "raycast"
+cask "homerow"
+
+# Creative tools
+cask "blender"
+cask "obs"
+cask "obsidian"
