@@ -26,9 +26,6 @@
   nixGL.defaultWrapper = "mesa";
   nixGL.offloadWrapper = "nvidiaPrime";
 
-  catppuccin.flavor = "mocha";
-  catppuccin.enable = true;
-
   nixpkgs = {
     overlays = [
       # If you want to use overlays exported from other flakes:
@@ -51,7 +48,6 @@
   };
 
   imports = [
-    ../modules/Linux/bash.nix
     ../modules/Linux/cli_tools.nix
     ../modules/Linux/devops_tools.nix
     ../modules/Linux/desktop_apps.nix
@@ -61,6 +57,7 @@
     ../modules/Linux/vim.nix
     ../modules/Linux/vscode.nix
     ../modules/Linux/zsh.nix
+    ../modules/Linux/bash.nix
   ];
 
   # TODO:
