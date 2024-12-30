@@ -20,3 +20,4 @@
   + 2 Terminal
   + 3 Obsidian notes
   + 4 Slack message
++ Install add `rust-analyzer` to `rustup` : `rustup component add rust-analyzer`
