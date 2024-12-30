@@ -1,6 +1,5 @@
 # Brewfile for installing applications
 
-# CLI tools
 cask "docker"
 cask "tailscale"
 

@@ -9,9 +9,14 @@
 
 ## Optional improvement
 
-+ key board repeat rate too slow 
++ key board repeat rate too slow
   + Keyboard > key repeat rate max fast + delay until repeat max short
 + option is used to alternate char
   + Solution at [this link](https://apple.stackexchange.com/a/461625) which available in [my chezmoi config](https://github.com/vuthanhtung2412/dotfiles/blob/d01c7f0a63f659074215777aa63fdbc418d7ad11/private_Library/private_Keyboard%20Layouts/QWERTY%20no%20option.keylayout)
 + dock always on
   + desktop & Dock > Automatically show and hide the dock + size 1/3
++ Ctrl + 1/2/3/4 : to switch desktop (Keyboard -> Shortcut -> Mission control -> mission control)
+  + 1 Web/Docs
+  + 2 Terminal
+  + 3 Obsidian notes
+  + 4 Slack message

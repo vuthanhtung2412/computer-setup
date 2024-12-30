@@ -1,0 +1,77 @@
+# Tap additional repositories
+tap "hashicorp/tap"
+
+# Programming Languages
+brew "mise"
+
+# Terminal
+cask "kitty"
+cask "warp"
+
+# DevOps Tools
+cask "docker"
+brew "kubectl"
+brew "kubectx"
+brew "k9s"
+brew "helm"
+brew "hashicorp/tap/terraform"
+brew "awscli"
+brew "azure-cli"
+cask "google-cloud-sdk"
+
+# CLI Tools
+brew "jq"
+brew "yq"
+brew "ffmpeg"
+brew "yt-dlp"
+brew "fd"
+brew "ripgrep"
+brew "thefuck"
+brew "hurl"
+brew "fzf"
+brew "tldr"
+brew "git-lfs"
+brew "gh"
+brew "glab"
+brew "btop"
+brew "parallel"
+brew "vim"
+brew "neovim"
+brew "git-delta"
+brew "chezmoi"
+brew "lazydocker"
+brew "rbw"
+brew "bat"
+brew "zoxide"
+brew "eza"
+brew "oh-my-posh"
+brew "yazi"
+brew "git"
+brew "lazygit"
+brew "tmux"
+brew "tmate"
+
+# VPN
+cask "tailscale"
+
+# Fonts
+cask "font-jetbrains-mono-nerd-font"
+
+# Browsers
+cask "brave-browser"
+cask "google-chrome"
+
+# Video Editing and Production
+cask "capcut"
+# Note: DaVinci Resolve is not available via Homebrew
+
+# Productivity Tools
+cask "raycast"
+cask "homerow"
+cask "rectangle"
+cask "obsidian"
+
+# Creative Tools
+cask "blender"
+cask "obs"
+
