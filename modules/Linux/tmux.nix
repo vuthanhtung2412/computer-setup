@@ -18,6 +18,4 @@
     tmuxPlugins.continuum
     tmuxPlugins.catppuccin
   ];
-
-  # home.file.".config/tmux/tmux.conf".source = ../dotfiles/linux/dot_config_tmux_tmux.conf;
 }

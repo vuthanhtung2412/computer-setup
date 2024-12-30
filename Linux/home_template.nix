@@ -51,7 +51,6 @@
   };
 
   imports = [
-    ../modules/Linux/bash.nix
     ../modules/Linux/cli_tools.nix
     ../modules/Linux/devops_tools.nix
     ../modules/Linux/desktop_apps.nix

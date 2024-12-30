@@ -14,7 +14,6 @@
   };
 
   imports = [
-    ../modules/Mac/bash.nix
     ../modules/Mac/cli_tools.nix
     ../modules/Mac/devops_tools.nix
     ../modules/Mac/desktop_app.nix
