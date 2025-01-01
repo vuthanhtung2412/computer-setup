@@ -33,6 +33,8 @@
     (config.lib.nixGL.wrapOffload vlc)
     (config.lib.nixGL.wrapOffload gimp)
     (config.lib.nixGL.wrapOffload obs-studio)
+    # TODO: postman superior alternative but i don't if it is necessary since hurl is based
+    # bruno
   ];
   home.file.".local/bin/pev.html".source = ./pev.html;
   programs = {
