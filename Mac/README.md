@@ -21,3 +21,5 @@
   + 3 Obsidian notes
   + 4 Slack message
 + Install add `rust-analyzer` to `rustup` : `rustup component add rust-analyzer`
++ Stop desktop rearrangement when click an application
+  + System settings -> desktop & dock -> mission control -> turn off `Automatically rearrangement spaces based on most recent used`
