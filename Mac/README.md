@@ -9,6 +9,7 @@
 
 ## Optional improvement
 
++ create alias for `~` home folder and move it to desktop
 + key board repeat rate too slow
   + Keyboard > key repeat rate max fast + delay until repeat max short
 + option is used to alternate char
