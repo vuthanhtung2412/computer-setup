@@ -52,8 +52,8 @@ microk8s status --wait-ready
 microk8s kubectl get nodes
 
 # Set zsh (installed by nix) as default shell
-sudo sh -c 'echo /home/tung/.nix-profile/bin/zsh >> /etc/shells'
-chsh -s /home/tung/.nix-profile/bin/zsh
+sudo sh -c "echo $HOME/.nix-profile/bin/zsh >> /etc/shells"
+chsh -s $HOME/.nix-profile/bin/zsh
 
 # Install tailscale
 curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
