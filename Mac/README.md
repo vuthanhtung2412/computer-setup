@@ -5,7 +5,7 @@
 1. Install brew
 2. Install nix by run `./scripts/init_setup.sh`
 3. Run nix setup `./scripts/hms.sh`
-4. (Optional) Install desktop app with brew `brew bundle --file ~/.tung-setup/Brewfile`
+4. Install desktop app with brew `brew bundle --file ~/.tung-setup/Brewfile`
 
 ## Optional improvement
 

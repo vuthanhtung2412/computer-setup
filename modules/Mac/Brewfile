@@ -11,7 +11,7 @@ cask "brave-browser"
 cask "google-chrome"
 
 # Video editing and production
-cask "capcut"
+# cask "capcut"
 # cask "davinci-resolve" # davinci-resolve is not available on brew
 
 # Productivity tools
@@ -22,6 +22,6 @@ cask "rectangle"
 #cask "bruno"
 
 # Creative tools
-cask "blender"
-cask "obs"
+# cask "blender"
+# cask "obs"
 cask "obsidian"

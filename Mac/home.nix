@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "tung"; # TODO : to be replace by $USER
-  home.homeDirectory = "/Users/tung"; # TODO : to be replace by $HOME
+  home.username = "thanhtung.vu"; # TODO : to be replace by $USER
+  home.homeDirectory = "/Users/thanhtung.vu"; # TODO : to be replace by $HOME
 
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
