@@ -32,3 +32,6 @@
 + Install add `rust-analyzer` to `rustup` : `rustup component add rust-analyzer`
 + Stop desktop rearrangement when click an application
   + System settings -> desktop & dock -> mission control -> turn off `Automatically rearrangement spaces based on most recent used`
++ Approve terminal password requirements with fingerprint
+  + `sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local`
++ Connect google calendar to calendar app of your mac
