@@ -10,6 +10,14 @@
 ## Optional improvement
 
 + create alias for `~` home folder and move it to desktop
+
+    ``` bash
+    cd ~
+    cd ..
+    open .
+    # make alias for ~ and drop it into ~/Desktop
+    ```
+
 + key board repeat rate too slow
   + Keyboard > key repeat rate max fast + delay until repeat max short
 + option is used to alternate char
