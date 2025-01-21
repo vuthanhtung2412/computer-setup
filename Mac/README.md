@@ -35,3 +35,4 @@
 + Approve terminal password requirements with fingerprint
   + `sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local`
 + Connect google calendar to calendar app of your mac
++ change screenshot dir `cmd shift 5`
