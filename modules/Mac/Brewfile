@@ -18,7 +18,7 @@ cask "capcut"
 cask "raycast"
 cask "homerow"
 cask "rectangle"
-# TODO: postman superior alternative but i don't if it is necessary since hurl is based
+# TODO: postman superior alternative but i don't know if it is necessary since hurl is based
 #cask "bruno"
 
 # Creative tools
