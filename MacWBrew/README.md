@@ -8,3 +8,6 @@
   brew bundle install --cleanup --file=~/.config/Brewfile --no-lock &&\
   brew upgrade"
   ```
+
+# TODO
+- [ ] migrate zsh and tmux plugin from nix
