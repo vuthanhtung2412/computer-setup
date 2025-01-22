@@ -34,6 +34,7 @@
     yazi
     git
     lazygit
+    pre-commit
   ];
   # chezmoi is an exception since `~/.config/chezmoi/` can't be managed with chezmoi
   home.file.".config/chezmoi/chezmoi.toml".source = ../../dot_config_chezmoi_chezmoi.toml;
