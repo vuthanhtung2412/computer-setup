@@ -18,6 +18,7 @@
     # make alias for ~ and drop it into ~/Desktop
     ```
 + pin machintoshHD to desktop : Finder menu > Preferences > General > Show these items on Desktop.
++ Hide top menu : Settings -> Automatically hide and show the menu bar
 
 + key board repeat rate too slow
   + Keyboard > key repeat rate max fast + delay until repeat max short
