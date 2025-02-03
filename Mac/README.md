@@ -22,6 +22,14 @@
 
 + key board repeat rate too slow
   + Keyboard > key repeat rate max fast + delay until repeat max short
+
++ Home row setup
+  + Clicking : Cmd + Space
+  + Scrolling : Cmd + j
+
++ Disable everything at Setting > Keyboards > Shortcuts > Spotlight
++ Disable everything at Setting > Keyboards > Shortcuts > Input source
+
 + option is used to alternate char
   + Solution at [this link](https://apple.stackexchange.com/a/461625) which available in [my chezmoi config](https://github.com/vuthanhtung2412/dotfiles/blob/d01c7f0a63f659074215777aa63fdbc418d7ad11/private_Library/private_Keyboard%20Layouts/QWERTY%20no%20option.keylayout)
 + dock always on
