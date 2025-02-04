@@ -45,3 +45,4 @@
 + Download video
 + Start typing practices
 + Throw confetti
++ Window layout (only exist for pro version)
