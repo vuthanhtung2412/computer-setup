@@ -17,7 +17,6 @@ cask "google-chrome"
 # Productivity tools
 cask "raycast"
 cask "homerow"
-cask "rectangle"
 # TODO: postman superior alternative but i don't know if it is necessary since hurl is based
 #cask "bruno"
 
