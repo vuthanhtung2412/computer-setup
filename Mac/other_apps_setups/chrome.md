@@ -27,6 +27,8 @@ Scroll step size : 120
 + `Cmd + w` : close current tabs
 + `Cmd + shift + t` : reopen recently closed tab
 + `Cmd + n` : open a new window of the same app
++ `Cmd + W` : close current window
++ `Cmd + q` : close all windows
 + On the search bar :
   + `@bookmarks` : search bookmarks
   + `@tabs` : search opening tabs (more fuzzy than `Cmd + shift + a`)
