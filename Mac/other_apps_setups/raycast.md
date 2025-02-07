@@ -6,6 +6,7 @@
 + Import rectangle preset for window management
 + `Cmd + C` : open clipboard
 + `Opt + s` : switch window
++ `Cmd + S` : search screenshots
 + App shortcut
   + `Opt + 1` chrome
   + `Opt + 2` kitty
