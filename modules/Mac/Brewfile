@@ -24,3 +24,6 @@ cask "homerow"
 # cask "blender"
 # cask "obs"
 cask "obsidian"
+
+# Pandoc file converter
+brew pandoc
