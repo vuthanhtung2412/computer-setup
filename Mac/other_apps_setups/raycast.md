@@ -23,6 +23,7 @@ Must
 + Google Translate
 + Homebrew
 + Todo list
++ Media converter (based on ffmpeg)
 
 Optional
 
