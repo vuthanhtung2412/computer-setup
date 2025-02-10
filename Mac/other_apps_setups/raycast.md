@@ -15,19 +15,24 @@
 
 ## Extension
 
+Must
++ Obsidian
++ TinyPNG
++ Ray.so
++ ChangeCase
++ Google Translate
 + Homebrew
++ Todo list
+
+Optional
+
++ Youtube downloader
 + search gif
 + cleanshotx
 + Eject disk (to eject 1 disk at a time)
 + Image modification
-+ TinyPNG
-+ ChangeCase
 + ColorPicker (optional)
-+ Google Translate
 + Flight Tracker (optional)
-+ Ray.so
-+ Youtube downloader
-+ Todo list
 
 ## Interesting commands
 
