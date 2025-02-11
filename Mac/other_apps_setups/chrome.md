@@ -8,6 +8,7 @@
 ## Vimium (browse web from keyboard)
 
 Scroll step size : 120
+[Activate Gmail for vimium](https://github.com/philc/vimium/issues/107#issuecomment-33172297)
 
 ## Pined tabs
 
