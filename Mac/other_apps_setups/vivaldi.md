@@ -36,7 +36,7 @@
 + Memory saver to `automatic`
 + Panels on the right
 + Fix quick command priority
-  + commands
   + open tabs
+  + commands
   + bookmarks
   + browsing history
