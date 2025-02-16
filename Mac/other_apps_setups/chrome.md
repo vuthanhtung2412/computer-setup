@@ -19,6 +19,8 @@ d: https://duckduckgo.com/?q=%s DuckDuckGo
 az: https://www.amazon.com/s/?field-keywords=%s
 ```
 
+Ask website questions with `perplexity ai companion` chrome extension. Shortcut `Opt + a`
+
 ## Pined tabs
 
 + `Cmd + 1` : AI chatbot

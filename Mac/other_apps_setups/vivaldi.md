@@ -29,3 +29,8 @@
 + Avoid new creating new tabs.
 + Memory saver to `automatic`
 + Panels on the right
++ Fix quick command priority
+  + commands
+  + open tabs
+  + bookmarks
+  + browsing history
