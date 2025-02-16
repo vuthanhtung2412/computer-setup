@@ -21,6 +21,8 @@ az: https://www.amazon.com/s/?field-keywords=%s
 
 Ask website questions with `perplexity ai companion` chrome extension. Shortcut `Opt + a`
 
++ Might be unnecessary since i can just copy the link and put it into chatgpt or gemini.
+
 ## Pined tabs
 
 + `Cmd + 1` : AI chatbot
