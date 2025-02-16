@@ -8,7 +8,7 @@
 
 ## Commands to know
 
-+ `tab bar` (Opt + e/Cmd + Shift + e) : toogle tab bar (I prefer keeping it off)
++ `tab bar` (Opt + e/Cmd + Shift + e) : toogle tab bar (I prefer keeping it off on the left)
 + `address bar` : toogle address bar (I prefer keeping it off)
 + `bookmark bar` : toogle bookmark bar (I prefer keeping it off)
 + `status bar` : toogle status bar (I prefer keeping it off)
@@ -26,3 +26,4 @@
 + Switch tab always break tiling setup. Other browsers seem to use the same mechanism (zen,edge)
 + Avoid new creating new tabs.
 + Memory saver to `automatic`
++ Panels on the right
