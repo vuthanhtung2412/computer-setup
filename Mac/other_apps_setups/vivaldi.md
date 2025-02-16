@@ -14,6 +14,7 @@
 + `status bar` : toogle status bar (I prefer keeping it off)
 + `tile vertically` (Opt + Shift + \)
 + `tile horizontally` (Opt + -)
++ `Previous/Next tab (by order)` (Opt + shift + h/l)
 + `untile` (Opt + q)
 + `Hibernate background task`
 
