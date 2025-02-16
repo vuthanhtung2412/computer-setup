@@ -5,6 +5,7 @@
 + Can't split
 + Can't jump to adjacent windows
 + Can't hide tab bar and address bar to save screen space
++ No command bar
 
 ## Commands to know
 
@@ -17,6 +18,7 @@
 + `Previous/Next tab (by order)` (Opt + shift + h/l)
 + `untile` (Opt + q)
 + `Hibernate background task`
++ `Open command bar` (Cmd + P)
 
 ## Notes
 

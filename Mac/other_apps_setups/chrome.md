@@ -7,8 +7,17 @@
 
 ## Vimium (browse web from keyboard)
 
-+ Scroll step size : 120
 + [Activate Gmail for vimium](https://github.com/philc/vimium/issues/107#issuecomment-33172297)
++ Search engine shortcuts for vimium
+
+``` text
+w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
+g: https://www.google.com/search?q=%s Google
+y: https://www.youtube.com/results?search_query=%s Youtube
+gm: https://www.google.com/maps?q=%s Google maps
+d: https://duckduckgo.com/?q=%s DuckDuckGo
+az: https://www.amazon.com/s/?field-keywords=%s
+```
 
 ## Pined tabs
 
