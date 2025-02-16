@@ -12,6 +12,7 @@
 + Battery hog
 + Address bar can't be on top
 + I don't like auto video pop out
++ `Cmd + f` : can ai search private link (I don't like this)
 
 ## Commands to know
 
