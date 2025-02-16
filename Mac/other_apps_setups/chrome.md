@@ -21,6 +21,7 @@ az: https://www.amazon.com/s/?field-keywords=%s
 
 Ask website questions with `perplexity ai companion` chrome extension. Shortcut `Opt + a`
 
++ I want source highlighting. Quote in arc is not working correctly
 + Might be unnecessary since i can just copy the link and put it into chatgpt or gemini.
 
 ## Pined tabs

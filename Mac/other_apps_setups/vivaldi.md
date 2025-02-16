@@ -7,6 +7,12 @@
 + Can't hide tab bar and address bar to save screen space
 + No command bar
 
+## Why not Arc ?
+
++ Battery hog
++ Address bar can't be on top
++ I don't like auto video pop out
+
 ## Commands to know
 
 + `tab bar` (Opt + e/Cmd + Shift + e) : toogle tab bar (I prefer keeping it off on the left)
@@ -22,11 +28,11 @@
 
 ## Notes
 
-+ If I want to another address in the same tile I can use `o` in vimium
 + Since vivaldi tiling is tab-scoped not workspace-scope -> avoid using tab split for extended duration.
 + In a tab stack tiled view, a new tab will automatically open in a tiled pane.
 + Switch tab always break tiling setup. Other browsers seem to use the same mechanism (zen,edge)
-+ Avoid new creating new tabs.
++ Avoid new creating new tabs. Try using vimium `b` and `o` as much as possible
+  + only use tab for page that has high latency load (ddog, figma)
 + Memory saver to `automatic`
 + Panels on the right
 + Fix quick command priority
