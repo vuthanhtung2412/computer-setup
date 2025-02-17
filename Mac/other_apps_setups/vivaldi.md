@@ -36,6 +36,7 @@
   + only use tab for page that has high latency load (ddog, figma)
 + Memory saver to `automatic`
 + Panels on the right
++ complex grid tile is only possible in tab group
 + Fix quick command priority
   + open tabs
   + commands
