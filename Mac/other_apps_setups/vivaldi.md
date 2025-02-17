@@ -26,7 +26,7 @@
 + `untile` (Opt + q)
 + `Hibernate background task`
 + `Open command bar` (Cmd + P)
-+ `Open previous/next pane` (Ctrl + h/l)
++ `Focus previous/next pane` (Ctrl + h/l)
 
 ## Notes
 
