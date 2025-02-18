@@ -25,6 +25,9 @@
 + key board repeat rate too slow
   + Keyboard > key repeat rate max fast + delay until repeat max short
 
++ Turn on Keyboard -> Dictation
+  + Turn of Sound Effect -> Alert
+
 + Disable everything at Setting > Keyboards > Shortcuts > Spotlight
 + Disable everything at Setting > Keyboards > Shortcuts > Input source
 
