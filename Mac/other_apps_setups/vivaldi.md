@@ -47,3 +47,4 @@
 ## Problems
 
 + `Focus previous pane` is not working whet text box is auto focus.
+  + Current workaround let tiled tabs close together in a tabstack and then do (Opt + shift + h/l)
