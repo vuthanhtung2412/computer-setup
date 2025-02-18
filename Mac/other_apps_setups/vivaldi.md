@@ -41,3 +41,7 @@
   + commands
   + bookmarks
   + browsing history
+
+## Problems
+
++ `Focus previous pane` is not working whet text box is auto focus.
