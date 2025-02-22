@@ -47,8 +47,9 @@
   + commands
   + bookmarks
   + browsing history
++ `Start up/homepage` to <https://www.google.com> and `new tab page` to `homepage`
 
 ## Problems
 
 + `Focus previous pane` is not working whet text box is auto focus.
-  + Current workaround let tiled tabs close together in a tabstack and then do (Opt + shift + h/l)
+  + Current workaround let tiled tabs close together (in the same tabstack) in a tabstack and then do (Opt + shift + h/l)
