@@ -14,6 +14,10 @@
 + I don't like auto video pop out
 + `Cmd + f` : can ai search private link (I don't like this)
 
+## Why not Obsidian web view ?
+
++ No extension
+
 ## Commands to know
 
 + `tab bar` (Opt + e/Cmd + Shift + e) : toogle tab bar (I prefer keeping it off on the left)
