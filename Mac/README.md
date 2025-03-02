@@ -18,7 +18,8 @@
     # make alias for ~ and drop it into ~/Desktop
     ```
 
-+ Trackpad speed 5/9
++ Trackpad speed 6/9
++ Repeat key when hold down `defaults write -g ApplePressAndHoldEnabled -bool false` [source](https://discussions.apple.com/thread/6058293?tstart=0&sortBy=rank)
 + pin machintoshHD to desktop : Finder menu > Preferences > General > Show these items on Desktop.
 + Hide top menu : Settings -> Automatically hide and show the menu bar
 
