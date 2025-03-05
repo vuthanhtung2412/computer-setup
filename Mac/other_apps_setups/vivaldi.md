@@ -32,6 +32,18 @@
 + `Open command bar` (Cmd + P)
 + `Focus previous/next pane` (Ctrl + h/l)
 
+## Setup
+
++ Memory saver to `automatic`
++ `Start up/homepage` to <https://www.google.com> and `new tab page` to `homepage`
++ Fix quick command priority
+  + open tabs
+  + commands
+  + bookmarks
+  + browsing history
++ Panels on the right
++ New tab position : After the active tab
+
 ## Notes
 
 + Since vivaldi tiling is tab-scoped not workspace-scope -> avoid using tab split for extended duration.
@@ -39,15 +51,7 @@
 + Switch tab always break tiling setup. Other browsers seem to use the same mechanism (zen,edge)
 + Avoid new creating new tabs. Try using vimium `b` and `o` as much as possible
   + only use tab for page that has high latency load (ddog, figma)
-+ Memory saver to `automatic`
-+ Panels on the right
 + complex grid tile is only possible in tab group
-+ Fix quick command priority
-  + open tabs
-  + commands
-  + bookmarks
-  + browsing history
-+ `Start up/homepage` to <https://www.google.com> and `new tab page` to `homepage`
 
 ## Problems
 
