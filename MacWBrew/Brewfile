@@ -77,3 +77,5 @@ cask "obsidian"
 cask "blender"
 cask "obs"
 
+# IDE
+cask cursor
