@@ -79,3 +79,4 @@ cask "obs"
 
 # IDE
 cask cursor
+cask visual-studio-code
