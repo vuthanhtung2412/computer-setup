@@ -22,6 +22,7 @@ cask "google-cloud-sdk"
 # CLI Tools
 brew "jq"
 brew "yq"
+brew "antidote"
 brew "ffmpeg"
 brew "yt-dlp"
 brew "fd"
@@ -78,5 +79,5 @@ cask "blender"
 cask "obs"
 
 # IDE
-cask cursor
-cask visual-studio-code
+cask "cursor"
+cask "visual-studio-code"
