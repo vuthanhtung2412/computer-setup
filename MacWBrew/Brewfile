@@ -50,6 +50,7 @@ brew "yazi"
 brew "git"
 brew "lazygit"
 brew "tmux"
+brew "tpm"
 brew "tmate"
 
 # VPN
@@ -59,7 +60,7 @@ cask "tailscale"
 cask "font-jetbrains-mono-nerd-font"
 
 # Browsers
-cask "brave-browser"
+cask "vivaldi"
 cask "google-chrome"
 
 # Video Editing and Production
