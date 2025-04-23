@@ -1,84 +1,133 @@
 # Tap additional repositories
-tap "hashicorp/tap"
+tap "ethancarlsson/openapi-to-hurl"  # For openapi-to-hurl tool
+tap "hashicorp/tap"                  # For Terraform and other HashiCorp tools
+tap "homebrew/bundle"                # For Homebrew bundle support
 
-# Programming Languages
-brew "mise"
+# -------------------
+# Programming Languages and Runtimes
+# -------------------
+brew "mise"                          # Version manager for programming languages
 
-# Terminal
-cask "kitty"
-cask "warp"
+# -------------------
+# Terminal and Shell Enhancements
+# -------------------
+cask "kitty"                         # Fast, GPU-accelerated terminal emulator
+cask "warp"                          # Modern, Rust-based terminal with AI features
+brew "antidote"                      # Zsh plugin manager
+brew "oh-my-posh"                    # Prompt theme engine for shells
+brew "tmux"                          # Terminal multiplexer
+brew "tpm"                           # Tmux plugin manager
+brew "tmate"                         # Share terminal sessions
+brew "zoxide"                        # Smart directory jumper
+brew "eza"                           # Modern ls replacement
+brew "bat"                           # Cat clone with syntax highlighting
+brew "fzf"                           # Fuzzy finder for CLI
+brew "tldr"                          # Simplified man pages
+brew "thefuck"                       # Corrects previous command typos
+brew "btop"                          # Resource monitor
 
-# DevOps Tools
-cask "docker"
-brew "kubectl"
-brew "kubectx"
-brew "k9s"
-brew "helm"
-brew "hashicorp/tap/terraform"
-brew "awscli"
-brew "azure-cli"
-cask "google-cloud-sdk"
+# -------------------
+# DevOps and Cloud Tools
+# -------------------
+cask "docker"                        # Container platform
+cask "google-cloud-sdk"              # GCP CLI tools
+brew "awscli"                        # AWS CLI
+brew "azure-cli"                     # Azure CLI
+brew "kubectl"                       # Kubernetes CLI
+brew "kubectx"                       # Kubernetes context switcher
+brew "k9s"                           # Kubernetes TUI
+brew "helm"                          # Kubernetes package manager
+brew "hashicorp/tap/terraform"       # Infrastructure as Code
+brew "lazydocker"                    # Docker TUI
+brew "temporal"                      # Workflow orchestration CLI
 
-# CLI Tools
-brew "jq"
-brew "yq"
-brew "antidote"
-brew "ffmpeg"
-brew "yt-dlp"
-brew "fd"
-brew "ripgrep"
-brew "thefuck"
-brew "hurl"
-brew "fzf"
-brew "tldr"
-brew "git-lfs"
-brew "gh"
-brew "glab"
-brew "btop"
-brew "parallel"
-brew "vim"
-brew "neovim"
-brew "git-delta"
-brew "chezmoi"
-brew "lazydocker"
-brew "rbw"
-brew "bat"
-brew "zoxide"
-brew "eza"
-brew "oh-my-posh"
-brew "yazi"
-brew "git"
-brew "lazygit"
-brew "tmux"
-brew "tpm"
-brew "tmate"
+# -------------------
+# Development Tools
+# -------------------
+brew "git"                           # Version control
+brew "git-lfs"                       # Git Large File Storage
+brew "git-delta"                     # Git diff viewer
+brew "lazygit"                       # Git TUI
+brew "gh"                            # GitHub CLI
+brew "glab"                          # GitLab CLI
+brew "chezmoi"                       # Dotfile manager
+brew "vim"                           # Text editor
+brew "neovim"                        # Modern Vim
+brew "tree"                          # Directory tree viewer
+brew "jq"                            # JSON processor
+brew "yq"                            # YAML processor
+brew "hurl"                          # HTTP request tester
+brew "ethancarlsson/openapi-to-hurl/openapi-to-hurl"  # Convert OpenAPI to Hurl
+brew "rbw"                           # Bitwarden CLI
+brew "parallel"                      # Parallel command execution
+brew "fd"                            # Fast find alternative
+brew "ripgrep"                       # Fast grep alternative
+brew "ghostscript"                   # PostScript/PDF interpreter (for document processing)
 
-# VPN
-cask "tailscale"
+# -------------------
+# Media and Content Tools
+# -------------------
+brew "ffmpeg"                        # Audio/video processing
+brew "yt-dlp"                        # YouTube video downloader
+cask "capcut"                        # Video editing software
+cask "blender"                       # 3D creation suite
+cask "obs"                           # Streaming/recording software
+# Note: DaVinci Resolve not available via Homebrew; install manually
 
-# Fonts
-cask "font-jetbrains-mono-nerd-font"
-
-# Browsers
-cask "vivaldi"
-cask "google-chrome"
-
-# Video Editing and Production
-cask "capcut"
-# Note: DaVinci Resolve is not available via Homebrew
-
+# -------------------
 # Productivity Tools
-cask "raycast"
-cask "homerow"
-cask "rectangle"
-cask "obsidian"
-# TODO: postman superior alternative but i don't if it is necessary since hurl is based
-#cask "bruno"
+# -------------------
+cask "raycast"                       # Launcher and productivity tool
+cask "homerow"                       # Keyboard navigation enhancer
+cask "rectangle"                     # Window manager
+cask "obsidian"                      # Knowledge base and note-taking
+cask "bruno"                         # API client (alternative to Postman, complements hurl)
+cask "dbeaver-community"             # SQL client and database admin
 
-# Creative Tools
-cask "blender"
-cask "obs"
+# -------------------
+# IDEs and Editors
+# -------------------
+cask "visual-studio-code"            # Code editor
+cask "cursor"                        # AI-powered code editor
 
-# IDE
-cask "cursor"
-cask "visual-studio-code"
+# -------------------
+# Browsers
+# -------------------
+cask "google-chrome"                 # Web browser
+cask "vivaldi"                       # Customizable web browser
+
+# -------------------
+# Fonts
+# -------------------
+cask "font-jetbrains-mono-nerd-font" # Developer-friendly font with ligatures
+
+# -------------------
+# Networking
+# -------------------
+cask "tailscale"                     # Zero-config VPN
+cask "keycastr"                      # Keystroke visualizer (useful for presentations)
+
+# -------------------
+# Databases
+# -------------------
+brew "postgresql@14"                 # PostgreSQL database
+
+# -------------------
+# File Navigation and Preview
+# -------------------
+brew "yazi"                          # Terminal file manager
+
+# -------------------
+# VS Code Extensions
+# -------------------
+vscode "asvetliakov.vscode-neovim"    # Neovim integration for VS Code
+vscode "golang.go"                    # Go language support
+vscode "kingwl.vscode-vitest-runner"  # Vitest test runner
+vscode "ms-azuretools.vscode-docker"  # Docker support
+vscode "ms-playwright.playwright"     # Playwright testing
+vscode "ms-python.debugpy"            # Python debugger
+vscode "ms-python.python"             # Python support
+vscode "ms-python.vscode-pylance"     # Python language server
+vscode "ms-vscode-remote.remote-containers"  # Dev containers
+vscode "rust-lang.rust-analyzer"      # Rust language server
+vscode "vitest.explorer"              # Vitest test explorer

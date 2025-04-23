@@ -1,3 +1,9 @@
+# Setup
+
+```bash
+brew bundle install --file=<path/to/your/Brewfile>
+```
+
 # Useful commands
 
 + Check installed programs on the system `brew deps --tree --installed`
@@ -10,4 +16,4 @@
   ```
 
 # TODO
-- [ ] migrate zsh and tmux plugin from nix
+- [x] migrate zsh and tmux plugin from nix
