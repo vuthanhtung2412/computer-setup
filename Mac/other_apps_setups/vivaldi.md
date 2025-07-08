@@ -42,7 +42,8 @@
   + bookmarks
   + browsing history
 + Panels on the right
-+ New tab position : After the active tab
++ New tab position : `After the active tab` or `default`
++ `Tab display > Display close button` : uncheck `On Left Side`
 
 ## Notes
 
