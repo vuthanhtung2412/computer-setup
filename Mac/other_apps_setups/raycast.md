@@ -3,7 +3,7 @@
 ## General setup
 
 + Toogle with `Cmd + Space`
-+ Import rectangle preset for window management
++ Import rectangle preset for window management (`Settings -> extensions -> window management`)
 + `Cmd + C` : open clipboard
 + `Opt + s` : switch window
 + `Cmd + S` : search screenshots
