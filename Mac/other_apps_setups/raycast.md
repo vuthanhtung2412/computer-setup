@@ -7,7 +7,7 @@
 + `Cmd + C` : open clipboard
 + `Opt + s` : switch window
 + `Cmd + S` : search screenshots
-+ `Caplock + e` : icon selector
++ `Caplock + e` : search emoji
 + App shortcut
   + `Opt + 1` chrome
   + `Opt + 2` kitty
