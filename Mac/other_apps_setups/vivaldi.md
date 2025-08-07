@@ -24,7 +24,7 @@
 + `address bar` : toogle address bar (I prefer keeping it off)
 + `bookmark bar` : toogle bookmark bar (I prefer keeping it off)
 + `status bar` : toogle status bar (I prefer keeping it off)
-+ `tile vertically` (Opt + Shift + \)
++ `tile vertically` (Opt + Shift + \\)
 + `tile horizontally` (Opt + -)
 + `Previous/Next tab (by order)` (Opt + shift + h/l)
 + `untile` (Opt + q)
