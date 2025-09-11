@@ -31,6 +31,7 @@
 + `Hibernate background task`
 + `Open command bar` (Cmd + P)
 + `Focus previous/next pane` (Ctrl + h/l)
++ `Previous/Next pane (recency)` (Ctrl + o/i)
 
 ## Setup
 
