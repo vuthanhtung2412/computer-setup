@@ -32,6 +32,9 @@
 + `Open command bar` (Cmd + P)
 + `Focus previous/next pane` (Ctrl + h/l)
 + `Previous/Next pane (recency)` (Ctrl + o/i)
++ Command priority
+  + <img width="507" height="302" alt="Screenshot 2025-09-11 at 11 38 49" src="https://github.com/user-attachments/assets/ce3ae20a-b50e-4e6c-9907-a8761e67e1cc" />
+
 
 ## Setup
 
